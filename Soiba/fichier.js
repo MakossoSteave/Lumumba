@@ -1,1 +1,1 @@
-test inscriptions;
+let test = inscriptions;
