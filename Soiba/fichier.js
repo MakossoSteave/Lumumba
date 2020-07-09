@@ -1,1 +1,1 @@
-test inscription;
+test inscriptions;
