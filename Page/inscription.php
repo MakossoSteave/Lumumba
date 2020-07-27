@@ -24,15 +24,13 @@
         </div>
 
     </section>
-    {{pass}}
     <section class="section">
         <div class="container">
-            <form (ngSubmit)=submitForm() #contactForm="ngForm">
-                {{contactForm.valid}}
+            <form >
                 <div class="field">
                     <label class="label">Nom</label>
-                    <input type="text" name="name" class="input" [(ngModel)]="nom" #nomInput="ngModel" required>
-                    <div class='help is-error' *ngIf="nomInput.invalid ">
+                    <input type="text" name="name" class="input"  required>
+                    <div class='help is-error'>
                         veilliez renseigné votre Nom
                     </div>
                 </div>
@@ -79,8 +77,12 @@
                 <button type="submit" class="button is-large is-warning navbar-start" [disabled]="contactForm.invalid">
         Je m'inscris !
       </button>
-
-                <button class="button is-large is-primary navbar-end" routerLink='/connection'>Se connecter</button>
+                   <br>
+      <a class="button is-primary is-end " href="./login.php" style="text-decoration: none;">
+                            <strong>Se connecter</strong>
+                        </a>
+                  
+                
 
             </form>
         </div>
