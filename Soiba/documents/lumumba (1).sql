@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `connexion` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+---FFF
 -- --------------------------------------------------------
 
 --
@@ -63,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `domaineintervention` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+---FFF
 -- --------------------------------------------------------
 
 --
@@ -78,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `formation` (
   `prixFormation` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
+---FFF
 -- --------------------------------------------------------
 
 --
@@ -92,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   `cv` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
+ ---FFF
 -- --------------------------------------------------------
 
 --
