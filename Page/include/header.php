@@ -65,7 +65,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary" href="../inscription.php" style="text-decoration: none;">
+                        <a class="button is-primary" href="./inscription.php" style="text-decoration: none;">
                             <strong>Inscription</strong>
                         </a>
                         <a class="button is-light">
