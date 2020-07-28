@@ -68,7 +68,7 @@
                         <a class="button is-primary" href="./inscription.php" style="text-decoration: none;">
                             <strong>Inscription</strong>
                         </a>
-                        <a class="button is-light">
+                        <a class="button is-light"  href="./login.php" style="text-decoration: none;">
            Connexion
           </a>
                     </div>
