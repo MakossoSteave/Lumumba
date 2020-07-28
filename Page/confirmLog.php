@@ -28,6 +28,7 @@
         $role = $_GET['role'];
 
         echo $email;
+        echo "<br>";
         echo $token;
         $sql = $pdo->prepare("SELECT id from user WHERE email='$email'");
         $sql->execute();
@@ -39,7 +40,6 @@
             $sql1 =("UPDATE user SET isEmailConfirmed=1   , token='',Role='$role' WHERE email = '$email'");
             $stmt= $pdo->prepare($sql1);
             $stmt->execute();
-            var_dump($stmt1);
 
            
             echo "votre email a été valider  connectez vous !";

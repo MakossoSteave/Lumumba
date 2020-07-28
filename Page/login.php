@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,6 +74,16 @@ if (isset($_POST ['connect'])) {
                 }else{
                   echo "<br>";
                    echo "<span class='tag is-success'>Bienvenue</span>";
+                   $check = $pdo->prepare("SELECT * FROM user WHERE email = ?");
+                   $check->execute([$email]);
+                   $user = $check->fetch();
+                   var_dump($user['Role']);
+                   $_SESSION['nom'] = $user['nom'];
+                   $_SESSION['prenom'] = $user['prenom'];
+                   $_SESSION['email'] = $user['email'];
+                   $_SESSION['tel'] = $user['tel'];
+                   $_SESSION['role'] = $user['Role'];   
+                  header('location:dashboard.php');
 
                 }
             }else{
