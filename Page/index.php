@@ -34,9 +34,11 @@ include './include/header.php';?>
       </span>
           </div>
           <div class="col" >   
-          <div class="navbar-start">
-    <button class="button is-primary">Devenez Formateur</button>
-        </div>   
+          <div class="navbar-start">  
+        <a class="button is-primary" href="./inscription.php" style="text-decoration: none;">
+                            <strong>Devenez Formateur</strong>
+                        </a>
+          </div>
           <div class="vl" style="border-left: 1px solid white;
   height: 100px;"></div>
         

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,13 +25,11 @@
     </section>
    <section class="section">
     <div class="container">
-    <form  >
+    <form action="login.php" method="POST" >
     <div class="field">
       <label class="label">Email</label>
       <input type="email" name="email" 
       class="input" 
-      [(ngModel)]="email" 
-      #emailInput="ngModel"
       required>
       <div class='help is-error' >
       veilliez renseigné votre email
@@ -40,15 +39,56 @@
       <label class="label">Mots de passe</label>
       <input type="password" name="pass" 
       class="input" 
-      [(ngModel)]="pass" 
-      #passInput="ngModel"
       required>
       <div class='help is-error' >
       veilliez renseigné votre mots de passe
       </div>
     </div>
-    <button class="button is-large is-primary " routerLink='/connection'>Se connecter</button>
+    <button class="button is-large is-primary " name="connect">Se connecter</button>
 </form>
+<?php
+
+
+require '../Db/db.php';
+
+$pdo = pdo_connect_mysql();
+if (isset($_POST ['connect'])) {
+    $email =$_POST['email'];
+    $password =$_POST['pass'];
+
+    if ($email =='' || $password =='') {
+        echo "Verifiez vos information";
+    } else {
+        $sql=('SELECT COUNT(*) id ,password ,isEmailConfirmed  from user WHERE email = ? ');
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$email]);
+        $number_of_rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);; 
+       
+        if ($number_of_rows > 0) {
+            foreach($number_of_rows as $row) {
+               if (password_verify($password, $row['password'])) {
+                if ($row['isEmailConfirmed'] == 0) {
+                    echo "merci de verifier votre email";
+                }else{
+                  echo "<br>";
+                   echo "<span class='tag is-success'>Bienvenue</span>";
+
+                }
+            }else{
+              echo "<br>";
+                echo "<span class='tag is-danger'>Email ou mots de passe incorrect</span>
+                ";
+            }
+            }
+            
+        }else{
+           echo "ce compte n'existe pas";
+        }
+    }
+}
+    
+?>
+
     </div>
    </section>
    <?php
