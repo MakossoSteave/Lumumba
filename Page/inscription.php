@@ -146,7 +146,7 @@ $pdo = pdo_connect_mysql();
                     }
                 }
                 ?>
-                <button type="submit" class="button is-large is-warning navbar-start"  name="inscript">
+                <button type="submit" class="button is-medium is-warning navbar-start"  name="inscript">
                         Je m'inscris !
                 </button>
                    <br>
