@@ -122,10 +122,10 @@ $pdo = pdo_connect_mysql();
                         $token = 'azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN123456789!';
                         $token = str_shuffle($token);
                         $token = substr($token, 0,10);
-                     $stmt = $pdo->prepare("INSERT INTO user (`id`, `nom`, `prenom`, `tel`, `code`, `email`, `password`, `isEmailConfirmed`, `token`, `idConnexion`, `idImage`)
-                     value (?,?,?,?,?,?,?,?,?,?,?)
+                     $stmt = $pdo->prepare("INSERT INTO `user` (`id`, `nom`, `prenom`, `tel`, `code`, `email`, `password`, `isEmailConfirmed`, `token`, `Role`, `idConnexion`, `idImage`) VALUES 
+                     (?,?,?,?,?,?,?,?, ?,?,?,?);
                       ");
-                     $stmt->execute([$id,$nom, $prenom,$tel,null,$mail,$hashed,'0',$token,NULL,NULL]);
+                     $stmt->execute([$id,$nom, $prenom,$tel,null,$mail,$hashed,'0',$token,$role,NULL,NULL]);
                      $subject = "Confirmation email";
                      $headers = "From: LumumbaAdmin";
                    
