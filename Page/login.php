@@ -1,5 +1,8 @@
 <?php
 session_start();
+ if( isset($_SESSION['nom'])){
+    header('location:dashboard.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
