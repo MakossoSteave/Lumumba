@@ -39,7 +39,7 @@ function formateurPage($nom , $prenom , $role ,$email , $tel){
     </div>
     <div>
         <div class="uk-card-body">
-            <h3 class="uk-card-title">$nom  $prenom</h3>
+            <h3 class="uk-card-title">$nom $prenom</h3>
             <p>Titre : $role</p>
             <p>Email : $email </p>
             <p>Tel : $tel</p>
@@ -155,8 +155,6 @@ function listStagiaire(){
     <?php
     foreach ($num_contacts as $contact): 
       ?>
-  
-   
   <tbody>
     <tr>
       <td><?=$contact['nom']?></td>
@@ -169,41 +167,32 @@ function listStagiaire(){
    <?php endforeach;?>
   </table><?php
 
-}
-function listFormateur(){
-  $pdo =pdo_connect_mysql() ;
-
-  $num_contacts = $pdo->query('SELECT * FROM user where role = "Formateur"')->fetchAll();
-  ?>
-  <table class="table">
+    
+  }
+function listFormateur(){ 
+$pdo =pdo_connect_mysql() ;
+$num_contacts = $pdo->query('SELECT * FROM user where role = "Formateur"')->fetchAll();
+?>
+<table class="table">
 <thead class="thead-light"> <tr>
-    <th scope="col">Nom</th>
-    <th scope="col">Prenom</th>
-    <th scope="col">Email</th>
-  </tr>
+<th scope="col">Nom</th>
+<th scope="col">Prenom</th>
+<th scope="col">Email</th>
+</tr>
 </thead>
-  <?php
-  foreach ($num_contacts as $contact): 
-    ?>
+<?php
+foreach ($num_contacts as $contact): 
+?>
 
  
 <tbody>
-  <tr>
+    <tr>
     <td><?=$contact['nom']?></td>
     <td><?=$contact['prenom']?></td>
     <td><?=$contact['email']?></td>
-  </tr>
- 
+    </tr>
 </tbody>
-
  <?php endforeach;?>
-</table><?php
-}
+</table>
+<?php }?>
 
-function createFormation($libelle,$libelleLong,$nombreHeureFormation,$prixFormation,$img ,$creat){
-  $pdo = pdo_connect_mysql() ;
-  $stmt = $pdo->prepare("INSERT INTO formation ( `libelle`,`nomHeureFormation`, `libelleLong`, `prixFormation`, `img`, `creerPar`  VALUES (?,?,?,?,?,?)");
-  $stmt->execute([$libelle, $libelleLong, $nombreHeureFormation, $prixFormation,$img,$creat]);
-}
-
-?>

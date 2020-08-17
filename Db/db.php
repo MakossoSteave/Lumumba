@@ -1,5 +1,4 @@
 <?php
-// fonction de connexion 
 function pdo_connect_mysql() {
     $DATABASE_HOST = 'localhost:3306';
     $DATABASE_USER = 'root';

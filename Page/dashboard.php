@@ -1,7 +1,9 @@
 <?php
     include './include/headerDeux.php';
-    include './include/function.php';
+    require './include/function.php';
+    include 'formation.php';
     require '../Db/db.php';
+
 
  
     if(empty($_SESSION['nom'])){
@@ -22,13 +24,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/index.scss">
-        <script src="./javascript/createforma.js"></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+        
     
     <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+   
+
         <title>Document</title>
       </head>
       <body>
@@ -71,13 +73,8 @@
 <div class="field">
   <label class="label">Description</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="textarea" name="description" id="description" placeholder="Text input" value="bulma">
-    <span class="icon is-small is-left">
-      <i class="fas fa-user"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
+    <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" >
+    
   </div>
 </div>
 
@@ -88,9 +85,7 @@
     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
     </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-exclamation-triangle"></i>
-    </span>
+  
   </div>
 </div>
 <div class="field">
@@ -119,23 +114,37 @@
       I agree to the <a href="#">terms and conditions</a>
     </label>
   </div>
-  <button class="uk-button uk-button-primary" type="button" name="sauvegarder" class="bout" onclick ="appele();">Save</button>
-  <div id="ter"><p>j</p></div>
-
 </div>
       </div>
         <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="appele();">Save</button>
+            <button class="uk-button uk-button-default " type="button">Cancel</button>
         </div>
     </div>
 </div></form>
- <div id="ter"> </div>
+<br>
+<div id="ter">
+<?php
+formation();
+?>
+</div>
+
+</div><div class="perso">
+
+</div>
+ </div>
+
+
       </body>
-      </html>
+     
       <?php
     }
     if($role =="Stagiaire"){
      StagiaireForm($nom,$prenom,$role,$email,$tel);
+     formation();
+    }
+    if($role =="Intervenant"){
+
     }
     echo"<br>";
     echo"<br>";
@@ -145,4 +154,8 @@
 
 <?php
     include './include/footer.php'
-    ?>
+    ?>  <script src="./javascript/createforma.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+       <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+     </html>
