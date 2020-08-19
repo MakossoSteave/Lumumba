@@ -56,15 +56,15 @@ function formation(){
            
            <br>
            
-           <a class="uk-button uk-button-default" href="#modal-overflow?id=<?=$id?>" uk-toggle>Editer</a>
-           <a href="delete.php?id=<?=$id?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
+           <a class="uk-button uk-button-default" name="updateF" href="updateFormation.php?id=<?=$id?>" uk-toggle>Editer</a>
+           <a href="delete.php?id=<?=$id?>" class="trash" name="deleteF"><i class="fas fa-trash fa-xs"></i></a>
 
            <?php endforeach; ?>
            
 <div id="modal-overflow?id=<?=$id?>" uk-modal>
     <div class="uk-modal-dialog">
 
-        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <button class="uk-modal-close-default" type="button" uk-close>ggg</button>
 
         <div class="uk-modal-header">
             <h2 class="uk-modal-title">Editer</h2>
