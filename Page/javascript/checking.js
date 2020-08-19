@@ -20,7 +20,6 @@ function emailSearch() {
             console.log("e")
             if (xhr.status == 200) {
                 console.log("r")
-                    //alert(xhr.responseText);       
                 document.getElementById("resultRecherche").innerHTML = xhr.responseText;
                 console.log("y")
             } else {
