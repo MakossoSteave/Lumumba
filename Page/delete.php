@@ -36,7 +36,7 @@
   <div class="card-body">
     êtes vous sur de vouloir supprimé cette formation
     <button type="button" class="btn btn-success"><a href="dashboard.php" style=" text-decoration:none;color:white">Non</a></button>
-    <button type="button" class="btn btn-danger" id="lid" value="<?= $id?>"  onclick ="Delete();" >Oui</button>
+    <button type="button" class="btn btn-danger" id="lid" value="<?= $id?>"  onclick ="Delete();" > <a href="dashboard.php"> Oui</a></button>
    
 
   </div>

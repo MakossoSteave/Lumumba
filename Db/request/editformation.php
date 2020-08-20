@@ -20,7 +20,6 @@ $pdo = pdo_connect_mysql();
             $stmt->execute();
 
           
-            header("location:http://localhost/lumumba/Lumumba/Page/Dashboard")
            ?>
            
    
