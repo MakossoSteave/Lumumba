@@ -43,13 +43,14 @@ function appele() {
 }
 
 function Edition() {
+    var id = document.getElementById("id").value;
     var desc = document.getElementById("descriptionModifier").value;
     var img = document.getElementById("imageModifier").value;
     var heure = document.getElementById("heureModifier").value;
     var prix = document.getElementById("prixModifier").value;
     var nom = document.getElementById("nommodifier").value;
 
-    donne = [nom, desc, img, heure, prix, createur]
+    donne = [nom, desc, img, heure, prix, id]
     var xhr;
 
     if (window.XMLHttpRequest) { // Mozilla, Safari, ...
@@ -77,7 +78,7 @@ function Edition() {
             if (xhr.status == 200) {
                 console.log("teste2")
 
-                document.getElementById("ter").innerHTML = xhr.responseText;
+                document.getElementById("resulte").innerHTML = xhr.responseText;
             } else {
                 alert('There was a problem with the request.');
             }

@@ -58,76 +58,12 @@ function formation(){
            
            <br>
            
-           <a class="uk-button uk-button-default" href="#modal-sectionss" uk-toggle> editer</a>
+           <a class="uk-button uk-button-default" href="update.php?id=<?= $formations['id'] ?>"  uk-toggle> 
+            editer 
+ 
+          </a>
            <a href="delete.php?id=<?=$id?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
 
-<form action="" method="POST">
-<div id="modal-sectionss" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Editions formations</h2>
-        </div>
-        <div class="uk-modal-body">
-        <div class="field">
-  <label class="label">Nom</label>
-  <div class="control">
-    <input class="input"  name="Edit_nom" id="nommodifier" type="text" placeholder="Text input">
-  </div>
-</div>
-
-<div class="field">
-  <label class="label">Description</label>
-  <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="textarea" name="Edit_description" id="descriptionModifier" placeholder="veuilliez saisir une courte descriptions" >
-    
-  </div>
-</div>
-
-<div class="field">
-  <label class="label">Image</label>
-  <div class="control has-icons-left has-icons-right">
-    <input class="input" type="text" name="Edit_image" id="imageModifier" placeholder="veuilliez saisir une Url" value="url">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-  
-  </div>
-</div>
-<div class="field">
-  <label class="label">Nombre d'heures</label>
-  <div class="control">
-    <input class="input" name="Edit_heure" id="heureModifier" type="number" placeholder="nombre d'heures">
-  </div>
-</div>
-<div class="field">
-  <label class="label">Prix de la formation</label>
-  <div class="control">
-    <input class="input" name="Edit_prix" id="prixModifier" type="number" placeholder="prix de la formation">
-  </div>
-</div>
-
-<div class="field">
-  <label class="label">Créateur</label>
-  <div class="control">
-    <input class="input" type="text" name="createur" id="Edit_createur"  disabled="disabled" placeholder="prix de la formation" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">
-  </div>
-</div>
-<div class="field">
-  <div class="control">
-    <label class="checkbox">
-      <input type="checkbox">
-      I agree to the <a href="#">terms and conditions</a>
-    </label>
-  </div>
-</div>
-      </div>
-        <div class="uk-modal-footer uk-text-right">
-        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="Edition();">Save</button>
-            <button class="uk-button uk-button-default " type="button">Cancel</button>
-        </div>
-    </div>
-</div></form>
 <br>
 
            <?php endforeach; ?>
