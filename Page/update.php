@@ -1,4 +1,6 @@
+<div id="resulte">
 
+</div>
 <?php
     include './include/headerDeux.php';
     require './include/function.php';
@@ -11,6 +13,7 @@
 ?>   
  <!DOCTYPE html>
       <html lang="en">
+     
       <head>
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,9 +96,7 @@ Cancel
         </div>
     </div>
 </div></form>
-<div id="resulte">
 
-           </div>
 
     </body>
       </html>

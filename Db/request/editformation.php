@@ -20,7 +20,7 @@ $pdo = pdo_connect_mysql();
             $stmt->execute();
 
           
-            echo "modification effectuer Avec succes" ;
+            header("location:http://localhost/lumumba/Lumumba/Page/Dashboard")
            ?>
            
    
