@@ -37,6 +37,8 @@
       h1,p,h2,h3{
         font-family: 'Montserrat', sans-serif;
       }
+     
+      
       </style>
       <body>
 <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Stagiaires</button>
@@ -137,11 +139,7 @@ formation();
 </div><div class="perso">
 
 </div>
- </div>
-
-
-      
-     
+ </div>    
       <?php
     }
     if ($role =="Stagiaire") {
@@ -153,39 +151,41 @@ formation();
         $contact=$req->fetchAll(PDO::FETCH_ASSOC); 
         ?>
      <?php
-     ?><div>
-       <div class="container">
-       <div class="row"> 
-       <?php foreach ($contact as $list): ?>
-         <div class="col-3">
-       
-        <div class="card" style="width: 50rem;">
-  <img src="<?= $list['img']?>" class="card-img-top" height="20px" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><?= $list['libelle'] ?></h5>
-    <p class="card-text">Descriptions : <?= $list['libelleLong']?></p>
-    <p class="card-text">Heure : <?= $list['nomHeureFormation']?> h</p>
-    <p class="card-text">Prix : <?= $list['prixFormation']?> €</p>
+     ?>
+     <div class="container">
+       <h1 style="text-align: center;">A la une</h1>
+       <br>
+      <div class="row">
+                       
 
-    <a href="#" class="btn btn-success">S'inscrire</a>
+                <?php foreach ($contact as $list): ?>
+                  <div class="col-6">
+      <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="<?=$list['img']?>" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?=$list['libelle'] ?></h5>
+        <p class="card-text">Descriptions : <?= $list['libelleLong'] ?></p>
+        <p class="card-text">Heures : <?= $list['nomHeureFormation'] ?> H</p>
+        <p class="card-text">Prix : <?= $list['prixFormation'] ?> €</p>
+        <a href="#" class="btn btn-success">S'inscrire</a>
+
+      </div>
+    </div>
   </div>
+      </div>
 </div>
-         </div> <?php endforeach; ?>
-       </div>
-       </div>
-    <div>
-    <div class="container">
-
-  <div class="row">
-    <br>
-    
-    <div class="col">
+<?php endforeach; ?>
+  </div></div>
+   
+ 
       
      <?php formationBis(); ?>
-    </div>
-  </div>
-    </div>
-  </div>
+   
+  
   <?php
      
     }
