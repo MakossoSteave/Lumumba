@@ -129,10 +129,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel){
                 <p>Tel : $tel</p>
             </div>
         </div>
-    </div>
-    
-          <br />
-          
+    </div>        
         </div>
       </div>
       

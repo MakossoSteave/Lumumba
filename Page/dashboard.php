@@ -33,6 +33,11 @@
 
         <title>Document</title>
       </head>
+      <style>
+      h1,p,h2,h3{
+        font-family: 'Montserrat', sans-serif;
+      }
+      </style>
       <body>
 <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Stagiaires</button>
 <div id="modal-close-default" uk-modal>
@@ -135,29 +140,54 @@ formation();
  </div>
 
 
-      </body>
+      
      
       <?php
     }
-    if($role =="Stagiaire"){
-     StagiaireForm($nom,$prenom,$role,$email,$tel);
-     $pdo = pdo_connect_mysql();
-     $req = $pdo->prepare('select * from formation');
-     $req->execute();
-     $contact=$req->fetchAll(PDO::FETCH_ASSOC);
-    
-     ?>
-     
-     <div class='carousel is-5 carousel-animated carousel-animate-slide'>  <?php foreach ($contact as $list): ?>
-  <div class='carousel-container'>
-
-    <div class='carousel-item is-active'>
-      <figure class="image is-2by1"><img src="<?=$list['img']?>"></figure>
-    </div>
-    <?php endforeach; ?>
-
+    if ($role =="Stagiaire") {
+        StagiaireForm($nom, $prenom, $role, $email, $tel); ?>
+      <?php
+        $pdo = pdo_connect_mysql();
+        $req = $pdo->prepare('select * from formation');
+        $req->execute();
+        $contact=$req->fetchAll(PDO::FETCH_ASSOC); 
+        ?>
      <?php
-     formationBis();
+     ?><div>
+       <div class="container">
+       <div class="row"> 
+       <?php foreach ($contact as $list): ?>
+         <div class="col-3">
+       
+        <div class="card" style="width: 50rem;">
+  <img src="<?= $list['img']?>" class="card-img-top" height="20px" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><?= $list['libelle'] ?></h5>
+    <p class="card-text">Descriptions : <?= $list['libelleLong']?></p>
+    <p class="card-text">Heure : <?= $list['nomHeureFormation']?> h</p>
+    <p class="card-text">Prix : <?= $list['prixFormation']?> €</p>
+
+    <a href="#" class="btn btn-success">S'inscrire</a>
+  </div>
+</div>
+         </div> <?php endforeach; ?>
+       </div>
+       </div>
+    <div>
+    <div class="container">
+
+  <div class="row">
+    <br>
+    
+    <div class="col">
+      
+     <?php formationBis(); ?>
+    </div>
+  </div>
+    </div>
+  </div>
+  <?php
+     
     }
     if($role =="Intervenant"){
 
