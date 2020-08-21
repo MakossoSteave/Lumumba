@@ -31,7 +31,7 @@ session_start();
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="../Page/dashboard.php">
                     <!-- <img src="assets/img/Patrice.jpg" class="is-rounded" > !-->
                     Acceuil
                 </a>

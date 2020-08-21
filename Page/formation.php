@@ -29,10 +29,8 @@ function formation(){
       </div>
     </div>
   </div>
-</div>
-           
-               <?php endforeach; ?>
-     
+</div>      
+               <?php endforeach; ?> 
    <?php 
    $nom = $_SESSION['nom'];
    $prenom = $_SESSION['prenom'];

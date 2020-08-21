@@ -98,14 +98,18 @@ if (isset($_POST ['connect'])) {
                    $check = $pdo->prepare("SELECT * FROM user WHERE email = ?");
                    $check->execute([$email]);
                    $user = $check->fetch();
-                   var_dump($user['Role']);
+                   $_SESSION['id']= $user['id'];
                    $_SESSION['nom'] = $user['nom'];
                    $_SESSION['prenom'] = $user['prenom'];
                    $_SESSION['email'] = $user['email'];
                    $_SESSION['tel'] = $user['tel'];
-                   $_SESSION['role'] = $user['Role'];   
-                  header('location:dashboard.php');
-
+                   $_SESSION['role'] = $user['Role']; 
+                   $image = $pdo->prepare("SELECT photo from image WHERE appartient = ?");
+                   $mapic = $_SESSION['nom']." ". $_SESSION['prenom'];
+                   $image -> execute([$mapic]);
+                   $photo =$image->fetch();
+                   $_SESSION['image']=$photo['photo'];
+                   header("location:dashboard.php");    
                 }
             }else{
               echo "<br>";

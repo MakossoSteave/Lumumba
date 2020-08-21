@@ -86,6 +86,51 @@ function Edition() {
     }
 }
 
+function EditionProfile() {
+    var id = document.getElementById("idProfile").value;
+    var nom = document.getElementById("nomupd").value;
+    var img = document.getElementById("photoupd").value;
+    var prenom = document.getElementById("prenomupd").value;
+    var tel = document.getElementById("telupd").value;
+    var email = document.getElementById("emailupd").value;
+    var createur = document.getElementById("appartientupd").value;
+
+    donne = [id, nom, prenom, email, tel, img, createur]
+    var xhr;
+
+    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+        xhr = new XMLHttpRequest();
+        console.log("test")
+
+    } else if (window.ActiveXObject) { // IE 8 and older
+        console.log("teste")
+
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var data = "donne=" + donne
+    console.log(donne);
+    console.log(data)
+
+    xhr.open("POST", "../Db/request/editprofil.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadystatechange = display_data;
+
+    function display_data() {
+        if (xhr.readyState == 4) {
+            console.log("editions")
+
+            if (xhr.status == 200) {
+                console.log("teste2")
+                alert("les modifications seront effectif  a votre prochaine connection")
+                document.getElementById("reponse").innerHTML = xhr.responseText;
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+}
+
 function Delete() {
     var id = document.getElementById("lid").value;
 

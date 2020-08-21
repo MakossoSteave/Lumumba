@@ -50,7 +50,7 @@ function formateurPage($nom , $prenom , $role ,$email , $tel){
    
 EOT;
 }
-function StagiaireForm($nom , $prenom , $role ,$email , $tel){
+function StagiaireForm($nom , $prenom , $role ,$email , $tel,$img,$id){
     echo <<<EOT
     <!DOCTYPE html>
     <html lang="en">
@@ -69,11 +69,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel){
         <title>Document</title>
     </head>
     <body>
-   
-   
     <div id="app">
-    
-   
     <section class="main-content columns is-fullheight">
       
       <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
@@ -85,8 +81,6 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel){
             </a>
           </li>
           <li>
-           
-    
             <ul>
               <li>
                 <a href="#"style="text-decoration:none">
@@ -100,7 +94,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel){
                 <a href="#" style="text-decoration:none">
                   <span class="icon is-small"><i class="fas fa-chalkboard-teacher"></i></span> Mes Intervenants
                 </a>
-                <a href="#"style="text-decoration:none">
+                <a href="parametre.php?id=$id"style="text-decoration:none">
                   <span class="icon is-small"><i class="fas fa-sliders-h"></i></span> Parametre
                 </a>
                 <a href="#"style="text-decoration:none">
@@ -118,7 +112,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel){
     
         <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
         <div class="uk-card-media-left uk-cover-container">
-            <img src="https://www.mysassybusiness.com/wp-content/uploads/Landing_1203404.jpg" alt="" uk-cover>
+            <img src="$img" alt="" uk-cover>
             <canvas width="250" height="200"></canvas>
         </div>
         <div>

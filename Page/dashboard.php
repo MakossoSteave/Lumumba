@@ -14,6 +14,8 @@
     $role=$_SESSION['role'];
     $email=$_SESSION['email'];
     $tel=$_SESSION['tel'];
+
+    $image =$_SESSION['image'];
     if($role =="Formateur"){
       formateurPage($nom,$prenom,$role ,$email,$tel);
       ?><!DOCTYPE html>
@@ -27,9 +29,6 @@
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
         
-    
-    <!-- UIkit JS -->
-   
 
         <title>Document</title>
       </head>
@@ -143,7 +142,9 @@ formation();
       <?php
     }
     if ($role =="Stagiaire") {
-        StagiaireForm($nom, $prenom, $role, $email, $tel); ?>
+      $id = $_SESSION['id'];
+
+        StagiaireForm($nom, $prenom, $role, $email, $tel,$image,$id); ?>
       <?php
         $pdo = pdo_connect_mysql();
         $req = $pdo->prepare('select * from formation');
@@ -156,8 +157,6 @@ formation();
        <h1 style="text-align: center;">A la une</h1>
        <br>
       <div class="row">
-                       
-
                 <?php foreach ($contact as $list): ?>
                   <div class="col-6">
       <div class="card mb-3" style="max-width: 540px;">
@@ -179,13 +178,8 @@ formation();
       </div>
 </div>
 <?php endforeach; ?>
-  </div></div>
-   
- 
-      
+  </div></div>    
      <?php formationBis(); ?>
-   
-  
   <?php
      
     }
