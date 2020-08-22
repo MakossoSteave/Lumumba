@@ -58,17 +58,6 @@ function formation(){
            
            <br>
            
-<<<<<<< HEAD
-           <a class="uk-button uk-button-default" name="updateF" href="updateFormation.php?id=<?=$id?>" uk-toggle>Editer</a>
-           <a href="delete.php?id=<?=$id?>" class="trash" name="deleteF"><i class="fas fa-trash fa-xs"></i></a>
-
-           <?php endforeach; ?>
-           
-<div id="modal-overflow?id=<?=$id?>" uk-modal>
-    <div class="uk-modal-dialog">
-
-        <button class="uk-modal-close-default" type="button" uk-close>ggg</button>
-=======
            
             <div>
             <a class="uk-button uk-button-default" href="update.php?id=<?= $formations['id'] ?>"  uk-toggle> 
@@ -78,7 +67,6 @@ function formation(){
           <a href="delete.php?id=<?=$id?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
             </div>
            
->>>>>>> origin/steave
 
 <br>
 
@@ -111,6 +99,8 @@ function formation(){
            <p><span>Heures : </span><?= $list['nomHeureFormation'] ?> h</p>
            <p><span>Prix : </span><?= $list['prixFormation'] ?> €</p>
            <p><span>Formateur dirigeant : </span><?= $list['creerPar'] ?></p>
+           <button type="button" class="btn btn-success">S'inscrire</button>
+
 
        </div>
            <?php endforeach; ?>
