@@ -106,7 +106,7 @@ if (isset($_POST ['connect'])) {
                    $_SESSION['role'] = $user['Role']; 
                    $image = $pdo->prepare("SELECT photo from image WHERE appartient = ?");
                    $mapic = $_SESSION['nom']." ". $_SESSION['prenom'];
-                   $image -> execute([$mapic]);
+                   $image -> execute([$_SESSION['email']]);
                    $photo =$image->fetch();
                    $_SESSION['image']=$photo['photo'];
                    header("location:dashboard.php");    

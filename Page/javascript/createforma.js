@@ -123,6 +123,7 @@ function EditionProfile() {
             if (xhr.status == 200) {
                 console.log("teste2")
                 alert("les modifications seront effectif  a votre prochaine connection")
+
                 document.getElementById("reponse").innerHTML = xhr.responseText;
             } else {
                 alert('There was a problem with the request.');

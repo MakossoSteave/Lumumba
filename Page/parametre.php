@@ -6,7 +6,7 @@
     require './include/function.php';
     include 'formation.php';
     require '../Db/db.php';
-   $id = $_GET['id'];
+   $id = $_SESSION['id'];
    $pdo = pdo_connect_mysql();
 
 
@@ -73,6 +73,7 @@
   <label class="label">Email</label>
   <div class="control">
     <input class="input" name="heure" id="emailupd" type="text" value="<?= $user['email'] ?>">
+    <span style="color:red" > <i class="fas fa-exclamation-triangle"></i> attention vous devriez etre sur avant de me modifier</span>
   </div>
 </div>
 <div class="field">
@@ -84,7 +85,7 @@
 <div class="field">
   <label class="label">Photo</label>
   <div class="control">
-    <input class="input" name="photo" id="photoupd" type="text" value="">
+    <input class="input" name="photo" id="photoupd" type="text" value="<?=$_SESSION['image']?>">
   </div>
 </div>
 <input class="input" name="photo" id="appartientupd" type="hidden" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">

@@ -17,7 +17,9 @@
 
     $image =$_SESSION['image'];
     if($role =="Formateur"){
-      formateurPage($nom,$prenom,$role ,$email,$tel);
+     
+      $id = $_SESSION['id']; 
+      formateurPage($nom,$prenom,$role ,$email,$tel,$image,$id);
       ?><!DOCTYPE html>
       <html lang="en">
       <head>
@@ -39,7 +41,7 @@
      
       
       </style>
-      <body>
+    </div>
 <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Stagiaires</button>
 <div id="modal-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
@@ -130,6 +132,9 @@
 </div></form>
 <br>
 <div id="ter">
+
+
+
 <?php
 formation();
 ?>

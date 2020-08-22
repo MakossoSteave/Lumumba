@@ -22,11 +22,18 @@ $pdo = pdo_connect_mysql();
             $stmt->execute();
 
             
-            $sql2 =("UPDATE image SET photo='$photo' WHERE appartient = '$createur'");
+            $sql2 =("UPDATE image SET photo='$photo' WHERE appartient = '$email'");
             $stmt= $pdo->prepare($sql2);
             $stmt->execute();
        
            ?>
+           <div class="notification is-success is-light">
+  <button class="delete"></button>
+  Primar lorem ipsum dolor sit amet, consectetur
+  adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
+  consectetur adipiscing elit
+</div>
+
            
           
          
