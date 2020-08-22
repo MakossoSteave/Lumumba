@@ -32,7 +32,7 @@ function formateurPage($nom , $prenom , $role ,$email , $tel,$img,$id){
           <li>
             <ul>
               <li>
-                <a href="#"style="text-decoration:none">
+                <a  uk-toggle="target: #message-close-default" style="text-decoration:none">
                   <span class="icon is-small"><i class="fas fa-envelope"></i></span> Message
                 </a>
               </li>

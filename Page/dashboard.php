@@ -38,8 +38,6 @@
       h1,p,h2,h3{
         font-family: 'Montserrat', sans-serif;
       }
-     
-      
       </style>
     </div>
     <div id="modal-close-default" uk-modal>
@@ -48,6 +46,27 @@
         <h2 class="uk-modal-title">Stagiaire</h2>
         <?= listStagiaire();?>
 
+      </div>
+</div>
+<div id="message-close-default" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <label for="cars">A qui est ton message :</label>
+<select id="mes" name="mess">
+  <option value="volvo">Steave</option>
+  <option value="saab">Soiba</option>
+  <option value="fiat">Bakary</option>
+  <option value="audi">Didier</option>
+</select>
+        <h2 class="uk-modal-title">Message</h2>
+        <div class="container">   
+        <div class="col">
+        <textarea id="mess" name="message"
+          rows="5" cols="33" value="message....">
+          
+</textarea>
+      </div>
+        </div>
       </div>
 </div>
 <div id="modal-close-outside" uk-modal>
