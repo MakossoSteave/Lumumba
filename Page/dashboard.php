@@ -42,8 +42,7 @@
       
       </style>
     </div>
-<button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Stagiaires</button>
-<div id="modal-close-default" uk-modal>
+    <div id="modal-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <h2 class="uk-modal-title">Stagiaire</h2>
@@ -51,9 +50,6 @@
 
       </div>
 </div>
-
-<button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-close-outside">Formateur</button>
-
 <div id="modal-close-outside" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
         <button class="uk-modal-close-outside" type="button" uk-close></button>
@@ -62,7 +58,6 @@
         <?= listFormateur(); ?>
       </div>
 </div>
-<a class="uk-button uk-button-default" href="#modal-sections" uk-toggle> Créer une formation</a>
 <form action="dashboard.php" method="POST">
 <div id="modal-sections" uk-modal>
     <div class="uk-modal-dialog">
