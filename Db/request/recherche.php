@@ -83,6 +83,7 @@ if (isset($_GET['search'])) {
    $formations=$forma->fetchAll(PDO::FETCH_ASSOC); 
    ?>
    <?php
+   
    if(empty($formations)){
        echo "";
    }else{
