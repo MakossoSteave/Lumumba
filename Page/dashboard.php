@@ -141,7 +141,23 @@ formation();
     }
     if($role =="Stagiaire"){
      StagiaireForm($nom,$prenom,$role,$email,$tel);
-     formation();
+     $pdo = pdo_connect_mysql();
+     $req = $pdo->prepare('select * from formation');
+     $req->execute();
+     $contact=$req->fetchAll(PDO::FETCH_ASSOC);
+    
+     ?>
+     
+     <div class='carousel is-5 carousel-animated carousel-animate-slide'>  <?php foreach ($contact as $list): ?>
+  <div class='carousel-container'>
+
+    <div class='carousel-item is-active'>
+      <figure class="image is-2by1"><img src="<?=$list['img']?>"></figure>
+    </div>
+    <?php endforeach; ?>
+
+     <?php
+     formationBis();
     }
     if($role =="Intervenant"){
 

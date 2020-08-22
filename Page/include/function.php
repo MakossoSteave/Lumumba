@@ -70,6 +70,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel){
     </head>
     <body>
    
+   
     <div id="app">
     
    
@@ -129,6 +130,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel){
             </div>
         </div>
     </div>
+    
           <br />
           
         </div>
