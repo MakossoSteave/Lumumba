@@ -56,16 +56,14 @@
         <div class="field">
         <input class="input"  name="nom" id="idProfile" type="hidden" value="<?= $user['id'] ?>">
 
-  <label class="label">Nom</label>
   <div class="control">
-    <input class="input"  name="nom" id="nomupd" type="text" value="<?= $user['nom'] ?>">
+    <input class="input"  name="nom" id="nomupd" type="hidden" value="<?= $user['nom'] ?>">
   </div>
 </div>
 
 <div class="field">
-  <label class="label">Prenom</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="text" name="description" id="prenomupd" value="<?= $user['prenom'] ?>" >
+    <input class="input is-success" type="hidden" name="description" id="prenomupd" value="<?= $user['prenom'] ?>" >
     
   </div>
 </div>

@@ -14,6 +14,8 @@ require 'function.php';
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="../javascript/checking.js"></script>
+    <link rel="stylesheet" href="./css/index.scss">
+
     <title>Document</title>
 </head>
 
@@ -31,20 +33,19 @@ require 'function.php';
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
-                    <img src="/assets/img/devnez.jpg" class="is-rounded" >
+                <a class="navbar-item" href="./index.php" style="text-decoration: none;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/PatriceLumumba1960.jpg" class="is-rounded" >
                     Acceuil
                 </a>
 
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-        categorie
-        </a>
-
+                    <a class="navbar-link" >
+                categorie
+              </a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item has-text-grey-dark">
-           Formation
-          </a>
+                        <a class="navbar-item has-text-grey-dark" href="./formationBis.php">
+                    Formation
+                 </a>
                         <a class="navbar-item has-text-grey-dark">
             Projet
           </a>

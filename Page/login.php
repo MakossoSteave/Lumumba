@@ -24,11 +24,12 @@ session_start();
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
 <script src="semantic/dist/semantic.min.js"></script>
-    <link rel="stylesheet" href="../css/index.scss">
+    <link rel="stylesheet" href="../Page/css/index.scss">
     
     <title>Document</title>
 </head>
 <body>
+
 <section class="hero is-dark is-bold">
       <div class="hero-body">
         <div class="container">

@@ -32,10 +32,11 @@ if (isset($_GET['search'])) {
    }else{
      ?>
      <div style="background-color: #fff;">
-        <h2 class="f4 mb-2 text-normal">
+        <h2 >
   Utilisateurs
    </h2>
-  
+   <link rel="stylesheet" href="./css/index.scss">
+
    <ol class="d-flex flex-wrap list-style-none gutter-condensed mb-4"> 
        
    <?php foreach ($contact as $user): ?>
@@ -56,8 +57,6 @@ if (isset($_GET['search'])) {
 <a class="button is-primary" href="./inscription.php" style="text-decoration: none;">
                             <strong>En Savoir plus</strong>
                         </a>
-
-
 </span>
    </p>
     </div>
@@ -89,7 +88,7 @@ if (isset($_GET['search'])) {
    }else{
        ?>
         <div style="background-color: #fff;">
-         <h2 class="f4 mb-2 text-normal">
+         <h2>
  Formations
    </h2>
   
