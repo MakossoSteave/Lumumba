@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 function formation()
 {
     $pdo = pdo_connect_mysql();
@@ -17,7 +16,6 @@ function formation(){
       $contact=$req->fetchAll(PDO::FETCH_ASSOC);
       
 	 
-<<<<<<< HEAD
    ?>
    <div class="container">
        <div class="row">
@@ -47,9 +45,7 @@ function formation(){
    $prenom = $_SESSION['prenom'];
    $identite =$nom." ".$prenom;
    $req = $pdo->prepare('select * from formation where creerPar = ?');
-=======
-   ?><div class="uk-child-width-1-2@m" uk-grid>
->>>>>>> origin/steave
+   ?>
    <div>
    <h1 class="uk-card-title">Listes des formations</h1>
        <div class="uk-card uk-card-default"> <?php foreach ($contact as $list): ?>
@@ -73,14 +69,12 @@ $nom = $_SESSION['nom'];
     $prenom = $_SESSION['prenom'];
     $identite = $nom . " " . $prenom;
     $req = $pdo->prepare('select * from formation where creerPar = ?');
->>>>>>> e708715bf1a1809f9f817484de2364d6961cabd3
     $req->execute([$identite]);
     $formation = $req->fetchAll(PDO::FETCH_ASSOC);
 
     ?>
     <?php
 ?>
-<<<<<<< HEAD
        </div>
         </div>
         <div class="col-2">
@@ -108,7 +102,6 @@ $nom = $_SESSION['nom'];
         <p class="card-text">Prix : <?= $formations['prixFormation'] ?> €</p>
 
         <a class="uk-button uk-button-default" href="update.php?id=<?= $formations['id'] ?>"  uk-toggle> 
-=======
    <div> <h1 class="uk-card-title">Mes formations</h1>
        <div class="uk-card uk-card-default">
 
@@ -129,7 +122,6 @@ $id = $formations['id'];
            </div>
 
            <br>
-<<<<<<< HEAD
 
            <a class="uk-button uk-button-default" href="#modal-overflow?id=<?=$id?>" uk-toggle>Editer</a>
            <a href="delete.php?id=<?=$id?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
@@ -140,12 +132,6 @@ $id = $formations['id'];
     <div class="uk-modal-dialog">
 
         <button class="uk-modal-close-default" type="button" uk-close></button>
-=======
-           
-           
-            <div>
-            <a class="uk-button uk-button-default" href="update.php?id=<?= $formations['id'] ?>"  uk-toggle> 
->>>>>>> e708715bf1a1809f9f817484de2364d6961cabd3
             editer 
  
           </a>
@@ -154,12 +140,8 @@ $id = $formations['id'];
   </div>
 </div>
             </div>
-<<<<<<< HEAD
        </div>
    </div>
-=======
-           
->>>>>>> origin/steave
 
 >>>>>>> e708715bf1a1809f9f817484de2364d6961cabd3
 <br>
@@ -208,11 +190,9 @@ $id = $formations['id'];
 </div>
 
         </div>
-=======
            <?php endforeach; ?>
  
 </div>
-<<<<<<< HEAD
         </div>
        </div>
 
@@ -221,9 +201,7 @@ $id = $formations['id'];
  
         
   
-=======
->>>>>>> origin/steave
->>>>>>> e708715bf1a1809f9f817484de2364d6961cabd3
+
 
 <?php
  }
@@ -269,7 +247,6 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <?php
-<<<<<<< HEAD
 }
 ?>
 =======
@@ -306,8 +283,7 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
  </div>
  </div>
  </div>
-       <?php
+    
  }
        ?>
  
->>>>>>> origin/steave
