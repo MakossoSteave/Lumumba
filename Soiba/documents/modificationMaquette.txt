@@ -1,0 +1,73 @@
+
+Home page
+
+menu hamburger:
+  catégorie : Formations 
+		- Développement
+		- Marketing 
+		- Informatique et logicielle
+		- Conception
+		- Photographie
+		- Musique
+		- Affaire
+		- Developpement personnel 
+  catégorie: Formateurs
+
+  catégorie: Qui nous sommmes
+
+  catégorie: Contact nous
+  
+  catégorie: se connecter
+
+  catégorie: se déconnecter
+
+A droite de Apprendre à votre rythme - Devenir formateur 
+
+
+En bas carrousel: 
+
+Titre 1: Formations en cours 
+	   -photo
+	   -description
+	   -prix
+	   -bouton ajouter au panier 
+
+en dessous
+
+
+Titre 2: Projets en cours
+    carrousel: Projets en cours 
+	 -photo
+	 -description
+	 -prix
+	 -bouton ajouter au panier 
+
+
+
+Dashboard Stagiaire 
+
+Ajouter: Mes formations suivis
+	 Listes de mes formateurs 
+	 Mes projets suivis
+	 Listes de mes intervenants
+
+Dashboard Formateurs/intervenants
+
+Ajouter: Mes formations publiés
+	 Mes formations terminés 
+	 Listes des stagiaires inscrit à ma formation 
+
+
+
+
+("SELECT departement_id, departement_code, departement_nom FROM departement");
+
+
+
+
+
+
+
+
+
+
