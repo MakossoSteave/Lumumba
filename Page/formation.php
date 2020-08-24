@@ -159,7 +159,7 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
     <div class="col-md-8">
     test
       <div class="card-body">
-     test
+     test,
     </div>
   </div>
       </div>
