@@ -116,17 +116,11 @@ function formation(){
       <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="<?=$list['img']?>" class="card-img" alt="...">
+     test
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><?=$list['libelle'] ?></h5>
-        <p class="card-text">Descriptions : <?= $list['libelleLong'] ?></p>
-        <p class="card-text">Heures : <?= $list['nomHeureFormation'] ?> H</p>
-        <p class="card-text">Prix : <?= $list['prixFormation'] ?> €</p>
-        <a href="#" class="btn btn-danger">Quitter</a>
-
-    
+     
     </div>
   </div>
       </div>
@@ -146,7 +140,7 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="col-2">
 <hr style=" border-left: 1px solid black;
-  height: 500px;
+  height: 400px;
   position: absolute;
   left: 50%;
   margin-left: -3px;
@@ -157,7 +151,19 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
 
 
        <?php foreach ($formation as $formations): ?>
-
+        <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+     test
+    </div>
+    <div class="col-md-8">
+    test
+      <div class="card-body">
+     test
+    </div>
+  </div>
+      </div>
+</div>
       
        <?php endforeach; ?>
    
