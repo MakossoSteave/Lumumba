@@ -15,7 +15,11 @@ include './include/header.php';?>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="./javascript/jqueryindex.js"></script>
+    <script src="javascript/jqueryindex.js"></script>
+    <script src="javascript/checking.js"></script>
+    <link rel="stylesheet" href="./css/index.scss">
+
+
     <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
 
@@ -25,18 +29,21 @@ include './include/header.php';?>
   </head>
 
   <section class="hero is-grey is-medium heros" style="background-image: url('./img/Fond.jpg'); background-position:center;background-size:cover;">
-  <div class="hero-body" >
+  <div class="hero-body" ><div id="marecherche"></div>
   <body>
-  <section class="section">
+     
+  <section class="section"> 
+
+      </div>
     <div class="container">
       <h1 class="title">Apprenez a votre rythme</h1>
       <div class="container">
         <div class="row">
           <div class="col">
             
-            <h2 class="subtitle">
+            <p>
             Étudiez à tout moment le sujet que vous souhaitez.<br> Faites dès maintenant votre choix parmi des milliers de cours enseignés par des formateurs et intervenants confirmés.
-           </h2>
+</p>
            <input class="input" type="text" placeholder="Que Souhaitez vous Apprendre ?">
       <span class="icon is-left is-medium">
       </span>

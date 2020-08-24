@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 17 août 2020 à 11:58
+-- Généré le :  lun. 24 août 2020 à 11:18
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -72,25 +72,26 @@ CREATE TABLE IF NOT EXISTS `domaineintervention` (
 DROP TABLE IF EXISTS `formation`;
 CREATE TABLE IF NOT EXISTS `formation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(40) NOT NULL,
+  `libelle` varchar(255) NOT NULL,
   `libelleLong` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL,
   `creerPar` varchar(255) NOT NULL,
   `nomHeureFormation` int(11) NOT NULL,
   `prixFormation` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `formation`
 --
 
 INSERT INTO `formation` (`id`, `libelle`, `libelleLong`, `img`, `creerPar`, `nomHeureFormation`, `prixFormation`) VALUES
-(1, 'Developpeur Web', 'ici vous trouverez la méthode pour être un excellent développeur', 'https://iut.univ-amu.fr/sites/iut.univ-amu.fr/files/diplome/miw_2019.jpg', 'makosso steave', 600, 4500),
-(2, 'pilote', 'voici notre premiere formation de pilote', 'https://static.jobat.be/uploadedImages/granditvpilote.jpg', 'makosso steave', 550, 8000),
-(3, 'droit', 'vous obtiendrez enfin ses compétences qui vous manque', 'https://i.f1g.fr/media/eidos/805x453_crop/2017/12/13/XVM8c7c9696-dff1-11e7-8d29-b69e8584ef79.jpg', 'makosso steave', 500, 12000),
-(15, 'conduite ', 'conduire en securité', 'https://www.cidj.com/sites/default/files/styles/full_article/public/2019-11/conduite-accompagnee.jpg?itok=zXafUW63', 'makosso steave', 20, 1250),
-(19, 'teste', 'testeur', 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Logo_IMAGroupe_gris.png', 'Rachid soiba', 70, 80000);
+(21, 'Ecole', 'Informatique', 'https://cdn-images.welcometothejungle.com/Mx5a175nOOHTncanEGVUasbD6RMcAsLDF6S14B9nNnc/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9hcnRpY2xlL2ltYWdlLzI5OTEvMTUwMzMyL2ZpY2hlLWVjb2xlLTQyLXhhdmllci1uaWVsLWNvZGUuanBn', 'Rachid soiba', 500, 9000),
+(23, 'Vendeur', 'Vendeur', 'https://prospecvente.com/wp-content/uploads/2011/03/bon-vendeur.jpg', 'makosso steave', 40, 800),
+(30, 'Boulanger', 'Vendeur de pain exceptionnel', 'https://www.conflans-sainte-honorine.fr/wp-content/uploads/2017/07/Boulangerie-illustration-800x435.jpg', 'makosso steave', 20, 600),
+(33, 'secouriste', 'secours pour les pauvres', 'https://www.mairie-bailly.fr/wp-content/uploads/2017/10/secourisme.jpg', 'makosso steave', 500, 3850),
+(35, 'Coiffeur', 'formation de coiffure', 'https://valessio-coiffeur-paris.fr/wp-content/uploads/2018/12/coiffeur-droits-légal.jpg', 'makosso steave', 30, 500),
+(36, 'designer', 'Apprendre le design', 'https://www.letudiant.fr/static/uploads/mediatheque/ETU_ETU/8/9/2211989-adobestock-154439873-866x495.jpeg', 'Rachid soiba', 300, 500);
 
 -- --------------------------------------------------------
 
@@ -103,8 +104,18 @@ CREATE TABLE IF NOT EXISTS `image` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `photo` varchar(300) NOT NULL,
   `cv` varchar(300) NOT NULL,
+  `appartient` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `image`
+--
+
+INSERT INTO `image` (`id`, `photo`, `cv`, `appartient`) VALUES
+(1, 'https://blogs.lexpress.fr/pantheon-foot/files/2012/07/didier_deschamps_reference.jpg', '', 'makossosteave27@gmail.com'),
+(3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLBwLqasS-C0aiHh8uhgBwghW3YY6RW4NHBA', '', 'soibarachid@gmail.com'),
+(4, 'https://blogs.lexpress.fr/pantheon-foot/files/2012/07/didier_deschamps_reference.jpg', '', 'steave.MAKOSSO@imie-paris.fr');
 
 -- --------------------------------------------------------
 
@@ -161,6 +172,7 @@ CREATE TABLE IF NOT EXISTS `projet` (
   `description` varchar(300) NOT NULL,
   `nomHeure` int(11) NOT NULL,
   `technoMaitriser` varchar(100) NOT NULL,
+  `creerPar` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -190,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `libelleRoles` varchar(40) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `roles`
@@ -202,7 +214,9 @@ INSERT INTO `roles` (`id`, `libelleRoles`, `email`) VALUES
 (13, 'Formateur', 'soibarachid@gmail.com'),
 (14, 'Formateur', 'soibarachid@gmail.com'),
 (15, 'Formateur', 'soibarachid@gmail.com'),
-(16, 'Formateur', 'soibarachid@gmail.com');
+(16, 'Formateur', 'soibarachid@gmail.com'),
+(17, 'Formateur', 'wordpress65@gmail.com'),
+(18, 'Formateur', 'trolleur12@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -227,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   KEY `idConnexion` (`idConnexion`),
   KEY `idImage` (`idImage`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `user`
@@ -235,9 +249,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `tel`, `code`, `email`, `password`, `isEmailConfirmed`, `token`, `Role`, `idConnexion`, `idImage`) VALUES
 (1, 'msss', 'ma', '06504100', NULL, 'steave1@live.fr', 'ms', 0, 'yj?pmùa', 'Stagiaire', NULL, NULL),
-(28, 'makosso', 'steave', '0767480681', NULL, 'makossosteave27@gmail.com', '$2y$10$kAMicoP1vhS4sON.qJ45k.f0nCfeUKWEh9wSxpvtYJJeyboADUpAe', 1, ' ', 'Formateur', NULL, NULL),
-(29, 'test', 'test', '0640532017', NULL, 'steave.MAKOSSO@imie-paris.fr', '$2y$10$eVJf/jRaNwLdCcjsNvv/iO6tCU3/BSvMYuaiq2ZqFJPB39Mf5StX6', 1, ' ', 'Stagiaire', NULL, NULL),
-(33, 'Rachid', 'soiba', '1051655265', NULL, 'soibarachid@gmail.com', '$2y$10$gbEhSqB01omRSLLmj5uTeeIm8pMYWJRsdmt9O2BzX3exgfcHshlSy', 1, '', 'Formateur', NULL, NULL);
+(28, 'makosso', 'steave', '0522263966', NULL, 'makossosteave27@gmail.com', '$2y$10$kAMicoP1vhS4sON.qJ45k.f0nCfeUKWEh9wSxpvtYJJeyboADUpAe', 1, ' ', 'Formateur', NULL, NULL),
+(29, 'Deschamps', 'didier', '0750203694', NULL, 'steave.MAKOSSO@imie-paris.fr', '$2y$10$eVJf/jRaNwLdCcjsNvv/iO6tCU3/BSvMYuaiq2ZqFJPB39Mf5StX6', 1, ' ', 'Stagiaire', NULL, NULL),
+(33, 'Rachid', 'soiba', '0652159856', NULL, 'soibarachid@gmail.com', '$2y$10$gbEhSqB01omRSLLmj5uTeeIm8pMYWJRsdmt9O2BzX3exgfcHshlSy', 1, '', 'Formateur', NULL, NULL),
+(36, 'testeur', 'tester', '0650424850', NULL, 'trolleur12@gmail.com', '$2y$10$uK2Du3Cq6QmqtLTwVkXhSe9VPsQn0oSoGkhzrUQlp.Zdn10pHslzm', 0, 'bqtdePOwV9', 'Formateur', NULL, NULL);
 
 --
 -- Contraintes pour les tables déchargées
