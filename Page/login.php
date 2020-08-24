@@ -24,11 +24,12 @@
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
 <script src="semantic/dist/semantic.min.js"></script>
-    <link rel="stylesheet" href="../css/index.scss">
+    <link rel="stylesheet" href="../Page/css/index.scss">
     
     <title>Document</title>
 </head>
 <body>
+
 <section class="hero is-dark is-bold">
       <div class="hero-body">
         <div class="container">
@@ -98,14 +99,18 @@ if (isset($_POST ['connect'])) {
                    $check = $pdo->prepare("SELECT * FROM user WHERE email = ?");
                    $check->execute([$email]);
                    $user = $check->fetch();
-                   var_dump($user['Role']);
+                   $_SESSION['id']= $user['id'];
                    $_SESSION['nom'] = $user['nom'];
                    $_SESSION['prenom'] = $user['prenom'];
                    $_SESSION['email'] = $user['email'];
                    $_SESSION['tel'] = $user['tel'];
-                   $_SESSION['role'] = $user['Role'];   
-                  header('location:dashboard.php');
-
+                   $_SESSION['role'] = $user['Role']; 
+                   $image = $pdo->prepare("SELECT photo from image WHERE appartient = ?");
+                   $mapic = $_SESSION['nom']." ". $_SESSION['prenom'];
+                   $image -> execute([$_SESSION['email']]);
+                   $photo =$image->fetch();
+                   $_SESSION['image']=$photo['photo'];
+                   header("location:dashboard.php");    
                 }
             }else{
               echo "<br>";

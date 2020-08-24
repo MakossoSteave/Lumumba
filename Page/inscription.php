@@ -126,6 +126,9 @@ $pdo = pdo_connect_mysql();
                      (?,?,?,?,?,?,?,?, ?,?,?,?);
                       ");
                      $stmt->execute([$id,$nom, $prenom,$tel,null,$mail,$hashed,'0',$token,$role,NULL,NULL]);
+                     $stmt2 = $pdo->prepare("INSERT INTO `image`(`id`,`photo`,`cv`,`appartient`)VALUES(?,?,?,?);
+                     ");
+                     $stmt2->execute([$id,'https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_960_720.png','',$nom.' '.$mail]);
                      $subject = "Confirmation email";
                      $headers = "From: LumumbaAdmin";
                    

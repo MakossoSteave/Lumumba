@@ -8,6 +8,7 @@ function formation(){
       $contact=$req->fetchAll(PDO::FETCH_ASSOC);
       
 	 
+<<<<<<< HEAD
    ?><div class="uk-child-width-1-2@m" uk-grid>
 =======
 function formation()
@@ -42,12 +43,44 @@ $nom = $_SESSION['nom'];
     $prenom = $_SESSION['prenom'];
     $identite = $nom . " " . $prenom;
     $req = $pdo->prepare('select * from formation where creerPar = ?');
+=======
+   ?>
+   <div class="container">
+       <div class="row">
+        <div class="col">
+        <h1 >Listes des formations</h1>
+       <div > <?php foreach ($contact as $list): ?>
+        <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="<?=$list['img']?>" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?= $list['libelle'] ?></h5>
+        <p class="card-text">Descriptions : <?= $list['libelleLong'] ?></p>
+        <p class="card-text">Heures : <?= $list['nomHeureFormation'] ?> H</p>
+        <p class="card-text">Prix : <?= $list['prixFormation'] ?> €</p>
+
+        <p class="card-text">Formateur dirigeant : <small class="text-muted"><?= $list['creerPar'] ?></small></p>
+      </div>
+    </div>
+  </div>
+</div>      
+               <?php endforeach; ?> 
+   <?php 
+   $nom = $_SESSION['nom'];
+   $prenom = $_SESSION['prenom'];
+   $identite =$nom." ".$prenom;
+   $req = $pdo->prepare('select * from formation where creerPar = ?');
+>>>>>>> origin/steave
     $req->execute([$identite]);
     $formation = $req->fetchAll(PDO::FETCH_ASSOC);
 
     ?>
     <?php
 ?>
+<<<<<<< HEAD
    <div> <h1 class="uk-card-title">Mes formations</h1>
        <div class="uk-card uk-card-default">
 
@@ -73,11 +106,44 @@ $id = $formations['id'];
            
             <div>
             <a class="uk-button uk-button-default" href="update.php?id=<?= $formations['id'] ?>"  uk-toggle> 
+=======
+       </div>
+        </div>
+        <div class="col-2">
+       
+        </div>
+<div class="col">
+
+   <div> <h1 id="titre">Mes formations</h1>
+       <div >
+      
+           <?php foreach ($formation as $formations): ?>
+
+            <?php $id = $formations['id'];?>
+           <div> 
+           <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="<?=$formations['img']?>" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?=$formations['libelle'] ?></h5>
+        <p class="card-text">Descriptions : <?= $formations['libelleLong'] ?></p>
+        <p class="card-text">Heures : <?= $formations['nomHeureFormation'] ?> H</p>
+        <p class="card-text">Prix : <?= $formations['prixFormation'] ?> €</p>
+
+        <a class="uk-button uk-button-default" href="update.php?id=<?= $formations['id'] ?>"  uk-toggle> 
+>>>>>>> origin/steave
             editer 
  
           </a>
           <a href="delete.php?id=<?=$id?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
+     
+  </div>
+</div>
             </div>
+<<<<<<< HEAD
            
 =======
 
@@ -92,12 +158,17 @@ $id = $formations['id'];
         <button class="uk-modal-close-default" type="button" uk-close></button>
 >>>>>>> origin/master
 
+=======
+       </div>
+   </div>
+>>>>>>> origin/steave
 <br>
 
 <<<<<<< HEAD
            <?php endforeach; ?>
  
 </div>
+<<<<<<< HEAD
 =======
         <div class="uk-modal-body" uk-overflow-auto>
             <?php echo $formations['id'];
@@ -143,6 +214,16 @@ $id = $formations['id'];
 
         </div>
 >>>>>>> origin/master
+=======
+        </div>
+       </div>
+
+   </div>
+   
+ 
+        
+  
+>>>>>>> origin/steave
 
 <?php
  }
@@ -155,6 +236,7 @@ $id = $formations['id'];
   $contact=$req->fetchAll(PDO::FETCH_ASSOC);
   
 
+<<<<<<< HEAD
 ?><div class="uk-child-width-1-2@m" uk-grid>
 <div>
 <h1 class="uk-card-title">Listes des formations suivis</h1>
@@ -175,7 +257,31 @@ $id = $formations['id'];
        </div>
            <?php endforeach; ?>
    </div>
+=======
+?>
+<hr>
+ <div class="container"> 
+ <div class="row">
+ <div class="col">
+     <h1> Formation suivis</h1>  
+   
+                <?php foreach ($contact as $list): ?>
+                 
+      <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+     test
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+     
+    </div>
+  </div>
+      </div>
+>>>>>>> origin/steave
 </div>
+<?php endforeach; ?>
+  </div>
 <?php 
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
@@ -188,30 +294,38 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
 <?php
 <<<<<<< HEAD
 ?>
-<div> <h1 class="uk-card-title">Mes projets</h1>
-   <div class="uk-card uk-card-default">
-  
+<div class="col-2">
+<hr style=" border-left: 1px solid black;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;">
+</div>
+<div class="col">
+<h1>Projets suivis</h1>
+
+
        <?php foreach ($formation as $formations): ?>
-
-       <div class="uk-card-body"> 
-       <?php 
-       $id = $formations['id'];
-       ?>
-           <h3 class="uk-card-title"><?=$formations['libelle'] ?></h3>
-           <p hidden ><span>id : </span> <?= $formations['id'] ?></p>
-           <p><span>Descriptions : </span><?= $formations['libelleLong'] ?></p>
-           <p><span>Heures : </span><?= $formations['nomHeureFormation'] ?>h</p>
-           <p><span>Prix : </span><?= $formations['prixFormation'] ?> €</p>
-       </div>
-       <div class="uk-card-media-bottom">
-           <img src="<?=$formations['img']?>" alt="" >
-       </div>
-       
-       <br>
-       <?php endforeach; ?>
-   </div></div>
+        <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+     test
+    </div>
+    <div class="col-md-8">
+    test
+      <div class="card-body">
+     test
+    </div>
   </div>
-
+      </div>
+</div>
+      
+       <?php endforeach; ?>
+   
+ </div>
+ </div>
+ </div>
        <?php
  }
        ?>
