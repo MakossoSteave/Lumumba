@@ -1,6 +1,6 @@
 <?php
  function pdo_connect_mysql() {
-    $DATABASE_HOST ='localhost:3306';
+    $DATABASE_HOST ='localhost:3308';
     $DATABASE_USER ='root';
     $DATABASE_PASS ='';
     $DATABASE_NAME ='lumumba';
