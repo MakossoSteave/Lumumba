@@ -94,8 +94,9 @@ function EditionProfile() {
     var tel = document.getElementById("telupd").value;
     var email = document.getElementById("emailupd").value;
     var createur = document.getElementById("appartientupd").value;
+    var fichier = document.getElementById('leforme').files[0].name;
 
-    donne = [id, nom, prenom, email, tel, img, createur]
+    donne = [id, nom, prenom, email, tel, img, createur, fichier]
     var xhr;
 
     if (window.XMLHttpRequest) { // Mozilla, Safari, ...

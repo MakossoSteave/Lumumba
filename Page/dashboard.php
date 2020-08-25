@@ -15,11 +15,12 @@
     $email=$_SESSION['email'];
     $tel=$_SESSION['tel'];
 
-    $image =$_SESSION['image'];
+    $image = $_SESSION['image'];
+    $tes = "http://localhost/lumumba/Lumumba/Page/img/$image";
     if($role =="Formateur"){
      
       $id = $_SESSION['id']; 
-      formateurPage($nom,$prenom,$role ,$email,$tel,$image,$id);
+      formateurPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
       ?><!DOCTYPE html>
       <html lang="en">
       <head>
@@ -51,20 +52,33 @@
 <div id="message-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
         <button class="uk-modal-close-default" type="button" uk-close></button>
-        <label for="cars">A qui est ton message :</label>
-<select id="mes" name="mess">
-  <option value="volvo">Steave</option>
-  <option value="saab">Soiba</option>
-  <option value="fiat">Bakary</option>
-  <option value="audi">Didier</option>
+        <label for="cars">A qui est ton message :</label><?php
+  $pdo =pdo_connect_mysql() ;
+  $num_contacts = $pdo->query('SELECT * FROM user ')->fetchAll();
+
+  ?>
+  <form action="" method="POST">
+    <select id="mes" name="mess">
+  <?php
+foreach ($num_contacts as $contact): 
+?>
+
+  <option value="volvo" id="selected"><?=$contact['nom']?> <?=$contact['prenom']?></option>
+  <?php endforeach;?>
+
+
 </select>
         <h2 class="uk-modal-title">Message</h2>
         <div class="container">   
         <div class="col">
-        <textarea id="mess" name="message"
-          rows="5" cols="33" value="message....">
+        <textarea id="mess" name="msg"
+          rows="5" cols="33" value="message...." id="message">
           
 </textarea>
+  <button>Envoyer</button>
+  </form>
+
+
       </div>
         </div>
       </div>
@@ -163,7 +177,7 @@ formation();
     if ($role =="Stagiaire") {
       $id = $_SESSION['id'];
 
-        StagiaireForm($nom, $prenom, $role, $email, $tel,$image,$id); ?>
+        StagiaireForm($nom, $prenom, $role, $email, $tel,$tes,$id); ?>
       <?php
         $pdo = pdo_connect_mysql();
         $req = $pdo->prepare('select * from formation');
@@ -204,7 +218,7 @@ formation();
     }
     if($role =="Intervenant"){
       $id = $_SESSION['id']; 
-      intervenantPage($nom,$prenom,$role ,$email,$tel,$image,$id);
+      intervenantPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
 ?>
  <div id="modal-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
@@ -268,7 +282,7 @@ formation();
   </div>
 </div>
 <div class="field">
-  <label class="label">Prix de la formation</label>
+  <label class="label">Rémuneration du projet</label>
   <div class="control">
     <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation">
   </div>
@@ -284,14 +298,14 @@ formation();
   <div class="control">
     <label class="checkbox">
       <input type="checkbox">
-      I agree to the <a href="#">terms and conditions</a>
+     J'accepte les <a href="#" style="text-decoration: none;">conditions d'utilisation de la platforme</a>
     </label>
   </div>
 </div>
       </div>
         <div class="uk-modal-footer uk-text-right">
         <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();">Save</button>
-            <button class="uk-button uk-button-default " type="button">Cancel</button>
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
         </div>
     </div>
 </div></form>
