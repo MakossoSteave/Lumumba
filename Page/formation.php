@@ -8,7 +8,7 @@ function formation()
     $contact = $req->fetchAll(PDO::FETCH_ASSOC);
 
     ?><div class="uk-child-width-1-2@m" uk-grid>
-=======
+      
 function formation(){
       $pdo = pdo_connect_mysql();
       $req = $pdo->prepare('select * from formation');
@@ -70,8 +70,8 @@ $nom = $_SESSION['nom'];
     $identite = $nom . " " . $prenom;
     $req = $pdo->prepare('select * from formation where creerPar = ?');
     $req->execute([$identite]);
-    $formation = $req->fetchAll(PDO::FETCH_ASSOC);
-
+    $formation=$req->fetchAll(PDO::FETCH_ASSOC);
+   
     ?>
     <?php
 ?>
@@ -143,10 +143,8 @@ $id = $formations['id'];
        </div>
    </div>
 
->>>>>>> e708715bf1a1809f9f817484de2364d6961cabd3
 <br>
 
-<<<<<<< HEAD
         <div class="uk-modal-body" uk-overflow-auto>
             <?php echo $formations['id'];
     $monId = $formations['id'];
@@ -202,7 +200,6 @@ $id = $formations['id'];
         
   
 
-
 <?php
  }
  ?>
@@ -249,7 +246,6 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
 <?php
 }
 ?>
-=======
 ?>
 <div class="col-2">
 <hr style=" border-left: 1px solid black;

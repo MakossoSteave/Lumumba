@@ -110,6 +110,7 @@ if (isset($_POST ['connect'])) {
                    $image -> execute([$_SESSION['email']]);
                    $photo =$image->fetch();
                    $_SESSION['image']=$photo['photo'];
+                   
                    header("location:dashboard.php");    
                 }
             }else{
