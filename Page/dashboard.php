@@ -189,7 +189,8 @@ formation();
         <p class="card-text">Descriptions : <?= $list['libelleLong'] ?></p>
         <p class="card-text">Heures : <?= $list['nomHeureFormation'] ?> H</p>
         <p class="card-text">Prix : <?= $list['prixFormation'] ?> €</p>
-        <a href="#" class="btn btn-success">S'inscrire</a>
+        <?php $id = $list['id'];?>
+        <a href="cart.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
 
       </div>
     </div>
@@ -218,3 +219,7 @@ formation();
        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
      </html>
+
+
+
+

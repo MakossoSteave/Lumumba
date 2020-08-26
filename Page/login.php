@@ -109,8 +109,8 @@ if (isset($_POST ['connect'])) {
                    $mapic = $_SESSION['nom']." ". $_SESSION['prenom'];
                    $image -> execute([$_SESSION['email']]);
                    $photo =$image->fetch();
-                   $_SESSION['image']=$photo['photo'];
-                   header("location:dashboard.php");    
+                   $_SESSION['image']= $photo['photo'];
+                  header("location:dashboard.php");    
                 }
             }else{
               echo "<br>";
