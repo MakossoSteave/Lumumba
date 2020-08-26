@@ -32,18 +32,35 @@ require 'function.php';
         </div>
 
         <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
+            <div class="navbar-start">                    
+
                 <a class="navbar-item" href="./index.php" style="text-decoration: none;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/PatriceLumumba1960.jpg" class="is-rounded" >
-                    Acceuil
+                   <div class="container">
+                       <div class="column">
+                           <div class="col">
+                               
+                           </div>
+                           <div class="col">
+ Acceuil 
+                           </div>                      
+                       </div>
+                   </div>
                 </a>
 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link" >
-                categorie
-              </a>
+                    <div class="container">
+                       <div class="column">
+                           <div class="col">
+                           </div>
+                           <div class="col">
+                                               categorie
+                           </div>                      
+                       </div>
+                   </div>
+                     </a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item has-text-grey-dark" href="./formationBis.php">
+                        <a class="navbar-item has-text-grey-dark" href="./formationBis.php" style="text-decoration: none;">
                     Formation
                  </a>
                         <a class="navbar-item has-text-grey-dark">
@@ -60,7 +77,6 @@ require 'function.php';
                 <div class="panel-block">
                     <form action="" method="get">
                     <p class="control has-icons-left ">
-                        
                        <input class="input" type="text" id="liste" name="search" placeholder="Recherche" onKeyUp="book_suggestion()" value="<?=isset($_GET['search']) ? htmlentities($_GET['search'], ENT_QUOTES) : ''?>">>
   <span class="icon is-left has-text-info-dark">
         <i class="fas fa-search  " aria-hidden="false"></i>
