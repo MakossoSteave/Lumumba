@@ -83,7 +83,7 @@ function Edition() {
                 alert('There was a problem with the request.');
             }
         }
-    }
+    }s
 }
 
 function EditionProfile() {
