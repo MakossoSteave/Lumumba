@@ -95,8 +95,8 @@
       </tr>
     </tbody>
   </table>
-  <button type="button" class="delete" class="btn btn-danger" id="'. $list["id"].'""><i class="fas fa-trash fa-xs"></i></button>
-  <button type="button" class="btn btn-danger" id="'. $list["id"].'"">Supprimé</button>
+  <button type="button"  class="btn btn-danger delete" id="'. $list["id"].'""><i class="fas fa-trash fa-xs"></i></button>
+  <button type="button" class="btn btn-danger delete" id="'. $list["id"].'"">Supprimé</button>
   ' ;
   echo $panierContenant ?>
   <?php endforeach; ?>
