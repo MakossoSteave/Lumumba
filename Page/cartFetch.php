@@ -37,17 +37,17 @@ if(!empty($_SESSION["shopping_cart"]))
     // et la valeur de l'id du produit que l'on ùet dans un bouton remove
   $output .= '
   <tr>
-   <td>'.$values["product_name"].'</td>
-   <td>'.$values["product_quantity"].'</td>
-   <td align="right">$ '.$values["product_price"].'</td>
-   <td align="right">$ '.number_format($values["product_quantity"] * $values["product_price"], 2).'</td>
-   <td><button name="delete" class="btn btn-danger btn-xs delete" id="'. $values["product_id"].'">Remove</button></td>
+   <td>'.$values["formation_libelle"].'</td>
+   
+   <td align="right">$ '.$values["formation_prixFormation"].'</td>
+   
+   <td><button name="delete" class="btn btn-danger btn-xs delete" id="'. $values["formation_id"].'">Remove</button></td>
   </tr>
   ';
 
 //   On crée une varible prix total qui sera égal à au prix total + la valeur de la quantité de produit *
 // la valeur du prix du produit
-  $total_price = $total_price + ($values["product_quantity"] * $values["product_price"]);
+  $total_price = $values["formation_prixFormation"];
   //$total_item = $total_item + 1;
  }
 //  A la sortie on crée une variable qui va crée une balise html

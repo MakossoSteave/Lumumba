@@ -11,6 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -94,14 +95,16 @@
       </tr>
     </tbody>
   </table>
-  <button type="button" class="btn btn-danger" id="'. $list["id"].'""><i class="fas fa-trash fa-xs"></i></button>
+  <button type="button" class="delete" class="btn btn-danger" id="'. $list["id"].'""><i class="fas fa-trash fa-xs"></i></button>
   <button type="button" class="btn btn-danger" id="'. $list["id"].'"">Supprimé</button>
   ' ;
   echo $panierContenant ?>
   <?php endforeach; ?>
     </div>
    </div>
-   <!-- <script>
+
+
+   <script>
 // on crée une focntion load_cart_data()
 function load_cart_data()
  {
@@ -120,13 +123,13 @@ function load_cart_data()
 
  $('#add_to_cart').click(function(){
     //  on déclare l'id, le nom, le prix du produit avec comme valeur une table vide
-  var product_id = [];
-  var product_name = [];
-  var product_price = [];
+  var formation_id = [];
+  var formation_nlibelle = [];
+  var formation_prixFormation = [];
   var action = "add";
 
 // si la taille de l'id est sup à 0
-  if(product_id.length > 0)
+  if(formation_id.length > 0)
   {
     // La $.post()méthode demande des données au serveur à l'aide d'une requête HTTP POST.
     // ici le serveur est le fichier php action.php
@@ -134,7 +137,7 @@ function load_cart_data()
     url:"cartAction.php",
     method:"POST",
     // on va récupérer dans action.php, l'id, nom, prix, et l'action du produit
-    data:{product_id:product_id, product_name:product_name, product_price:product_price, action:action},
+    data:{formation_id:formation_id, formation_libelle:formation_libelle, formation_prixFormation:formation_prixFormation, action:action},
     // en cas de succès de la récupérer on va déclencher la fct qui a pour param data
     success:function(data)
     {
@@ -153,6 +156,61 @@ function load_cart_data()
 
  });
 
-   </script> -->
+ // au click de la classe .delete, on déclenche une fonction
+ $(document).on('click', '.delete', function(){
+// La méthode attr () définit ou renvoie les attributs et les valeurs des éléments sélectionnés
+// ici il renvoie l'id sélectionné
+  var formation_id = $(this).attr("id");
+
+  var action = 'remove';
+//   La méthode confirm () affiche une boîte de dialogue avec un message spécifié, 
+// ainsi qu'un bouton OK et un bouton Annuler.
+  if(confirm("Are you sure you want to remove this formation?"))
+  {
+   $.ajax({
+    //  La $.post()méthode demande des données au serveur à l'aide d'une requête HTTP POST.
+    // ici le serveur est le fichier php action.php
+    url:"cartAction.php",
+    method:"POST",
+    // les données demandées sont l'id, et l'action
+    data:{formation_id:formation_id, action:action},
+    // s'il y a bien récupération des donnée on exécute la fonction
+    success:function()
+    {
+        // lors du succès de la fct load_cart_data on créer une alert pour dire que le panier
+        // a bien été supprimé
+     load_cart_data();
+     alert("Item has been removed from Cart");
+    }
+   })
+  }
+  else
+  {
+   return false;
+  }
+ });
+
+ // on créer une fonction qui va se déclecher lors du click du bouton qui a pour id #clear_cart
+ $(document).on('click', '#clear_cart', function(){
+  var action = 'empty';
+  $.ajax({
+    // La $.post()méthode demande des données au serveur à l'aide d'une requête HTTP POST.
+    // ici le serveur est le fichier php action.php 
+   url:"cartAction.php",
+   method:"POST",
+   data:{action:action},
+   success:function()
+   {
+    //    en cas de success de la requete ajax, appel la fct load_cart_data() et on met un alert
+    // pour dire que le pannier est bien vide
+    load_cart_data();
+    alert("Your Cart has been clear");
+   }
+  });
+  console.log("hello word");
+ });
+    
+
+   </script>
 </body>
 </html>

@@ -13,31 +13,31 @@ if(isset($_POST["action"]))
  {
     //  si c'est le cas on crée des variables qui vont permettre de stocker les valeurs saisies lors du post
     // on récupere l'id, le nom, le prix du product
-  $product_id = $_POST["product_id"];
-  $product_name = $_POST["product_name"];
-  $product_price = $_POST["product_price"];
+  $formation_id = $_POST["formation_id"];
+  $formation_libelle= $_POST["formation_libelle"];
+  $formation_prixFormation = $_POST["formation_prixFormation"];
 //   on crée une boucle for qui va parcourir les id du produits en incrémentant
-  for($count = 0; $count < count($product_id); $count++)
+  for($count = 0; $count < count($formation_id); $count++)
   {
     //   La fonction array_keys () renvoie un tableau contenant les clés.
     //  $_SESSION stock toutes les valeurs de variable de session
-   $cart_product_id = array_keys($_SESSION["shopping_cart"]);
+   $cart_formation_id = array_keys($_SESSION["shopping_cart"]);
 // La fonction in_array () recherche dans un tableau une valeur spécifique
 // il va ici chercher si la taille de l'id du produit est présent dans l'id du produit panier 
-   if(in_array($product_id[$count], $cart_product_id))
+   if(in_array($formation_id[$count], $cart_formation_id))
    {
-    $_SESSION["shopping_cart"][$product_id[$count]]['product_quantity']++;
+    $_SESSION["shopping_cart"][$formation_id[$count]]['product_quantity']++;
    }
    else
    {
     $item_array = array(
-     'product_id'               =>     $product_id[$count],  
-     'product_name'             =>     $product_name[$count],
-     'product_price'            =>     $product_price[$count],
-     'product_quantity'         =>     1
+     'formation_id'               =>     $formation_id[$count],  
+     'formation_libelle'             =>     $formation_libelle[$count],
+     'formation_prixFormation'            =>     $formation_prixFormation[$count],
+     
     );
 
-    $_SESSION["shopping_cart"][$product_id[$count]] = $item_array;
+    $_SESSION["shopping_cart"][$formation_id[$count]] = $item_array;
 
     
    }
@@ -48,7 +48,7 @@ if(isset($_POST["action"]))
  {
   foreach($_SESSION["shopping_cart"] as $keys => $values)
   {
-   if($values["product_id"] == $_POST["product_id"])
+   if($values["formation_id"] == $_POST["formation_id"])
    {
 // La fonction unset () annule une variable.
     unset($_SESSION["shopping_cart"][$keys]);

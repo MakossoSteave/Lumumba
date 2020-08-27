@@ -23,16 +23,8 @@ include './include/header.php';?>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <!-- on intègre de nouveau bootsrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<<<<<<< HEAD
     <!-- on intègre jquery de nouveau -->
     <script src="./javascript/jqueryindex.js"></script>
-=======
-    <script src="./javascript/jqueryindex.js"></script>
-    <script src="./javascript/checking.js"></script>
-    <link rel="stylesheet" href="./css/index.scss">
-
-
->>>>>>> origin/steave
     <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
 
