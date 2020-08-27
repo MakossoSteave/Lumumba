@@ -209,6 +209,7 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
    $req = $pdo->prepare('select * from projet where creerPar = ?');
     $req->execute([$identite]);
     $formation=$req->fetchAll(PDO::FETCH_ASSOC);
+ 
    
     ?>
     <?php
