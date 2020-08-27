@@ -159,6 +159,7 @@ foreach ($num_contacts as $contact):
     </div>
 </div></form>
 <br>
+
 <div id="ter">
 
 
@@ -310,6 +311,10 @@ formation();
     </div>
 </div></form>
 <br>
+<?php  
+intervenantes();
+?>
+</div>
 <div id="ter">
 <?php
     }

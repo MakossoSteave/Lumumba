@@ -83,9 +83,53 @@ function Edition() {
                 alert('There was a problem with the request.');
             }
         }
-    }s
+    }
 }
+function EditionProjet() {
+    var id = document.getElementById("idProjet").value;
+    var nom = document.getElementById("nomProjet").value;
+    var desc = document.getElementById("projetDesc").value;
+    var heure = document.getElementById("heureProjet").value;
+    var techno = document.getElementById("technoProjet").value;
+    var prix = document.getElementById("prixProjet").value;
+    var img = document.getElementById("imageProjet").value;
+   
 
+    donne = [id,nom, desc, heure, techno, prix, img]
+    var xhr;
+
+    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+        xhr = new XMLHttpRequest();
+        console.log("test")
+
+    } else if (window.ActiveXObject) { // IE 8 and older
+        console.log("teste")
+
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var data = "donne=" + donne
+    console.log(donne);
+    console.log(data)
+
+    xhr.open("POST", "../Db/request/editprojet.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadystatechange = display_data;
+
+    function display_data() {
+        if (xhr.readyState == 4) {
+            console.log("editions")
+
+            if (xhr.status == 200) {
+                console.log("teste2")
+
+                document.getElementById("resulte").innerHTML = xhr.responseText;
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+}
 function EditionProfile() {
     var id = document.getElementById("idProfile").value;
     var nom = document.getElementById("nomupd").value;
