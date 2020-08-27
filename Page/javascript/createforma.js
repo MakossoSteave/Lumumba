@@ -217,6 +217,46 @@ function Delete() {
     }
 }
 
+function DeleteProjet() {
+    var id = document.getElementById("idPorjet").value;
+
+
+    donne = [id]
+    var xhr;
+
+    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+        xhr = new XMLHttpRequest();
+        console.log("test")
+
+    } else if (window.ActiveXObject) { // IE 8 and older
+        console.log("teste")
+
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var data = "donne=" + donne
+    console.log(donne);
+    console.log(data)
+
+    xhr.open("POST", "../Db/request/deleteProjet.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadystatechange = display_data;
+
+    function display_data() {
+        if (xhr.readyState == 4) {
+            console.log("editions")
+
+            if (xhr.status == 200) {
+                console.log("teste2")
+
+                document.getElementById("resultas").innerHTML = xhr.responseText;
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+}
+
 function projet() {
     var desc = document.getElementById("description").value;
     var img = document.getElementById("image").value;
