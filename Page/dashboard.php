@@ -496,11 +496,11 @@ intervenantes();
                                                                     <p><?= $users['Role']?></p>
                                                                 </div>
                                                             </div>
-                                                            <a class="uk-button uk-button-default" href="update.php?id=<?= $users['id'] ?>"  uk-toggle> 
+                                                            <a class="uk-button uk-button-default" href="?id=<?= $users['id'] ?>"  uk-toggle> 
             editer 
  
           </a>
-          <a href="delete.php?id=<?= $users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
+          <a href="?id=<?= $users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
                                                             <hr>
                                                           <?php endforeach;?>
                                                 </div>
@@ -539,10 +539,10 @@ intervenantes();
                                                                     <p><?= $formation['creerPar'] ?></p>
                                                                 </div>
                                                             </div>
-                                                            <a class="uk-button uk-button-default" href="update.php?id=<?= $users['id'] ?>"  uk-toggle> 
+                                                            <a class="uk-button uk-button-default" href="?id=<?= $users['id'] ?>"  uk-toggle> 
             editer
           </a>
-          <a href="delete.php?id=<?= $users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
+          <a href="?id=<?= $users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
                                                         <hr>
                                                             <?php endforeach;?>
                                                 </div>
