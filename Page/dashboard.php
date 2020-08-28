@@ -570,7 +570,7 @@ intervenantes();
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <p for="msj">Se enviará este mensaje a la persona que desea contactar, indicando que te quieres comunicar con el. Para esto debes de ingresar tu información personal.</p>
+                        <p for="msj">.</p>
                     </div>
                     <div class="form-group">
                         <label for="txtFullname">Nom</label>
