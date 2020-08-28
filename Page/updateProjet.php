@@ -95,7 +95,7 @@
 
       </div>
         <div class="uk-modal-footer uk-text-right">
-        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="EditionProjet();"> <a href="" style="color:white;text-decoration:none;">Modifier</a></button>
+        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="EditionProjet();"> <a href="dashboard.php" style="color:white;text-decoration:none;">Modifier</a></button>
             <button class="uk-button uk-button-default "  type="button"> <a href="dashboard.php" style="text-decoration:none;">
 Annuler
             </a></button>

@@ -116,7 +116,7 @@ function intervenantPage($nom , $prenom , $role ,$email , $tel,$img,$id){
         <li>
           <ul>
             <li>
-              <a  uk-toggle="target: #message-close-default" style="text-decoration:none">
+              <a  uk-toggle="target: #message-close-defaults" style="text-decoration:none">
                 <span class="icon is-small"><i class="fas fa-envelope"></i></span> Message
               </a>
             </li>
@@ -199,17 +199,15 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel,$img,$id){
           <li>
             <ul>
               <li>
-                <a href="#"style="text-decoration:none">
-                  <span class="icon is-small"><i class="fas fa-envelope"></i></span> Message
-                </a>
+                  <a  uk-toggle="target: #message-close-default" style="text-decoration:none">
+                <span class="icon is-small"><i class="fas fa-envelope"></i></span> Message
+              </a>
               </li>
               <li>
-                <a href="#"style="text-decoration:none">
-                  <span class="icon is-small"><i class="fas fa-chalkboard-teacher"></i></span> Mes Formateurs
-                </a>
-                <a href="#" style="text-decoration:none">
-                  <span class="icon is-small"><i class="fas fa-chalkboard-teacher"></i></span> Mes Intervenants
-                </a>
+              <a uk-toggle="target: #modal-close-outside"><i class="fas fa-chalkboard-teacher"></i> Formateur</a>
+
+              <a uk-toggle="target: #modal-close-outsidee"><i class="fas fa-chalkboard-teacher"></i> Intervenant</a>
+
                 <a href="parametre.php?id=$id"style="text-decoration:none">
                   <span class="icon is-small"><i class="fas fa-sliders-h"></i></span> Parametre
                 </a>

@@ -245,7 +245,7 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
             editer 
  
           </a>
-          <a href="delete.php?id=<?=$id?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
+          <a href="deleteProjet.php?id=<?=$id?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
      
   </div>
 </div>

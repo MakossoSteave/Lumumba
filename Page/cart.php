@@ -28,7 +28,6 @@
     $req = $pdo->prepare('select * from formation where id = ?');
     $req->execute([$id]);
     $formation=$req->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($formation);
    
     ?>
     <div class="container">
