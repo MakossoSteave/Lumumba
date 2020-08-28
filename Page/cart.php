@@ -144,14 +144,14 @@ function load_cart_data()
      
 // lorsque la fonction load_cart_data() a bien fonction, on l'exécute et on lui demande d'afficher un msg
      load_cart_data();
-     alert("Item has been Added into Cart");
+     alert("La formation a bien été ajouté dans le panier");
     }
    });
   }
   else
   {
     //   si la fonction n'a pas été à son terme on envoie une autre alert
-   alert('Select atleast one item');
+   alert('Selectionné au moins un élément');
   }
 
  });
@@ -165,7 +165,7 @@ function load_cart_data()
   var action = 'remove';
 //   La méthode confirm () affiche une boîte de dialogue avec un message spécifié, 
 // ainsi qu'un bouton OK et un bouton Annuler.
-  if(confirm("Are you sure you want to remove this formation?"))
+  if(confirm("Etes vous sûre de vouloir supprimer la formation?"))
   {
    $.ajax({
     //  La $.post()méthode demande des données au serveur à l'aide d'une requête HTTP POST.
@@ -204,7 +204,7 @@ function load_cart_data()
     //    en cas de success de la requete ajax, appel la fct load_cart_data() et on met un alert
     // pour dire que le pannier est bien vide
     load_cart_data();
-    alert("Your Cart has been clear");
+    alert("Votre pannier a bien été vidé");
    }
   });
   console.log("hello word");
