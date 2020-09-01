@@ -226,7 +226,17 @@ function load_cart_data()
 if (isset($_COOKIE["panier_cookie"]))
 echo 'Le cookie existe ' . $_COOKIE["panier_cookie"] . '!<br />';
 else
-echo 'Le cookie n\'existe pas <br />';
+      'le cookie n"existe pas';
+?>
+<?php 
+
+if($_POST["action"] == "")
+ {
+  setcookie("panier_cookie", "$panierContenant", time() - 3600);
+  header("location:cart.php?clearall=1");
+ }
+else
+;
 ?>
 </body>
 </html>
