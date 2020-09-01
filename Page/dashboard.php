@@ -21,7 +21,13 @@
      
       $id = $_SESSION['id']; 
       formateurPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
-      ?><!DOCTYPE html>
+      ?>
+          </div>
+    </section>
+      <?php
+formation();
+?>
+      <!DOCTYPE html>
       <html lang="en">
       <head>
         <meta charset="UTF-8">
@@ -37,6 +43,7 @@
       h1,p,h2,h3{
         font-family: 'Montserrat', sans-serif;
       }
+     
       </style>
     </div>
     <div id="modal-close-default" uk-modal>
@@ -75,8 +82,6 @@ foreach ($num_contacts as $contact):
 </textarea>
   <button>Envoyer</button>
   </form>
-
-
       </div>
         </div>
       </div>
@@ -155,16 +160,10 @@ foreach ($num_contacts as $contact):
             <button class="uk-button uk-button-default " type="button">Cancel</button>
         </div>
     </div>
-</div></form>
-<br>
-
+</div>
+</form>
 <div id="ter">
 
-
-
-<?php
-formation();
-?>
 </div>
 
 </div><div class="perso">
@@ -390,8 +389,6 @@ foreach ($num_contacts as $contact):
 </textarea>
   <button>Envoyer</button>
   </form>
-
-
       </div>
         </div>
       </div>
@@ -427,9 +424,7 @@ intervenantes();
                             <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact" class="btn btn-success btn-block follow">Modifier</button> 
                         </div>
                         <div class="row user-detail-row">
-                                                   
                         </div>
-                       
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
@@ -440,7 +435,6 @@ intervenantes();
                                     <h1><?=$nom?> <?=$prenom?></h1>
                                     <h5><?= $role ?></h5>
                                 </div>
-                               
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -466,21 +460,21 @@ intervenantes();
       ?>
                  <div class="row">
            <div class="col-md-2">
-                                                                    <label>Nom</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p><?= $users['nom']?> <?= $users['prenom']?></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-2">
-                                                                    <label>Email</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p><?= $users['email']?></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
+           <label>Nom</label>
+           </div>
+              <div class="col-md-6">
+            <p><?= $users['nom']?> <?= $users['prenom']?></p>
+            </div>
+               </div>
+             <div class="row">
+ <div class="col-md-2">
+         <label>Email</label>
+</div>
+ <div class="col-md-6">
+    <p><?= $users['email']?></p>
+ </div>
+</div>
+<div class="row">
                                                                 <div class="col-md-2">
                                                                     <label>Telephone</label>
                                                                 </div>
@@ -504,12 +498,9 @@ intervenantes();
                                                             <hr>
                                                           <?php endforeach;?>
                                                 </div>
-                                                
-
                                                 <div role="tabpanel" class="tab-pane fade" id="buzz">
                                                 <?php
        $pdo =pdo_connect_mysql() ;
-
             $formation = $pdo->query('SELECT * FROM formation ')->fetchAll()
        ?>
         <?php foreach ($formation as $formation): 
@@ -548,9 +539,7 @@ intervenantes();
                                                 </div>
                                                 
                                               </div>
-                          
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
