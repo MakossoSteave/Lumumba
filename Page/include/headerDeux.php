@@ -75,7 +75,7 @@ session_start();
                     <div class="buttons" >
                         <a class="button is-light" href="logout.php" style="text-decoration: none;">                         
                         <img src="./img/logout.png" alt="" srcset="">
-                        Deconnexion
+
                          </a>
                          
                     </div>
