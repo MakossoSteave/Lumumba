@@ -48,8 +48,8 @@ include './include/header.php';?>
             <h2 class="subtitle">
             Étudiez à tout moment le sujet que vous souhaitez.<br> Faites dès maintenant votre choix parmi des milliers de cours enseignés par des formateurs et intervenants confirmés.
            </h2>
-           <input class="input" type="text" placeholder="Que Souhaitez vous Apprendre ?">
-      <span class="icon is-left is-medium">
+           <input class="input is-rounded" type="text" placeholder="Que souhaitez vous apprendre">
+           <span class="icon is-left is-medium">
       </span>
           </div>
           <div class="col" >   

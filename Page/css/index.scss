@@ -9,8 +9,8 @@
     
     html,
     body,
-    #app {
-        height: 100%;
+    .app {
+        height: 60%;
     }
     
     h1,
@@ -21,6 +21,7 @@
     h5,
     a {
         font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
     }
     
     #app {
@@ -28,10 +29,22 @@
         display: flex;
         flex-direction: column;
     }
+    .section.profile-heading .column.is-2-tablet.has-text-centered + .has-text-centered {
+        border-left: 1px dotted rgba(0, 0, 0, 0.2);
+      }
+      
+      .container.profile {
+        margin-top: 1%;
+      }
+      
+     
+      .modal-card .content h1 {
+        padding: 40px 60px 10px;
+        border-bottom: 1px solid #dadada;
+      }
+      
     
-    .main-content {
-        flex: 1;
-    }
+    
     
     .footer {
         margin-top: -12px;
