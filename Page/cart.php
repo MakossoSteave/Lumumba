@@ -1,12 +1,21 @@
 <?php
-    include './include/headerDeux.php';
     require './include/function.php';
     include 'formation.php';
     require '../Db/db.php';
 
 
  
-      ?> <!DOCTYPE html>
+      ?> 
+<!-- insertion des cookies pour le panier -->
+
+<?php 
+
+// $panierContenant = 'Contenu du panier';
+
+ ?>
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -95,8 +104,9 @@
     </tbody>
   </table>
   <button type="button"  class="btn btn-danger delete" id="'. $list["id"].'""><i class="fas fa-trash fa-xs"></i></button>
-  <button type="button" class="btn btn-danger delete" id="'. $list["id"].'"">Supprimé</button>
+  
   ' ;
+  setcookie('panier_cookie', $panierContenant,  time()+36000);
   echo $panierContenant ?>
   <?php endforeach; ?>
     </div>
@@ -211,5 +221,12 @@ function load_cart_data()
     
 
    </script>
+   <?php
+// test l'existance d'un cookie apelé "nom_cookie"
+if (isset($_COOKIE["panier_cookie"]))
+echo 'Le cookie existe ' . $_COOKIE["panier_cookie"] . '!<br />';
+else
+echo 'Le cookie n\'existe pas <br />';
+?>
 </body>
 </html>
