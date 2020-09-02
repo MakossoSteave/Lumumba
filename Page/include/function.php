@@ -52,9 +52,11 @@ function formateurPage($nom , $prenom , $role ,$email , $tel,$img,$id){
       <div class='section profile-heading'>
       <div class='columns is-mobile is-multiline'>
         <div class='column is-2'>
-          <span class='header-icon user-profile-image'>
+        <a href="upload.php?id=$email"> <span class='header-icon user-profile-image'>
             <img alt='' src='$img'>
           </span>
+        </a>
+         
         </div>
         <div class='column is-4-tablet is-10-mobile name'>
           <p>
@@ -219,7 +221,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel,$img,$id){
                 <a href="parametre.php?id=$id"style="text-decoration:none">
                   <span class="icon is-small"><i class="fas fa-sliders-h"></i></span> Parametre
                 </a>
-                <a href="#"style="text-decoration:none">
+                <a href="cart.php"style="text-decoration:none">
                   <span class="icon is-small"><i class="fas fa-cart-arrow-down"></i></span> Panier
                 </a>
               </li>
@@ -229,23 +231,40 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel,$img,$id){
         </ul>
       </aside>
     
-      <div class="container column is-10">
-        <div class="section">
-    
-        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-        <div class="uk-card-media-left uk-cover-container">
-            <img src="$img" alt="" uk-cover>
-            <canvas width="250" height="200"></canvas>
+      <div class='section profile-heading'>
+      <div class='columns is-mobile is-multiline'>
+        <div class='column is-2'>
+        <a href="upload.php?id=$email"> <span class='header-icon user-profile-image'>
+            <img alt='' src='$img'>
+          </span>
+        </a>
+         
         </div>
-        <div>
-            <div class="uk-card-body">
-                <h3 class="uk-card-title">$nom  $prenom</h3>
-                <p>Titre : $role</p>
-                <p>Email : $email </p>
-                <p>Tel : $tel</p>
-            </div>
+        <div class='column is-4-tablet is-10-mobile name'>
+          <p>
+            <span class='title is-bold'> $nom  $prenom</span>
+            <br>
+            <a class='button is-primary is-outlined' href="parametre.php?id=$id"' style='margin: 5px 0;text-decoration:none'>
+              Parametres
+            </a>
+            <br>
+          </p>
+          <p class='tagline'>
+          En tant que formateur mon rôle est d'aidé chaque stagiaire dans son cursus
+          </p>
         </div>
-    </div>        
+        <div class='column is-2-tablet is-4-mobile has-text-centered'>
+        <p class='stat-key'>Role</p>
+          <p class='stat-val'>$role</p>
+        </div>
+        <div class='column is-2-tablet is-4-mobile has-text-centered'>
+        <p class='stat-key'>Email</p>
+          <p class='stat-val'>$email</p>
+        </div>
+        <div class='column is-2-tablet is-4-mobile has-text-centered'>
+        <p class='stat-key'>Tel</p>
+        <p class='stat-val'>$tel</p>
+      </div>
         </div>
       </div>
       

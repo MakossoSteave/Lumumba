@@ -16,7 +16,7 @@
     $tel=$_SESSION['tel'];
 
     $image = $_SESSION['image'];
-    $tes = "http://localhost/lumumba/Lumumba/Page/img/$image";
+    $tes = "$image";
     if($role =="Formateur"){
      
       $id = $_SESSION['id']; 

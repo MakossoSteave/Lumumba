@@ -1,7 +1,10 @@
 <?php
-    require './include/function.php';
-    include 'formation.php';
-    require '../Db/db.php';
+session_start();
+echo $_SESSION['nom'];
+if($_SESSION['nom'] !=''){
+   require './include/function.php';
+ include 'formation.php';
+ require '../Db/db.php';
 
 
  
@@ -28,7 +31,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+<?php
+function deleteCoockie(){
+  if (isset($_COOKIE['PHPSESSID'])) {
+    unset($_COOKIE['PHPSESSID']); 
+    setcookie('PHPSESSID', null, -1, '/'); 
+    return true;
+} else {
+    return false;
+}
+}
+?>
     
 <?php
     $id= $_GET['id'];
@@ -57,7 +70,20 @@
         <p class="card-text">Heures : <?= $list['nomHeureFormation'] ?> H</p>
         <p class="card-text">Prix : <?= $list['prixFormation'] ?> €</p>
         <?php $id = $list['id'];?>
-        <a href="cart.php?id=<?=$id?>" id="add_to_cart" class="btn btn-success">Ajouter au panier</a>
+        <?php function coockier($a,$b){
+      $coockie_name =$a;
+      $coockie_value =$b;
+      setcookie($coockie_name, $coockie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    
+      
+    if(!isset($_COOKIE[$coockie_name])) {
+        echo "Cookie named '" . $coockie_name . "' is not set!";
+    } else {
+        echo "Cookie '" . $coockie_name . "' is set!<br>";
+        echo "Value is: " . $_COOKIE[$coockie_name];
+    }
+  } ?>
+        <a href="cart.php?id=<?=$id?>" id="add_to_cart" class="btn btn-success" <?php coockier($list['libelle'],$list['prixFormation'])?> >Ajouter au panier</a>
 
       </div>
     </div>
@@ -78,7 +104,8 @@
      <div class="row">
       <div class="col-md-6">Détail du panier</div>
       <div class="col-md-6" align="right">
-       <button type="button" name="clear_cart" id="clear_cart" class="btn btn-warning btn-xs">Clear</button>
+       <button type="button" name="clear_cart" id="clear_cart" class="btn btn-warning btn-xs"  > Clear</button>
+       <a href="" <?php deleteCoockie() ?>>droper</a>
       </div>
      </div>
     </div>
@@ -103,12 +130,21 @@
       </tr>
     </tbody>
   </table>
-  <button type="button"  class="btn btn-danger delete" id="'. $list["id"].'""><i class="fas fa-trash fa-xs"></i></button>
-  
+  <button type="button"  class="btn btn-danger delete" id="'. $list["id"].'""><i class="fas fa-trash fa-xs">Abandonner</i></button>
+  <button type="button"  class="btn btn-success delete" id="'. $list["id"].'""><i class="fas fa-trash fa-xs">Confirmer</i></button>
+
   ' ;
-  setcookie('panier_cookie', $panierContenant,  time()+36000);
-  echo $panierContenant ?>
+  foreach ($_COOKIE as $key=>$val)
+  {
+    echo "Intitulé ".$key.' prix : '.$val.' euros'." <br>\n";
+  }
+    echo $panierContenant ?>
+
   <?php endforeach; ?>
+
+
+ 
+ 
     </div>
    </div>
 
@@ -221,22 +257,11 @@ function load_cart_data()
     
 
    </script>
-   <?php
-// test l'existance d'un cookie apelé "nom_cookie"
-if (isset($_COOKIE["panier_cookie"]))
-echo 'Le cookie existe ' . $_COOKIE["panier_cookie"] . '!<br />';
-else
-      'le cookie n"existe pas';
-?>
-<?php 
-
-if($_POST["action"] == "")
- {
-  setcookie("panier_cookie", "$panierContenant", time() - 3600);
-  header("location:cart.php?clearall=1");
- }
-else
-;
-?>
+   
 </body>
 </html>
+<?php
+}else{
+  header('location:login.php');
+}
+

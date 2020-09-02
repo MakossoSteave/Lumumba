@@ -86,7 +86,7 @@
     <input class="input" name="photo" id="photoupd" type="text" disabled value="<?=$_SESSION['image']?>">
   </div>
 </div>
-<form name="foo" method="post" enctype="multipart/form-data">
+<form  enctype="multipart/form-data">
     <input type="file" value="" id="leforme">
 </form>
 
