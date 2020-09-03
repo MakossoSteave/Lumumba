@@ -134,9 +134,10 @@ function formation(){
 
  <?php
  function formationBis(){
+   $email=$_SESSION['email'];
   $pdo = pdo_connect_mysql();
-  $req = $pdo->prepare('select * from formation');
-  $req->execute();
+  $req = $pdo->prepare('select * from panier where Appartient =?');
+  $req->execute([$email]);
   $contact=$req->fetchAll(PDO::FETCH_ASSOC);
   
 
@@ -149,11 +150,25 @@ function formation(){
    
                 <?php foreach ($contact as $list): ?>
                  
-      <div class="card mb-3" style="max-width: 540px;">
+    
+      <div class="card mb-3" style="max-width: 400px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-     test
+      <img src="<?=$list['img']?>" class="card-img" alt="...">
     </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?=$list['Libelle'] ?></h5>
+        <p class="card-text">Descriptions : <?= $list['LibelleLong'] ?></p>
+        <p class="card-text">Prix : <?= $list['prix'] ?> €</p>
+        <?php $id = $list['id'];?>
+        <a href="panier.php?id=<?=$id?>" class="btn btn-danger">quitter</a>
+
+      </div>
+    </div>
+ 
+  
+   
     <div class="col-md-8">
       <div class="card-body">
      
@@ -176,7 +191,7 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="col-2">
 <hr style=" border-left: 1px solid black;
-  height: 400px;
+  height: 100px;
   position: absolute;
   left: 50%;
   margin-left: -3px;
@@ -202,7 +217,8 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
 </div>
       
        <?php endforeach; ?>
-   
+</div>
+  </div>
  </div>
  </div>
  </div>

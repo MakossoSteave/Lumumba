@@ -263,6 +263,39 @@ foreach ($num_contacts as $contact):
       </div>
 </div>
 <?php endforeach; ?>
+      </div>
+<?php
+        $pdo = pdo_connect_mysql();
+        $req = $pdo->prepare('select * from projet');
+        $req->execute();
+        $contact=$req->fetchAll(PDO::FETCH_ASSOC); 
+        ?>
+       <br>
+      <div class="row">
+                <?php foreach ($contact as $list): ?>
+                  <div class="col-6">
+      <div class="card mb-3" style="max-width: 500px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="<?=$list['img']?>" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?=$list['nom'] ?></h5>
+        <p class="card-text">Descriptions : <?= $list['description'] ?></p>
+        <p class="card-text">Heures : <?= $list['nomHeure'] ?> H</p>
+        <p class="card-text">Prix : <?= $list['prix'] ?> €</p>
+        <p class="card-text">techno : <?= $list['technoMaitriser'] ?> €</p>
+
+        <?php $id = $list['id'];?>
+        <a href="paniers.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
+
+      </div>
+    </div>
+  </div>
+      </div>
+</div>
+<?php endforeach; ?>
   </div></div>    
      <?php formationBis(); ?>
   <?php
@@ -487,10 +520,10 @@ intervenantes();
                                                                     <label>Role</label>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <p><?= $users['Role']?></p>
-                                                                </div>
-                                                            </div>
-                                                            <a class="uk-button uk-button-default" href="?id=<?= $users['id'] ?>"  uk-toggle> 
+ <p><?= $users['Role']?></p>
+ </div>
+  </div>
+  <a class="uk-button uk-button-default" href="?id=<?= $users['id'] ?>"  uk-toggle> 
             editer 
  
           </a>

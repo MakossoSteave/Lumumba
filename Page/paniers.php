@@ -6,7 +6,7 @@ if(!empty($_SESSION['nom'])){
 ?>
 <?php
 if(empty($_GET['id'])){
-    if(empty($_COOKIE['Article'])){
+    if(empty($_COOKIE['Article']) || empty($_COOKIE['Projet'])){
         echo "votre Panier est vide ";
     }else{
         $te= $_COOKIE['Article'];
@@ -19,15 +19,12 @@ echo "<br>";
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <div>
-
  <div class="container">
      <div class="col">
           <h1><?=$exp[0]?></h1>
   <p><?= $exp[1]?></p>
   <p><?= $exp[3]?></p>
   <?php $id= $exp[4]?>
-
-
   <img src="<?= $exp[2]?>" alt="" srcset="">
   <br>
   <div class="container">
@@ -42,20 +39,13 @@ echo "<br>";
 </div>
  </div>
      </div>
-  </div>
-    
-          
-     
+  </div> 
   </div>
         <?php
     }
-
   ?>
-    
 <?php
 }else{
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +60,7 @@ echo "<br>";
     <?php 
    $id= $_GET['id'];
     $pdo = pdo_connect_mysql();
-    $panier =  $pdo->prepare('select * from formation where id = ?');
+    $panier =  $pdo->prepare('select * from projet where id = ?');
     $panier->execute([$id]);
     $paniers=$panier->fetchAll(PDO::FETCH_ASSOC); 
 
@@ -83,9 +73,12 @@ echo "<br>";
     <div class="col-">
 <div class='product_wrapper'>
 			  <form method='post' action=''>
+              <div class="col-md-4">
+      <img src="<?= $panidd['img']?>" class="card-img" alt="...">
+    </div>
 			  <div class='image'><img src="<?= $panidd['img']?>" /></div>
-			  <div class='name'><?= $panidd['libelle']?></div>
-		   	  <div class='price'><?= $panidd['prixFormation']?>  € </div>
+			  <div class='name'><?= $panidd['nom']?></div>
+		   	  <div class='price'><?= $panidd['prix']?>  € </div>
 			  <button type='submit' class='buy'>Acheter </button>
 			  </form>
                  </div>
@@ -94,9 +87,9 @@ echo "<br>";
     <div class="media-content">
     <div class="content">
       <p>
-        <strong><?= $panidd['libelle']?></strong>
+        <strong><?= $panidd['nom']?></strong>
         <br>
-        <?= $panidd['libelleLong']?>
+        <?= $panidd['description']?>
       </p>
     </div>
     <nav class="level is-mobile">
@@ -111,15 +104,13 @@ echo "<br>";
       
       </div>
       <a href="dashboard.php" style="text-decoration: none;" class="button is-danger">Retour</a>
-
     </nav>
     <br>
   </div>
     </div></div>
-
 </div> <?php
-                 $cookie_name = 'Article';
-                 $data = array($panidd['libelle'],$panidd['prixFormation'],$panidd['img'],$panidd['libelleLong'],$panidd['id']);
+                 $cookie_name = 'Projet';
+                 $data = array($panidd['nom'],$panidd['prix'],$panidd['img'],$panidd['description'],$panidd['id']);
                 $var =implode(',',$data);
                 
                  setcookie($cookie_name, $var, time() +3600);                 

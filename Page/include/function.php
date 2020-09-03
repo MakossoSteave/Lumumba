@@ -246,7 +246,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel,$img,$id){
             <br>
           </p>
           <p class='tagline'>
-          En tant que formateur mon rôle est d'aidé chaque stagiaire dans son cursus
+         Me voici enfin Stagiaire et pret à apprendre
           </p>
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
