@@ -1,12 +1,9 @@
 <?php
-
 function formation(){
       $pdo = pdo_connect_mysql();
       $req = $pdo->prepare('select * from formation');
       $req->execute();
-      $contact=$req->fetchAll(PDO::FETCH_ASSOC);
-      
-	 
+      $contact=$req->fetchAll(PDO::FETCH_ASSOC);	 
    ?>
       
 </div>
@@ -23,7 +20,6 @@ function formation(){
 
     <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
          <?php foreach ($contact as $formations): ?>
-
 <?php $id = $formations['id'];?><li>
   <div class="container">
     <div class="row">
@@ -39,36 +35,23 @@ function formation(){
                   Heure: <span>  <?= $formations['nomHeureFormation'] ?> H </span><br>
                   Créer Par : <span>  <?= $formations['creerPar'] ?> </span>
                   </p>
-                  
             </div>
       </div>
       <div class="col-3">
       </div>
-      
     </div>
-     
   </div>
-           
-        <?php endforeach; ?></li>
-
+  <?php endforeach; ?></li>
     </ul>
-
     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
 </div>
-
 <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-
 </div>
     <div>
 <br>
-
-
     </div>
-    </div>
-     
-               
+    </div>      
    <?php 
    $nom = $_SESSION['nom'];
    $prenom = $_SESSION['prenom'];
@@ -123,14 +106,10 @@ function formation(){
       
       <div class="col-3">
       </div>
-      
     </div>
-     
-
        </div>
    </div>
 <br>
-
            <?php endforeach; ?>
            </ul>
 
@@ -150,6 +129,9 @@ function formation(){
 <?php
  }
  ?>
+
+
+
  <?php
  function formationBis(){
   $pdo = pdo_connect_mysql();
@@ -185,8 +167,8 @@ function formation(){
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 $identite =$nom." ".$prenom;
-$req = $pdo->prepare('select * from projet where creerPar = ?');
-$req->execute([$identite]);
+$req = $pdo->prepare('select * from projet ');
+$req->execute();
 $formation=$req->fetchAll(PDO::FETCH_ASSOC);
 
 ?>

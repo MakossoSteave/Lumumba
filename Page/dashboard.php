@@ -255,7 +255,7 @@ foreach ($num_contacts as $contact):
         <p class="card-text">Heures : <?= $list['nomHeureFormation'] ?> H</p>
         <p class="card-text">Prix : <?= $list['prixFormation'] ?> €</p>
         <?php $id = $list['id'];?>
-        <a href="cart.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
+        <a href="panier.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
 
       </div>
     </div>

@@ -217,11 +217,7 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel,$img,$id){
               <a uk-toggle="target: #modal-close-outside"><i class="fas fa-chalkboard-teacher"></i> Formateur</a>
 
               <a uk-toggle="target: #modal-close-outsidee"><i class="fas fa-chalkboard-teacher"></i> Intervenant</a>
-
-                <a href="parametre.php?id=$id"style="text-decoration:none">
-                  <span class="icon is-small"><i class="fas fa-sliders-h"></i></span> Parametre
-                </a>
-                <a href="cart.php"style="text-decoration:none">
+                <a href="panier.php"style="text-decoration:none">
                   <span class="icon is-small"><i class="fas fa-cart-arrow-down"></i></span> Panier
                 </a>
               </li>

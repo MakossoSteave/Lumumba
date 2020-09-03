@@ -10,14 +10,15 @@
 <html>
    <body>
       
+   <script>alert("toute les modifications seront pris en compte a votre prochaine connection")</script>
       <form action = "" method = "POST" enctype = "multipart/form-data">
          <input type = "file" name = "image" />
-         <input type = "submit" name="submit"/>
+         <input type = "submit" name="submit"  >submit</button>
 			
        
       </form>
 
-
+    
 <?php
             $email = $_GET["id"];
 
@@ -50,6 +51,10 @@ if(isset($_POST['submit'] )){
             $stmt= $pdo->prepare($sql2);
             $stmt->execute();
             ?><img src="<?= $fichier?>" alt="" srcset="">
+           
+            <?php
+            header('location:dashboard.php')
+            ?>
 <?php
         } else {
             print_r($errors);
