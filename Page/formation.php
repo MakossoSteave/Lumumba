@@ -296,22 +296,16 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
    <div class="container">
        <div class="row">
         <div class="col">
-        <h1 >Listes des Projets </h1>
+        <h1 >Suivis Par</h1>
        <div > <?php foreach ($contact as $list): ?>
         <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="<?=$list['img']?>" class="card-img" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><?= $list['nom'] ?></h5>
-        <p class="card-text">Descriptions : <?= $list['description'] ?></p>
-        <p class="card-text">Heures : <?= $list['nomHeure'] ?> H</p>
-        <p class="card-text">Technos à maitriser : <?= $list['technoMaitriser'] ?> </p>
-        <p class="card-text">Rémuneration : <?= $list['prix'] ?> €</p>
 
-        <p class="card-text">Intervenant dirigeant : <small class="text-muted"><?= $list['creerPar'] ?></small></p>
       </div>
     </div>
   </div>
@@ -324,15 +318,18 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
    $req = $pdo->prepare('select * from projet where creerPar = ?');
     $req->execute([$identite]);
     $formation=$req->fetchAll(PDO::FETCH_ASSOC);
- 
-   
     ?>
     <?php
 ?>
        </div>
         </div>
         <div class="col-2">
-       
+        <hr style=" border-left: 1px solid black;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;">
         </div>
 <div class="col">
 
