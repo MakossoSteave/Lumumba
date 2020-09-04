@@ -194,6 +194,7 @@ function Delete() {
         xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
     var data = "donne=" + donne
+    
     console.log(donne);
     console.log(data)
 

@@ -285,7 +285,7 @@ foreach ($num_contacts as $contact):
         <p class="card-text">Descriptions : <?= $list['description'] ?></p>
         <p class="card-text">Heures : <?= $list['nomHeure'] ?> H</p>
         <p class="card-text">Prix : <?= $list['prix'] ?> €</p>
-        <p class="card-text">techno : <?= $list['technoMaitriser'] ?> €</p>
+        <p class="card-text">techno : <?= $list['technoMaitriser'] ?> </p>
 
         <?php $id = $list['id'];?>
         <a href="paniers.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
@@ -426,7 +426,7 @@ foreach ($num_contacts as $contact):
         </div>
       </div>
 </div>
-<br>
+
 <?php  
 intervenantes();
 ?>
@@ -488,7 +488,7 @@ intervenantes();
 
             $users = $pdo->query('SELECT * FROM user ')->fetchAll()
        ?>
-                    <?php
+ <?php
     foreach ($users as $users): 
       ?>
                  <div class="row">
@@ -508,18 +508,18 @@ intervenantes();
  </div>
 </div>
 <div class="row">
-                                                                <div class="col-md-2">
-                                                                    <label>Telephone</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p><?= $users['tel']?></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-2">
-                                                                    <label>Role</label>
-                                                                </div>
-                                                                <div class="col-md-6">
+ <div class="col-md-2">
+ <label>Telephone</label>
+ </div>
+  <div class="col-md-6">
+<p><?= $users['tel']?></p>
+  </div>
+ </div>
+<div class="row">
+ <div class="col-md-2">
+ <label>Role</label>
+ </div>
+   <div class="col-md-6">
  <p><?= $users['Role']?></p>
  </div>
   </div>

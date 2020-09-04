@@ -35,7 +35,7 @@
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
       </head>
       <body>
-
+<script>alert("toute les modifications seront prise en compte a votre prochaîne connections")</script>
     <?php
   $pdo = pdo_connect_mysql();
   
@@ -86,9 +86,7 @@
     <input class="input" name="photo" id="photoupd" type="text" disabled value="<?=$_SESSION['image']?>">
   </div>
 </div>
-<form  enctype="multipart/form-data">
-    <input type="file" value="" id="leforme">
-</form>
+
 
 <input class="input" name="photo" id="appartientupd" type="hidden" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">
 

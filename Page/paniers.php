@@ -76,10 +76,11 @@ echo "<br>";
               <div class="col-md-4">
       <img src="<?= $panidd['img']?>" class="card-img" alt="...">
     </div>
-			  <div class='image'><img src="<?= $panidd['img']?>" /></div>
+			  
 			  <div class='name'><?= $panidd['nom']?></div>
-		   	  <div class='price'><?= $panidd['prix']?>  € </div>
-			  <button type='submit' class='buy'>Acheter </button>
+           <div class='price'><?= $panidd['prix']?>  € </div>
+           <br>
+			  <a href="Achatbis.php?id=<?=$id?>" type='submit' class='buy' id="<?= $panidd['id'] ?>">Acheter </a>
 			  </form>
                  </div>
     </div>
