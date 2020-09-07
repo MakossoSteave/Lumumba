@@ -97,6 +97,7 @@ function formation(){
                   <div>
                   <a class="button is-warning" href="update.php?id=<?= $formations['id'] ?>" style="text-decoration:none">Editer</a>
                   <a class="button is-danger" href="delete.php?id=<?=$id?>"  style="text-decoration:none">Supprimer</a>
+
                   </div>
                   
             </div>
@@ -240,11 +241,15 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
       $req->execute();
       $contact=$req->fetchAll(PDO::FETCH_ASSOC);
       
-	 
+      $nom = $_SESSION['nom'];
+      $prenom = $_SESSION['prenom'];
+      $identite =$nom." ".$prenom;
+      $mail= $_SESSION['email'];
    ?>
+   
       <div style="text-align: center;"> <h1 id="titre">Liste des projets</h1>
 <br>
-   <div >
+   <div  style="height: 500px;position:relative;">
        <div uk-slider="center: true">
 
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
@@ -282,6 +287,75 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
        </div>
    </div>
 <br>
+
+           <?php endforeach; ?>
+           </ul>
+
+<a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+<a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+
+<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+            
+      </div>
+      <?php
+       $identite =$nom." ".$prenom;
+      $mail= $_SESSION['email'];
+      $pdo = pdo_connect_mysql();
+      $req = $pdo->prepare('select * from projet  where creerPar = ?');
+      $req->execute([$identite]);
+      $contact=$req->fetchAll(PDO::FETCH_ASSOC);
+      
+      $nom = $_SESSION['nom'];
+      $prenom = $_SESSION['prenom'];
+     
+   ?>
+   
+      <div style="text-align: center;"> <h1 id="titre">Mes Projets</h1>
+<br>
+   <div  style="height: 500px;position:relative;">
+       <div uk-slider="center: true">
+
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+    <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+           <?php foreach ($contact as $formations): ?>
+
+            <?php $id = $formations['id'];?><li>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+    <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    <img src="<?=$formations['img']?>" alt="">
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title"><?=$formations['nom'] ?></h3>
+                   description :<p><?= $formations['description'] ?> <br>
+                  Prix : <span> <?= $formations['prix'] ?>€ </span><br>
+                  Heure: <span>  <?= $formations['nomHeure'] ?> H </span><br>
+                  Créer Par : <span>  <?= $formations['creerPar'] ?> </span><br>
+                  Techno : <span>  <?= $formations['technoMaitriser'] ?> </span><br>
+                  
+
+                  </p>
+                  
+                  <div>
+                  <a class="button is-warning" href="updateProjet.php?id=<?= $formations['id'] ?>" style="text-decoration:none">Editer</a>
+                  <a class="button is-danger"  href="deleteProjet.php?id=<?=$id?>"  style="text-decoration:none">Supprimer</a>
+                  </div>
+                  
+            </div>
+            </div>
+      
+      <div class="col-3">
+      </div>
+    </div>
+       </div>
+   </div>
+<br>
+
            <?php endforeach; ?>
            </ul>
 
@@ -297,83 +371,46 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
        <div class="row">
         <div class="col">
         <h1 >Suivis Par</h1>
-       <div > <?php foreach ($contact as $list): ?>
-        <div class="card mb-3" style="max-width: 540px;">
+        <?php 
+         $pdo = pdo_connect_mysql();
+         $req = $pdo->prepare('select * from panier where proprio = ?');
+         $req->execute([$mail]);
+         $suiveur=$req->fetchAll(PDO::FETCH_ASSOC);
+    
+         
+        ?>
+       <div > <?php foreach ($suiveur as $list): ?>     
+       <?php   $comparatif= $list['Appartient']; 
+       $user = $pdo->prepare('select * from user where email = ?');
+       $user->execute([$comparatif]);
+       $comps=$user->fetchAll(PDO::FETCH_ASSOC);
+       
+       ?>
+        <?php foreach ($comps as $user): ?>     
+        <div class="card mb-3" style="max-width: 1200px;">
     <div class="row no-gutters">
     <div class="col-md-4">
+    <img src="<?=$list['img']?>" class="card-img" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><?= $list['nom'] ?></h5>
-
+        <h5 class="card-title"><?= $user['nom']?> <?= $user['prenom']?></h5>
+        <hr>
+        <h5 class="card-title"><?= $list['Libelle']?></h5>
+        <h5 class="card-title"><?= $list['LibelleLong']?></h5>
       </div>
     </div>
   </div>
 </div>      
+<?php endforeach; ?> 
+
                <?php endforeach; ?> 
-   <?php 
-   $nom = $_SESSION['nom'];
-   $prenom = $_SESSION['prenom'];
-   $identite =$nom." ".$prenom;
-   $req = $pdo->prepare('select * from projet where creerPar = ?');
-    $req->execute([$identite]);
-    $formation=$req->fetchAll(PDO::FETCH_ASSOC);
-    ?>
-    <?php
-?>
-       </div>
-        </div>
-        <div class="col-2">
-        <hr style=" border-left: 1px solid black;
-  height: 100px;
-  position: absolute;
-  left: 50%;
-  margin-left: -3px;
-  top: 0;">
-        </div>
-<div class="col">
-
-   <div> <h1 id="titre">Mes Projets</h1>
-       <div >
-      
-       
-           <?php foreach ($formation as $formations): ?>
-
-            <?php $id = $formations['id'];?>
-           <div> 
-           <div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="<?=$formations['img']?>" class="card-img" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?=$formations['nom'] ?></h5>
-        <p class="card-text">Descriptions : <?= $formations['description'] ?></p>
-        <p class="card-text">Technos à maitriser : <?= $formations['technoMaitriser'] ?></p>
-        <p class="card-text">Heures : <?= $formations['nomHeure'] ?> H</p>
-        <p class="card-text">Rémuneration : <?= $formations['prix'] ?> €</p>
-
-        <a class="uk-button uk-button-default" href="updateProjet.php?id=<?= $formations['id'] ?>"  uk-toggle> 
-            editer 
- 
-          </a>
-          <a href="deleteProjet.php?id=<?=$id?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
-     
-  </div>
-</div>
-            </div>
-       </div>
-   </div>
-<br>
-
-           <?php endforeach; ?>
- 
-</div>
-        </div>
+  
        </div>
 
    </div>
+       </div>
+   
 
 <?php
  }

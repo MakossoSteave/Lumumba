@@ -231,7 +231,13 @@ foreach ($num_contacts as $contact):
       </div>
 </div>
 
-     <div class="container">
+        
+     <?php formationBis();
+     
+     ?>
+     <br>
+     <br><br>
+      <div class="container">
      <?php
         $pdo = pdo_connect_mysql();
         $req = $pdo->prepare('select * from formation');
@@ -296,8 +302,7 @@ foreach ($num_contacts as $contact):
       </div>
 </div>
 <?php endforeach; ?>
-  </div></div>    
-     <?php formationBis(); ?>
+  </div></div>
   <?php
      
     }
@@ -332,28 +337,28 @@ foreach ($num_contacts as $contact):
         <div class="field">
   <label class="label">Nom</label>
   <div class="control">
-    <input class="input"  name="nom" id="noms" type="text" placeholder="Text input">
+    <input class="input"  name="nom" id="noms" type="text" placeholder="Text input" required>
   </div>
 </div>
 
 <div class="field">
   <label class="label">Description</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" >
+    <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" required>
     
   </div>
 </div>
 <div class="field">
   <label class="label">Techno à Maitrisé</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="textarea" name="techno" id="techno" placeholder="techno à maitrisé" >
+    <input class="input is-success" type="textarea" name="techno" id="techno" placeholder="techno à maitrisé" required>
     
   </div>
 </div>
 <div class="field">
   <label class="label">Image</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input" type="text" name="image" id="image" placeholder="veuilliez saisir une Url" value="url">
+    <input class="input" type="text" name="image" id="image" placeholder="veuilliez saisir une Url" value="url" required>
     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
     </span>
@@ -363,13 +368,13 @@ foreach ($num_contacts as $contact):
 <div class="field">
   <label class="label">Nombre d'heures</label>
   <div class="control">
-    <input class="input" name="heure" id="heure" type="number" placeholder="nombre d'heures">
+    <input class="input" name="heure" id="heure" type="number" placeholder="nombre d'heures" required>
   </div>
 </div>
 <div class="field">
   <label class="label">Rémuneration du projet</label>
   <div class="control">
-    <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation">
+    <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation" required>
   </div>
 </div>
 
@@ -389,7 +394,7 @@ foreach ($num_contacts as $contact):
 </div>
       </div>
         <div class="uk-modal-footer uk-text-right">
-        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();">Save</button>
+        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();"><a href="dashboard.php" style="text-decoration: none;color:white">Sauvegarder </a></button>
             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
         </div>
     </div>

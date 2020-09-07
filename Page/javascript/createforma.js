@@ -123,7 +123,7 @@ function EditionProjet() {
             if (xhr.status == 200) {
                 console.log("teste2")
 
-                document.getElementById("resulte").innerHTML = xhr.responseText;
+                document.getElementById("resultprojet").innerHTML = xhr.responseText;
             } else {
                 alert('There was a problem with the request.');
             }
@@ -138,9 +138,7 @@ function EditionProfile() {
     var tel = document.getElementById("telupd").value;
     var email = document.getElementById("emailupd").value;
     var createur = document.getElementById("appartientupd").value;
-    var fichier = document.getElementById('leforme').files[0].name;
-
-    donne = [id, nom, prenom, email, tel, img, createur, fichier]
+    donne = [id, nom, prenom, email, tel, img, createur]
     var xhr;
 
     if (window.XMLHttpRequest) { // Mozilla, Safari, ...
