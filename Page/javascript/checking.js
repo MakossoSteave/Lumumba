@@ -1,3 +1,4 @@
+// Vérifie lors de l'inscription que l'email n'est pas déjà pris
 function emailSearch() {
     console.log("okey");
     var dep = document.getElementById('mail').value;
@@ -14,6 +15,8 @@ function emailSearch() {
     xhr.send(data);
     xhr.onreadystatechange = display_data;
 
+
+    // Affiche un affiche disant l'email est pris ou non
     function display_data() {
         console.log("t")
         if (xhr.readyState == 4) {
@@ -29,6 +32,7 @@ function emailSearch() {
     }
 }
 
+// Vérifie les éléments présents lors du saisie dans la barre de recherche
 function book_suggestion() {
     var book = document.getElementById("liste").value;
     var xhr;
@@ -47,6 +51,7 @@ function book_suggestion() {
     xhr.send(data);
     xhr.onreadystatechange = display_data;
 
+    // Affiche les éléments présents dans la barre de recherche
     function display_data() {
         if (xhr.readyState == 4) {
             console.log("teste1")

@@ -2,6 +2,7 @@
     require './include/function.php';
     include 'formation.php';
     require '../Db/db.php';
+    session_start();
 
 
  

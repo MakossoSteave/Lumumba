@@ -1,3 +1,4 @@
+// Function qui est appelé lors de la création de la formation
 function appele() {
     var desc = document.getElementById("description").value;
     var img = document.getElementById("image").value;
@@ -42,6 +43,8 @@ function appele() {
     }
 }
 
+// Fonction qui est appelé lors de l'édition de la formation
+
 function Edition() {
     var id = document.getElementById("id").value;
     var desc = document.getElementById("descriptionModifier").value;
@@ -85,6 +88,8 @@ function Edition() {
         }
     }
 }
+
+// Fonction qui appelé lors de l'édition du projet 
 function EditionProjet() {
     var id = document.getElementById("idProjet").value;
     var nom = document.getElementById("nomProjet").value;
@@ -93,9 +98,9 @@ function EditionProjet() {
     var techno = document.getElementById("technoProjet").value;
     var prix = document.getElementById("prixProjet").value;
     var img = document.getElementById("imageProjet").value;
-   
 
-    donne = [id,nom, desc, heure, techno, prix, img]
+
+    donne = [id, nom, desc, heure, techno, prix, img]
     var xhr;
 
     if (window.XMLHttpRequest) { // Mozilla, Safari, ...
@@ -130,6 +135,8 @@ function EditionProjet() {
         }
     }
 }
+
+// Fonction appelé lors de l'édition du profil
 function EditionProfile() {
     var id = document.getElementById("idProfile").value;
     var nom = document.getElementById("nomupd").value;
@@ -177,6 +184,7 @@ function EditionProfile() {
     }
 }
 
+// Function appelé lors de la suppression de la Formation
 function Delete() {
     var id = document.getElementById("lid").value;
 
@@ -217,6 +225,7 @@ function Delete() {
     }
 }
 
+// Function appelé lors la suppression du projet
 function DeleteProjet() {
     var id = document.getElementById("idPorjet").value;
 
@@ -257,6 +266,7 @@ function DeleteProjet() {
     }
 }
 
+// Function appelé lors de la création du projet
 function projet() {
     var desc = document.getElementById("description").value;
     var img = document.getElementById("image").value;
