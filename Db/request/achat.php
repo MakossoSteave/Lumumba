@@ -110,7 +110,7 @@ var_dump($traite);
 echo "le compteur";
 var_dump($compteur);
 echo $compteur['Libelle'];
-    echo "je suis ici bis";
+    echo "je suis ici hdhdhdh bis";
     echo "<br>";
 
     if($Titre ==$libel){
