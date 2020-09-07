@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 // on inclut la page du header
 include './include/headerDeux.php';
 // On inclut la page qui a les fonctions
@@ -32,31 +31,6 @@ $tes = "http://localhost/lumumba/Lumumba/Page/img/$image";
       formateurPage($nom, $prenom, $role, $email, $tel, $tes, $id);
 ?>
 <!-- Fin div ? -->
-=======
-    include './include/headerDeux.php';
-    require './include/function.php';
-    include 'formation.php';
-    require '../Db/db.php';
-
-
- 
-    if(empty($_SESSION['nom'])){
-      header('location:login.php');
-    }
-    $nom = $_SESSION['nom'];
-    $prenom = $_SESSION['prenom'];
-    $role=$_SESSION['role'];
-    $email=$_SESSION['email'];
-    $tel=$_SESSION['tel'];
-
-    $image = $_SESSION['image'];
-    $tes = "$image";
-    if($role =="Formateur"){
-     
-      $id = $_SESSION['id']; 
-      formateurPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
-      ?>
->>>>>>> origin/steave
           </div>
 <!-- Fin ssection -->
     </section>
@@ -319,7 +293,6 @@ $pdo = pdo_connect_mysql();
         </div>
       </div>
 
-<<<<<<< HEAD
         <div class="container">
        <!-- On crée une balise php dans une div .container  -->
 <?php
@@ -355,46 +328,12 @@ $pdo = pdo_connect_mysql();
         <!-- Ici l'id on le récupère mais on ne l'affiche pas  -->
 <?php $id = $list['id'];?>
           <a href="cart.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
-=======
-        
-     <?php formationBis();
-     
-     ?>
-     <br>
-     <br><br>
-      <div class="container">
-     <?php
-        $pdo = pdo_connect_mysql();
-        $req = $pdo->prepare('select * from formation');
-        $req->execute();
-        $contact=$req->fetchAll(PDO::FETCH_ASSOC); 
-        ?>
-       <h1 style="text-align: center;">A la une</h1>
-       <br>
-      <div class="row">
-                <?php foreach ($contact as $list): ?>
-                  <div class="col-6">
-      <div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="<?=$list['img']?>" class="card-img" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?=$list['libelle'] ?></h5>
-        <p class="card-text">Descriptions : <?= $list['libelleLong'] ?></p>
-        <p class="card-text">Heures : <?= $list['nomHeureFormation'] ?> H</p>
-        <p class="card-text">Prix : <?= $list['prixFormation'] ?> €</p>
-        <?php $id = $list['id'];?>
-        <a href="panier.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
->>>>>>> origin/steave
 
           </div>
         </div>
       </div>
     </div>
   </div>
-<<<<<<< HEAD
 <!-- On crée une boucle vide ? -->
 <?php endforeach;?>
 <!-- On crée une div vide ? -->
@@ -408,51 +347,6 @@ $pdo = pdo_connect_mysql();
   if ($role == "Intervenant") {
     $id = $_SESSION['id'];
     intervenantPage($nom, $prenom, $role, $email, $tel, $tes, $id);
-=======
-      </div>
-</div>
-<?php endforeach; ?>
-      </div>
-<?php
-        $pdo = pdo_connect_mysql();
-        $req = $pdo->prepare('select * from projet');
-        $req->execute();
-        $contact=$req->fetchAll(PDO::FETCH_ASSOC); 
-        ?>
-       <br>
-      <div class="row">
-                <?php foreach ($contact as $list): ?>
-                  <div class="col-6">
-      <div class="card mb-3" style="max-width: 500px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="<?=$list['img']?>" class="card-img" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?=$list['nom'] ?></h5>
-        <p class="card-text">Descriptions : <?= $list['description'] ?></p>
-        <p class="card-text">Heures : <?= $list['nomHeure'] ?> H</p>
-        <p class="card-text">Prix : <?= $list['prix'] ?> €</p>
-        <p class="card-text">techno : <?= $list['technoMaitriser'] ?> </p>
-
-        <?php $id = $list['id'];?>
-        <a href="paniers.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
-
-      </div>
-    </div>
-  </div>
-      </div>
-</div>
-<?php endforeach; ?>
-  </div></div>
-  <?php
-     
-    }
-    if($role =="Intervenant"){
-      $id = $_SESSION['id']; 
-      intervenantPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
->>>>>>> origin/steave
 ?>
         <div id="modal-close-default" uk-modal>
           <div class="uk-modal-dialog uk-modal-body">
@@ -482,7 +376,6 @@ $pdo = pdo_connect_mysql();
         </div>
         <div class="uk-modal-body">
         <div class="field">
-<<<<<<< HEAD
           <label class="label">Nom</label>
           <div class="control">
             <input class="input"  name="nom" id="noms" type="text" placeholder="Text input">
@@ -493,50 +386,6 @@ $pdo = pdo_connect_mysql();
           <label class="label">Description</label>
           <div class="control has-icons-left has-icons-right">
             <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" >
-=======
-  <label class="label">Nom</label>
-  <div class="control">
-    <input class="input"  name="nom" id="noms" type="text" placeholder="Text input" required>
-  </div>
-</div>
-
-<div class="field">
-  <label class="label">Description</label>
-  <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" required>
-    
-  </div>
-</div>
-<div class="field">
-  <label class="label">Techno à Maitrisé</label>
-  <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="textarea" name="techno" id="techno" placeholder="techno à maitrisé" required>
-    
-  </div>
-</div>
-<div class="field">
-  <label class="label">Image</label>
-  <div class="control has-icons-left has-icons-right">
-    <input class="input" type="text" name="image" id="image" placeholder="veuilliez saisir une Url" value="url" required>
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-  
-  </div>
-</div>
-<div class="field">
-  <label class="label">Nombre d'heures</label>
-  <div class="control">
-    <input class="input" name="heure" id="heure" type="number" placeholder="nombre d'heures" required>
-  </div>
-</div>
-<div class="field">
-  <label class="label">Rémuneration du projet</label>
-  <div class="control">
-    <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation" required>
-  </div>
-</div>
->>>>>>> origin/steave
 
          </div>
         </div>
@@ -584,16 +433,11 @@ $pdo = pdo_connect_mysql();
             </label>
           </div>
         </div>
-        </div>
+        </div>sss
       <!-- on crée un footer au modal  -->
         <div class="uk-modal-footer uk-text-right">
-<<<<<<< HEAD
           <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();">Save</button>
           <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-=======
-        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();"><a href="dashboard.php" style="text-decoration: none;color:white">Sauvegarder </a></button>
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
->>>>>>> origin/steave
         </div>
       </div>
     </div>
@@ -634,7 +478,6 @@ $pdo = pdo_connect_mysql();
           <button>Envoyer</button>
           </form>
         </div>
-<<<<<<< HEAD
       <!-- Fin div modal message intervenants -->
         </div>
         <!-- fin div ? -->
@@ -645,13 +488,6 @@ $pdo = pdo_connect_mysql();
 <!-- Une fonctions qui affiche tous les intervenants -->
 <?php
   intervenantes();
-=======
-      </div>
-</div>
-
-<?php  
-intervenantes();
->>>>>>> origin/steave
 ?>
 <!-- Fin div ? -->
         </div>
@@ -708,7 +544,6 @@ if ($role == "Admin") {
                   <h1><?=$nom?> <?=$prenom?></h1>
                   <h5><?=$role?></h5>
                 </div>
-<<<<<<< HEAD
               </div>
             </div>
         <div class="col-md-12">
@@ -782,7 +617,7 @@ if ($role == "Admin") {
 							  editer
 
 					</a>
-					<a href="?id=<?=$users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
+					<a href="deleteProfil?id=<?=$users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
 						<hr>
 	<!-- fin boucle foreach qui liste nom, prénom, email, tel, role, id  -->
 <?php endforeach;?>
@@ -827,112 +662,6 @@ if ($role == "Admin") {
         </div>
                             <!-- On crée un bouton editer avec comme href l'id de l'user -->
           <a class="uk-button uk-button-default" href="update.php?id=<?=$formation['id']?>" uk-toggle="">
-=======
-                <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
-                    <div class="row profile-right-section-row">
-                        <div class="col-md-12 profile-header">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
-                                    <h1><?=$nom?> <?=$prenom?></h1>
-                                    <h5><?= $role ?></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-8">
-                                        <ul class="nav nav-tabs" role="tablist">
-                                                <li class="nav-item">
-        <a class="nav-link active" href="#profile" role="tab" data-toggle="tab"><i class="fas fa-user-circle"></i> Profil utilisateurs</a>
-      </li>
-          <li class="nav-item">
-                      <a class="nav-link" href="#buzz" role="tab" data-toggle="tab"><i class="fas fa-info-circle"></i> Formation et Projet</a>
-                </li>                                                
-            </ul>
-                                                            <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade show active" id="profile">
-          <?php
-       $pdo =pdo_connect_mysql() ;
-
-            $users = $pdo->query('SELECT * FROM user ')->fetchAll()
-       ?>
- <?php
-    foreach ($users as $users): 
-      ?>
-                 <div class="row">
-           <div class="col-md-2">
-           <label>Nom</label>
-           </div>
-              <div class="col-md-6">
-            <p><?= $users['nom']?> <?= $users['prenom']?></p>
-            </div>
-               </div>
-             <div class="row">
- <div class="col-md-2">
-         <label>Email</label>
-</div>
- <div class="col-md-6">
-    <p><?= $users['email']?></p>
- </div>
-</div>
-<div class="row">
- <div class="col-md-2">
- <label>Telephone</label>
- </div>
-  <div class="col-md-6">
-<p><?= $users['tel']?></p>
-  </div>
- </div>
-<div class="row">
- <div class="col-md-2">
- <label>Role</label>
- </div>
-   <div class="col-md-6">
- <p><?= $users['Role']?></p>
- </div>
-  </div>
-  <a class="uk-button uk-button-default" href="?id=<?= $users['id'] ?>"  uk-toggle> 
-            editer 
- 
-          </a>
-          <a href="?id=<?= $users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
-                                                            <hr>
-                                                          <?php endforeach;?>
-                                                </div>
-                                                <div role="tabpanel" class="tab-pane fade" id="buzz">
-                                                <?php
-       $pdo =pdo_connect_mysql() ;
-            $formation = $pdo->query('SELECT * FROM formation ')->fetchAll()
-       ?>
-        <?php foreach ($formation as $formation): 
-      ?>
-                                                        <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Nom</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p><?= $formation['libelle'] ?></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Descriptions</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p><?= $formation['libelleLong'] ?></p>
-                                                                </div>
-                                                            </div>
-                                                          
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Créer Par</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p><?= $formation['creerPar'] ?></p>
-                                                                </div>
-                                                            </div>
-                                                            <a class="uk-button uk-button-default" href="?id=<?= $users['id'] ?>"  uk-toggle> 
->>>>>>> origin/steave
             editer
           </a>
           <a href="delete.php?id=<?=$users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
