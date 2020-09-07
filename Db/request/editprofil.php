@@ -11,7 +11,6 @@ $email = $data[3];
 $tel= $data[4];
 $photo = $data[5];
 $createur = $data[6];
-$fichier = $data[7];
 
 
 $pdo = pdo_connect_mysql();
@@ -22,9 +21,7 @@ $pdo = pdo_connect_mysql();
             $stmt->execute();
 
             
-            $sql2 =("UPDATE image SET photo='$fichier' WHERE appartient = '$email'");
-            $stmt= $pdo->prepare($sql2);
-            $stmt->execute();
+            
         
            ?>
          
