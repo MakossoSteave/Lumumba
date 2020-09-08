@@ -85,8 +85,9 @@ echo "<br>";
 			  <form method='post' action=''>
 			  <div class='image'><img src="<?= $panidd['img']?>" /></div>
 			  <div class='name'><?= $panidd['libelle']?></div>
-		   	  <div class='price'><?= $panidd['prixFormation']?>  € </div>
-			  <button type='submit' class='buy'>Acheter </button>
+           <div class='price'><?= $panidd['prixFormation']?>  € </div>
+           <br>
+			  <a type='submit' href="Achat.php?id=<?=$id?>" class='buy'>Acheter </a>
 			  </form>
                  </div>
     </div>

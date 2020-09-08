@@ -121,10 +121,51 @@ function formation(){
 <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
  
 </div>
+  
+   <div class="container">
+            <div class="row">
+            <div class="col">
+            <h1>Suivis Par</h1>
+            <?php 
+            $mail = $_SESSION['email'];
+         $pdo = pdo_connect_mysql();
+         $req = $pdo->prepare('select * from panier where proprio = ?');
+         $req->execute([$mail]);
+         $suiveur=$req->fetchAll(PDO::FETCH_ASSOC);
+    
+         
+        ?>
+            <div>
+            <?php foreach ($suiveur as $list): ?>     
+       <?php   $comparatif= $list['Appartient']; 
+       $user = $pdo->prepare('select * from user where email = ?');
+       $user->execute([$comparatif]);
+       $comps=$user->fetchAll(PDO::FETCH_ASSOC);
+       
+       ?>
+        <?php foreach ($comps as $user): ?>     
+        <div class="card mb-3" style="max-width: 1200px;">
+    <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="<?=$list['img']?>" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?= $user['nom']?> <?= $user['prenom']?></h5>
+        <hr>
+        <h5 class="card-title"><?= $list['Libelle']?></h5>
+        <h5 class="card-title"><?= $list['LibelleLong']?></h5>
+      </div>
+     </div>  </div>
         </div>
-       </div>
+<?php endforeach; ?>    
+            </div>
+  </div>  </div> 
 
-   </div>
+               <?php endforeach; ?> 
+            </div>
+ 
+  
 
 <?php
  }

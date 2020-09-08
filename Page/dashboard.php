@@ -230,13 +230,6 @@ foreach ($num_contacts as $contact):
         <?= listIntervenant(); ?>
       </div>
 </div>
-
-        
-     <?php formationBis();
-     
-     ?>
-     <br>
-     <br><br>
       <div class="container">
      <?php
         $pdo = pdo_connect_mysql();
@@ -294,7 +287,7 @@ foreach ($num_contacts as $contact):
         <p class="card-text">techno : <?= $list['technoMaitriser'] ?> </p>
 
         <?php $id = $list['id'];?>
-        <a href="paniers.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
+        <a href="paniers.php?id=<?=$id?>" class="btn btn-success" id="Noinscrit">S'inscrire</a>
 
       </div>
     </div>
@@ -303,6 +296,9 @@ foreach ($num_contacts as $contact):
 </div>
 <?php endforeach; ?>
   </div></div>
+  <?php formationBis();
+     
+     ?>
   <?php
      
     }
