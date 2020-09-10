@@ -1,7 +1,6 @@
 <?php 
-ini_set("SMTP","smtp.bouygtel.fr");
-
-ini_set("smtp_port"," 587");
+ini_set("SMTP","smtp.gmail.com");
+ini_set("smtp_port","465");
 
 ini_set('sendmail_from', 'makossosteave27@gmail.com');
 ?>

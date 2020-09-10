@@ -1,7 +1,6 @@
 <?php
 require '../Db/db.php';
 
-echo $_GET['id'];
 $id = $_GET['id'];
 ?>
  <!DOCTYPE html>

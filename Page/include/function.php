@@ -137,7 +137,10 @@ function intervenantPage($nom , $prenom , $role ,$email , $tel,$img,$id){
       <div class='columns is-mobile is-multiline'>
         <div class='column is-2'>
           <span class='header-icon user-profile-image'>
-            <img alt='' src='$img'>
+          <a href="upload.php?id=$email">
+           <img alt='' src='$img'>
+          </a>
+           
           </span>
         </div>
         <div class='column is-4-tablet is-10-mobile name'>
@@ -179,12 +182,14 @@ function StagiaireForm($nom , $prenom , $role ,$email , $tel,$img,$id){
         <link rel="stylesheet" href="./css/index.scss">
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+        
     
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
     
-    
+    <link rel="stylesheet" href="./css/index.scss">
+
         <title>Document</title>
     </head>
     <body>

@@ -125,7 +125,7 @@ function formation(){
    <div class="container">
             <div class="row">
             <div class="col">
-            <h1>Suivis Par</h1>
+            <h1 style="text-align: center;">Suivis Par</h1>
             <?php 
             $mail = $_SESSION['email'];
          $pdo = pdo_connect_mysql();
@@ -135,7 +135,6 @@ function formation(){
     
          
         ?>
-            <div>
             <?php foreach ($suiveur as $list): ?>     
        <?php   $comparatif= $list['Appartient']; 
        $user = $pdo->prepare('select * from user where email = ?');
@@ -155,17 +154,15 @@ function formation(){
         <hr>
         <h5 class="card-title"><?= $list['Libelle']?></h5>
         <h5 class="card-title"><?= $list['LibelleLong']?></h5>
-      </div>
-     </div>  </div>
-        </div>
-<?php endforeach; ?>    
-            </div>
-  </div>  </div> 
+          
 
+<?php endforeach; ?>    
+      </div></div></div></div>
                <?php endforeach; ?> 
+           </div>
             </div>
- 
-  
+   </div></div></div></div>
+
 
 <?php
  }

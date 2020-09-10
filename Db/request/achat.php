@@ -52,7 +52,7 @@ VALUES (?,?,?,?,?,?,?,?,?)');
 $stmt->execute([$Titre,$descriptions,$perso]);
 $user = $stmt->fetch();
         if ($user) {
-            echo $Titre." T'es deja  inscris a cette formation essai encore bouffons";
+            echo $Titre."<br>"." Vous êtes déja inscris a cette formation ajouts Impossible";
             echo '<br>';
             echo "<a href='dashboard.php'>retour</a>";
         }else{
@@ -113,7 +113,7 @@ $id= $achat['id'];
 $stmt->execute([$Titre,$descriptions,$perso]);
 $user = $stmt->fetch();
         if ($user) {
-            echo $Titre."t'es deja inscris a ce projet essai encore bouffons";
+            echo $Titre."Vous êtes déja inscris a ce projet ajouts Impossible";
             echo '<br>';
             echo "<a href='dashboard.php'>retour</a>";
 

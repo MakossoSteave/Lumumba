@@ -166,7 +166,9 @@ foreach ($num_contacts as $contact):
 
 </div>
 
-</div><div class="perso">
+</div>
+<div id="dashboard"> </div>
+<div class="perso">
 
 </div>
  </div>    
@@ -179,37 +181,227 @@ foreach ($num_contacts as $contact):
     
      <?php
      ?>
-     <div id="message-close-default" uk-modal>
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <title>Document</title>
+     </head>
+     <body>
+       <style>
+
+:root {
+  --color: #3c3163;
+  --transition-time: 0.5s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Open Sans';
+  background: #fafafa;
+}
+
+a {
+  color: inherit;
+}
+
+.cards-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.card {
+  font-family: 'Heebo';
+  --bg-filter-opacity: 0.5;
+  background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
+  height: 20em;
+  width: 15em;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 1em;
+  padding: 1em;
+  /*margin: 2em;*/
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 5em -1em black;
+  transition: all, var(--transition-time);
+  position: relative;
+  overflow: hidden;
+  border: 10px solid #ccc;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: rotate(0);
+}
+
+.card h1 {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+
+.card p {
+  font-size: 0.75em;
+  font-family: 'Open Sans';
+  margin-top: 0.5em;
+  line-height: 2em;
+}
+
+.card .tags {
+  display: flex;
+}
+
+.card .tags .tag {
+  font-size: 0.75em;
+  background: #00d1b2;
+  border-radius: 0.3rem;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  line-height: 1.5em;
+  transition: all, var(--transition-time);
+}
+
+.card:hover .tags .tag {
+  background: var(--color);
+  color: white;
+}
+
+.card .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 1em;
+  line-height: 1em;
+  opacity: .8;
+}
+
+.card:before, .card:after {
+  content: '';
+  transform: scale(0);
+  transform-origin: top left;
+  border-radius: 50%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  z-index: -5;
+  transition: all, var(--transition-time);
+  transition-timing-function: ease-in-out;
+}
+
+.card:before {
+  background: #ddd;
+  width: 250%;
+  height: 250%;
+}
+
+.card:after {
+  background: white;
+  width: 200%;
+  height: 200%;
+}
+
+.card:hover {
+  color: var(--color);
+}
+
+.card:hover:before, .card:hover:after {
+  transform: scale(1);
+}
+
+.card-grid-space .num {
+  font-size: 3em;
+  margin-bottom: 1.2rem;
+  margin-left: 1rem;
+ 
+ 
+}
+
+.info {
+  font-size: 1.2em;
+  display: flex;
+  padding: 1em 3em;
+  height: 3em;
+}
+
+.info img {
+  height: 3em;
+  margin-right: 0.5em;
+}
+
+.info h1 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1285px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    justify-content: center;
+  }
+  .card-grid-space .num {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cards-wrapper {
+    padding: 4rem 2rem;
+  }
+  .card {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block;
+    text-align: center;
+  }
+  .info h1 {
+    margin: 0;
+  }
+}
+       </style>
+        <div id="message-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
         <button class="uk-modal-close-default" type="button" uk-close></button>
-        <label for="cars">A qui est ton message :</label><?php
-  $pdo =pdo_connect_mysql() ;
-  $num_contacts = $pdo->query('SELECT * FROM user ')->fetchAll();
-
-  ?>
+     
   <form action="" method="POST">
-    <select id="mes" name="mess">
-  <?php
-foreach ($num_contacts as $contact): 
-?>
+  
 
-  <option value="volvo" id="selected"><?=$contact['nom']?> <?=$contact['prenom']?></option>
-  <?php endforeach;?>
-?>
-
-
-</select>
         <h2 class="uk-modal-title">Message</h2>
         <div class="container">   
         <div class="col">
-        <textarea id="mess" name="msg"
-          rows="5" cols="33" value="message...." id="message">
-          
-</textarea>
-  <button>Envoyer</button>
+       <h1>Op ! Op !  Op !</h1>
+  <span>Prochainement</span>
   </form>
-
-
       </div>
         </div>
       </div>
@@ -230,17 +422,25 @@ foreach ($num_contacts as $contact):
         <?= listIntervenant(); ?>
       </div>
 </div>
+<div id="dashboard"> </div>
+
       <div class="container">
+      
      <?php
         $pdo = pdo_connect_mysql();
         $req = $pdo->prepare('select * from formation');
         $req->execute();
         $contact=$req->fetchAll(PDO::FETCH_ASSOC); 
         ?>
+
        <h1 style="text-align: center;">A la une</h1>
-       <br>
-      <div class="row">
+     
+        <section class="cards-wrapper">
+
                 <?php foreach ($contact as $list): ?>
+                  <div  style="display:none">
+
+                 
                   <div class="col-6">
       <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
@@ -261,8 +461,27 @@ foreach ($num_contacts as $contact):
   </div>
       </div>
 </div>
-<?php endforeach; ?>
+ </div>
+ 
+  <div class="card-grid-space">
+    <div class="num"><h1><?= $list['prixFormation'] ?> €</h1></div>
+    <a class="card"  style="--bg-img: url(<?=$list['img']?>)" href="panier.php?id=<?=$id?>">
+      <div>
+        <h1><?=$list['libelle'] ?></h1>
+        <p><?= $list['libelleLong'] ?></p>
+        <div class="date"><?= $list['nomHeureFormation'] ?> H</div>
+        <br>
+        <div class="tags">
+          <div class="tag"> S'inscrire</div>
+          
+        </div>
+
       </div>
+    </a>
+  </div>
+
+<?php endforeach; ?></section>
+
 <?php
         $pdo = pdo_connect_mysql();
         $req = $pdo->prepare('select * from projet');
@@ -270,9 +489,16 @@ foreach ($num_contacts as $contact):
         $contact=$req->fetchAll(PDO::FETCH_ASSOC); 
         ?>
        <br>
-      <div class="row">
+                    
+     
+       <section class="cards-wrapper">
+
                 <?php foreach ($contact as $list): ?>
-                  <div class="col-6">
+  <div class="card-grid-space">
+
+
+                 
+                  <div class="col-6" style="display: none;">
       <div class="card mb-3" style="max-width: 500px;">
   <div class="row no-gutters">
     <div class="col-md-4">
@@ -294,14 +520,35 @@ foreach ($num_contacts as $contact):
   </div>
       </div>
 </div>
-<?php endforeach; ?>
-  </div></div>
+
+    <div class="num"><h1><?= $list['prix'] ?> €</h1></div>
+    <a class="card"  style="--bg-img: url(<?=$list['img']?>)" href="paniers.php?id=<?=$id?>">
+      <div>
+        <h1><?=$list['nom'] ?></h1>
+        <p><?= $list['description'] ?></p>
+        <p><?= $list['technoMaitriser'] ?></p>
+        <div class="date"><?= $list['nomHeure'] ?> H</div>
+        <br>
+        <div class="tags">
+          <div class="tag"> S'inscrire</div>
+          
+        </div>
+
+      </div>
+    </a>
+  </div>
+
+<?php endforeach; ?> 
+   </div></section> </div>
   <?php formationBis();
      
      ?>
   <?php
      
-    }
+    }?>
+     </body>
+     </html>
+    <?php
     if($role =="Intervenant"){
       $id = $_SESSION['id']; 
       intervenantPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
@@ -427,6 +674,7 @@ foreach ($num_contacts as $contact):
         </div>
       </div>
 </div>
+<div id="dashboard"> </div>
 
 <?php  
 intervenantes();
