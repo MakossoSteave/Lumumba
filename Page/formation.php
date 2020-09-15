@@ -307,7 +307,7 @@ $formation=$req->fetchAll(PDO::FETCH_ASSOC);
                     <h3 class="uk-card-title"><?=$formations['nom'] ?></h3>
                    description :<p><?= $formations['description'] ?> <br>
                   Prix : <span> <?= $formations['prix'] ?>€ </span><br>
-                  Heure: <span>  <?= $formations['nomHeure'] ?> H </span><br>
+                  Heures: <span>  <?= $formations['nomHeure'] ?> H </span><br>
                   Créer Par : <span>  <?= $formations['creerPar'] ?> </span><br>
                   Techno : <span>  <?= $formations['technoMaitriser'] ?> </span><br>
 
