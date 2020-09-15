@@ -327,7 +327,7 @@ $pdo = pdo_connect_mysql();
             <p class="card-text">Prix : <?=$list['prixFormation']?> €</p>
         <!-- Ici l'id on le récupère mais on ne l'affiche pas  -->
 <?php $id = $list['id'];?>
-          <a href="cart.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
+          <a href="panier.php?id=<?=$id?>" class="btn btn-success">S'inscrire</a>
 
           </div>
         </div>
@@ -613,11 +613,12 @@ if ($role == "Admin") {
 					<p><?=$users['Role']?></p>
 				</div>
 				</div>
-				  <a class="uk-button uk-button-default" href="parametreBis.php?id=<?=$users['id']?>"  uk-toggle>
+				  <a class="btn btn-info" href="parametreBis.php?id=<?=$users['id']?>"  uk-toggle>
 							  editer
 
 					</a>
-					<a href="deleteProfil?id=<?=$users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
+          <a href="deleteProfil?id=<?=$users['id']?>" class="btn btn-danger"><i class="fas fa-trash fa-xs"></i></a>
+          <br><br>
 						<hr>
 	<!-- fin boucle foreach qui liste nom, prénom, email, tel, role, id  -->
 <?php endforeach;?>
@@ -661,11 +662,13 @@ if ($role == "Admin") {
           </div>
         </div>
                             <!-- On crée un bouton editer avec comme href l'id de l'user -->
-          <a class="uk-button uk-button-default" href="update.php?id=<?=$formation['id']?>" uk-toggle="">
+          <a class="btn btn-info" href="update.php?id=<?=$formation['id']?>" uk-toggle="">
             editer
           </a>
-          <a href="delete.php?id=<?=$users['id']?>" class="uk-button uk-button-default"><i class="fas fa-trash fa-xs"></i></a>
+          <a href="delete.php?id=<?=$users['id']?>" class="btn btn-danger"><i class="fas fa-trash fa-xs"></i></a>
+          <br> <br>
                   <hr>
+
 <?php endforeach;?>
         </div>
 
