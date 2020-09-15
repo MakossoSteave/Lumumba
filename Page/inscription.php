@@ -30,6 +30,10 @@ $pdo = pdo_connect_mysql();
 <body>
     <section class="hero is-dark is-bold">
         <div class="hero-body">
+        <div class="container"><a href="index.php" class=""style="text-decoration:none;color:white">
+              <span class="icon"><i class="fa fa-home"></i></span> Acceuil
+            </a>
+        </div>
             <div class="container">
                 <h1 class="title">Inscription</h1>
             </div>
