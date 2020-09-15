@@ -7,6 +7,29 @@ if(!empty($_SESSION['nom'])){
 <?php
 if(empty($_GET['id'])){
     if(empty($_COOKIE['Article'])){
+      ?> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/index.scss">
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+        
+    
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+    
+    <link rel="stylesheet" href="./css/index.scss">
+      <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
+        <ul class="menu-list">
+          <li>
+            <a href="dashboard.php" class=""style="text-decoration:none">
+              <span class="icon"><i class="fa fa-home"></i></span> Home
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <?php
         echo "votre Panier est vide ";
     }else{
         $te= $_COOKIE['Article'];

@@ -35,9 +35,7 @@ function formateurPage($nom , $prenom , $role ,$email , $tel,$img,$id){
                 </a>
               </li>
               <li>
-                <a href="#"style="text-decoration:none">
-                  <span class="icon is-small"><i class="fas fa-cart-arrow-down"></i></span> Panier
-                </a>
+              
 
      <a   uk-toggle="target: #modal-close-default"><i class="fas fa-user-graduate"></i> Stagiaires</a>
 <a uk-toggle="target: #modal-close-outside"><i class="fas fa-chalkboard-teacher"></i> Formateur</a>

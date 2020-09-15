@@ -31,6 +31,8 @@ include './include/header.php';?>
 <!-- UIkit JS -->
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+<script src="./javascript/checking.js"></script>
+
   </head>
 
   <section class="hero is-grey is-medium heros" style="background-image: url('./img/Fond.jpg'); background-position:center;background-size:cover;">
@@ -48,7 +50,8 @@ include './include/header.php';?>
             <h2 class="subtitle">
             Étudiez à tout moment le sujet que vous souhaitez.<br> Faites dès maintenant votre choix parmi des milliers de cours enseignés par des formateurs et intervenants confirmés.
            </h2>
-           <input class="input is-rounded" type="text" placeholder="Que souhaitez vous apprendre">
+           <input class="input" type="text" id="apprend" name="souhait" placeholder="Que souhaitez vous apprendre" onKeyUp="souhait()" value="<?=isset($_GET['souhait']) ? htmlentities($_GET['souhait'], ENT_QUOTES) : ''?>">
+
            <span class="icon is-left is-medium">
       </span>
           </div>
