@@ -1,225 +1,181 @@
 <?php
-// on inclut la page du header
-include './include/headerDeux.php';
-// On inclut la page qui a les fonctions
-require './include/function.php';
-// On inclut la page formation
-include 'formation.php';
-// On inclut la page qui gere notre base de donnée
-require '../Db/db.php';
+    include './include/headerDeux.php';
+    require './include/function.php';
+    include 'formation.php';
+    require '../Db/db.php';
 
-// Si la session qui a pour variable nom est vide alors on appel la page de login
-if (empty($_SESSION['nom'])) {
-    header('location:login.php');
-}
-// Sinon on récupère le nom, prenom, role, email,tel et iamge de la session
-$nom = $_SESSION['nom'];
-$prenom = $_SESSION['prenom'];
-$role = $_SESSION['role'];
-$email = $_SESSION['email'];
-$tel = $_SESSION['tel'];
 
-$image = $_SESSION['image'];
-// On crée une variable $test qui permet de se connecter aux différents images
-$tes = "http://localhost/lumumba/Lumumba/Page/img/$image";
+ 
+    if(empty($_SESSION['nom'])){
+      header('location:login.php');
+    }
+    $nom = $_SESSION['nom'];
+    $prenom = $_SESSION['prenom'];
+    $role=$_SESSION['role'];
+    $email=$_SESSION['email'];
+    $tel=$_SESSION['tel'];
 
-                        // Dashboard pour le role Formateur
-  if ($role == "Formateur") {
-    //  On récupère l'id de la session que l'on stock dans une variable
-      $id = $_SESSION['id'];
-    // la page du formateur aura son nom, prenom, role, email, tel, tes et l'id
-      formateurPage($nom, $prenom, $role, $email, $tel, $tes, $id);
-?>
-<!-- Fin div ? -->
+    $image = $_SESSION['image'];
+    $tes = "$image";
+    if($role =="Formateur"){
+     
+      $id = $_SESSION['id']; 
+      formateurPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
+      ?>
           </div>
-<!-- Fin ssection -->
     </section>
-
-<?php
-// On ouvre une balise php et on appel à la fonction formation
-    formation();
+      <?php
+formation();
 ?>
-
-      <!-- Code html -->
-  <!DOCTYPE html>
-    <html lang="en">
-        <!-- Header -->
-    <head>
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/index.scss">
-        <!-- JSDelivr nous permet d'utiliser des modals -->
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
         <title>Document</title>
-    </head>
-      <!-- On ajoute directement du style ici avec une police d'écriture -->
-    <style>
+      </head>
+      <style>
       h1,p,h2,h3{
         font-family: 'Montserrat', sans-serif;
       }
+     
+      </style>
+    </div>
+    <div id="modal-close-default" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Stagiaire</h2>
+        <?= listStagiaire();?>
 
-    </style>
-      <!--div qui ferme une div de la fonction formation ? -->
-        </div>
+      </div>
+</div>
+<div id="message-close-default" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <label for="cars">A qui est ton message :</label><?php
+  $pdo =pdo_connect_mysql() ;
+  $num_contacts = $pdo->query('SELECT * FROM user ')->fetchAll();
 
-    <!-- Mise en place du modal -->
-        <div id="modal-close-default" uk-modal>
-      <!-- uk-modal-dialog crée une boite de dialogue § uk-modal-body ajoute un contenu-->
-        <div class="uk-modal-dialog uk-modal-body">
-          <button class="uk-modal-close-default" type="button" uk-close></button>
-        <!-- uk-modal-title créer le titre modal.  -->
-          <h2 class="uk-modal-title">Stagiaire</h2>
-        <!-- on fait un écho de la fonction listeStagiaire -->
-<?=listStagiaire();?>
-
-        </div>
-        </div>
-
-        <div id="message-close-default" uk-modal>
-          <div class="uk-modal-dialog uk-modal-body">
-            <button class="uk-modal-close-default" type="button" uk-close></button>
-            <label for="cars">A qui est ton message :</label>
-<?php
-// On se connecte à la bd et on récupère tous noms des utilisateurs
-    $pdo = pdo_connect_mysql();
-    // Retourne un tableau contenant toutes les lignes du jeu d'enregistrements
-    $num_contacts = $pdo->query('SELECT * FROM user ')->fetchAll();
-
-?>
-  <!-- On crée un formulaire qui va gérer les messages -->
-        <form action="" method="POST">
-    <!-- un select qui va demander de sélectionner l'user que l'on souhaite écrire  -->
-        <select id="mes" name="mess">
-<?php
-// On crée une boucle dans select qui permet de sélectioner le nom et le prénom de l'user présent la bd
-        foreach ($num_contacts as $contact):
+  ?>
+  <form action="" method="POST">
+    <select id="mes" name="mess">
+  <?php
+foreach ($num_contacts as $contact): 
 ?>
 
-        <option value="volvo" id="selected"><?=$contact['nom']?> <?=$contact['prenom']?></option>
-<?php endforeach;?>
+  <option value="volvo" id="selected"><?=$contact['nom']?> <?=$contact['prenom']?></option>
+  <?php endforeach;?>
 
-<!-- Fin de notre select -->
-        </select>
-        <!-- On crée un modal dans un h2 avec un titre   -->
-          <h2 class="uk-modal-title">Message</h2>
-        <!-- container va gérer organiser le contenu du modal -->
-          <div class="container">
-             <!-- .col va organiser le modal en colonne  -->
-          <div class="col">
-          <!-- On insère un textarea qui permet une rédaction du message -->
-          <textarea id="mess" name="msg"
+
+</select>
+        <h2 class="uk-modal-title">Message</h2>
+        <div class="container">   
+        <div class="col">
+        <textarea id="mess" name="msg"
           rows="5" cols="33" value="message...." id="message">
-
-          </textarea>
-          <button>Envoyer</button>
-        </form>
+          
+</textarea>
+  <button>Envoyer</button>
+  </form>
       </div>
+        </div>
       </div>
-      <!-- div ? -->
-      </div>
-<!-- div ? -->
-      </div>
-<!--  modal-close créer un bouton de fermeture et activer sa fonctionnalité. -->
-      <div id="modal-close-outside" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body">
+</div>
+<div id="modal-close-outside" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
         <button class="uk-modal-close-outside" type="button" uk-close></button>
         <h2 class="uk-modal-title">Liste des formateurs</h2>
         <br>
-<?=listFormateur();?>
+        <?= listFormateur(); ?>
       </div>
-      </div>
-<!-- On crée un formulaire en modal pour la création d'une formation -->
-        <form action="dashboard.php" method="POST">
-      <div id="modal-sections" uk-modal>
-      <div class="uk-modal-dialog">
+</div>
+<form action="dashboard.php" method="POST">
+<div id="modal-sections" uk-modal>
+    <div class="uk-modal-dialog">
         <button class="uk-modal-close-default" type="button" uk-close></button>
-      <div class="uk-modal-header">
+        <div class="uk-modal-header">
             <h2 class="uk-modal-title">Création d'une nouvelle formation</h2>
-      </div>
-      <div class="uk-modal-body">
-        <!-- field élément est utilisé pour regrouper les données associées dans un formulaire -->
-      <div class="field">
-        <label class="label">Nom</label>
-        <div class="control">
-          <input class="input"  name="nom" id="noms" type="text" placeholder="Text input">
         </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Description</label>
-      <div class="control has-icons-left has-icons-right">
-        <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" >
-
-      </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Image</label>
-      <div class="control has-icons-left has-icons-right">
-    <!-- ici value de l'image est un url -->
-        <input class="input" type="text" name="image" id="image" placeholder="veuilliez saisir une Url" value="url">
-        <span class="icon is-small is-left">
-        <i class="fas fa-envelope"></i>
-        </span>
-
-      </div>
-      </div>
-      <div class="field">
-        <label class="label">Nombre d'heures</label>
-      <div class="control">
-        <input class="input" name="heure" id="heure" type="number" placeholder="nombre d'heures">
-      </div>
-      </div>
-      <div class="field">
-        <label class="label">Prix de la formation</label>
-      <div class="control">
-        <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation">
-      </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Créateur</label>
-      <div class="control">
-        <input class="input" type="text" name="createur" id="createur"  disabled="disabled" placeholder="prix de la formation" value="<?=$_SESSION['nom']?> <?=$_SESSION['prenom']?>">
-      </div>
-      </div>
-      <div class="field">
-        <div class="control">
-          <label class="checkbox">
-          <input type="checkbox">
-      I agree to the <a href="#">terms and conditions</a>
-        </label>
-        </div>
-      </div>
-    </div>
-      <div class="uk-modal-footer uk-text-right">
-        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="appele();">Save</button>
-        <button class="uk-button uk-button-default " type="button">Cancel</button>
-      </div>
-    </div>
+        <div class="uk-modal-body">
+        <div class="field">
+  <label class="label">Nom</label>
+  <div class="control">
+    <input class="input"  name="nom" id="noms" type="text" placeholder="Text input">
   </div>
-<!-- Fin du formulaire ajout formations -->
-        </form>
+</div>
 
-<!-- on crée une div vide qui a pour id ter  -->
-      <div id="ter">
+<div class="field">
+  <label class="label">Description</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" >
+    
+  </div>
+</div>
 
+<div class="field">
+  <label class="label">Image</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="text" name="image" id="image" placeholder="veuilliez saisir une Url" value="url">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  
+  </div>
+</div>
+<div class="field">
+  <label class="label">Nombre d'heures</label>
+  <div class="control">
+    <input class="input" name="heure" id="heure" type="number" placeholder="nombre d'heures">
+  </div>
+</div>
+<div class="field">
+  <label class="label">Prix de la formation</label>
+  <div class="control">
+    <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Créateur</label>
+  <div class="control">
+    <input class="input" type="text" name="createur" id="createur"  disabled="disabled" placeholder="prix de la formation" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      I agree to the <a href="#">terms and conditions</a>
+    </label>
+  </div>
+</div>
       </div>
+        <div class="uk-modal-footer uk-text-right">
+        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="appele();">Save</button>
+            <button class="uk-button uk-button-default " type="button">Cancel</button>
+        </div>
+    </div>
+</div>
+</form>
+<div id="ter">
 
-<!-- création d'une div vide avec nom de classe perso -->
-      </div><div class="perso">
+</div>
 
-      </div>
-<!--Une fin de div ?  -->
-      </div>
-   <!--Code PHP  -->
-<?php
-}
-                            // Dashboard du stagiaire 
-  if ($role == "Stagiaire") {
-    $id = $_SESSION['id'];
+</div>
+<div id="dashboard"> </div>
+<div class="perso">
+
+</div>
+ </div>    
+      <?php
+    }
+    if ($role =="Stagiaire") {
+      $id = $_SESSION['id'];
 
         StagiaireForm($nom, $prenom, $role, $email, $tel,$tes,$id); ?>
     
@@ -584,143 +540,132 @@ a {
 
 <?php endforeach; ?> 
    </div></section> </div>
-     <!-- On fait appel à la fonction formationBis() dans une balise php  -->
-<?php formationBis();?>
-<?php
-
-}
-                                  // Dashboard de l'intervenant
-  if ($role == "Intervenant") {
-    $id = $_SESSION['id'];
-    intervenantPage($nom, $prenom, $role, $email, $tel, $tes, $id);
+  <?php formationBis();
+     
+     ?>
+  <?php
+     
+    }?>
+     </body>
+     </html>
+    <?php
+    if($role =="Intervenant"){
+      $id = $_SESSION['id']; 
+      intervenantPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
 ?>
-        <div id="modal-close-default" uk-modal>
-          <div class="uk-modal-dialog uk-modal-body">
-            <button class="uk-modal-close-default" type="button" uk-close></button>
-            <h2 class="uk-modal-title">Stagiaire</h2>
-<?=listStagiaire();?>
+ <div id="modal-close-default" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Stagiaire</h2>
+        <?= listStagiaire();?>
 
-        </div>
       </div>
-<!-- On crée un modal pour les lister les diff intervenants -->
-        <div id="modal-close-outside" uk-modal>
-          <div class="uk-modal-dialog uk-modal-body">
-            <button class="uk-modal-close-outside" type="button" uk-close></button>
-            <h2 class="uk-modal-title">Liste des Intervenants</h2>
-             <br>
-        <!-- On affiche la liste des intervenant avec la fonction -->
-<?=listIntervenant();?>
-        </div>
+</div>
+<div id="modal-close-outside" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Liste des Intervenants</h2>
+        <br>
+        <?= listIntervenant(); ?>
       </div>
-<!-- On un formulaire qui va permettre de crée un projet -->
-          <form action="dashboard.php" method="POST">
-        <div id="modal-sections" uk-modal>
-        <div class="uk-modal-dialog">
-          <button class="uk-modal-close-default" type="button" uk-close></button>
+</div>
+<form action="dashboard.php" method="POST">
+<div id="modal-sections" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header">
             <h2 class="uk-modal-title">Création d'un Projet</h2>
         </div>
         <div class="uk-modal-body">
         <div class="field">
-          <label class="label">Nom</label>
-          <div class="control">
-            <input class="input"  name="nom" id="noms" type="text" placeholder="Text input">
-          </div>
-        </div>
+  <label class="label">Nom</label>
+  <div class="control">
+    <input class="input"  name="nom" id="noms" type="text" placeholder="Text input" required>
+  </div>
+</div>
 
-        <div class="field">
-          <label class="label">Description</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" >
+<div class="field">
+  <label class="label">Description</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" required>
+    
+  </div>
+</div>
+<div class="field">
+  <label class="label">Techno à Maitrisé</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="textarea" name="techno" id="techno" placeholder="techno à maitrisé" required>
+    
+  </div>
+</div>
+<div class="field">
+  <label class="label">Image</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="text" name="image" id="image" placeholder="veuilliez saisir une Url" value="url" required>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  
+  </div>
+</div>
+<div class="field">
+  <label class="label">Nombre d'heures</label>
+  <div class="control">
+    <input class="input" name="heure" id="heure" type="number" placeholder="nombre d'heures" required>
+  </div>
+</div>
+<div class="field">
+  <label class="label">Rémuneration du projet</label>
+  <div class="control">
+    <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation" required>
+  </div>
+</div>
 
-         </div>
-        </div>
-        <div class="field">
-          <label class="label">Techno à Maitrisé</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input is-success" type="textarea" name="techno" id="techno" placeholder="techno à maitrisé" >
-
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Image</label>
-          <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text" name="image" id="image" placeholder="veuilliez saisir une Url" value="url">
-          <span class="icon is-small is-left">
-          <i class="fas fa-envelope"></i>
-          </span>
-
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Nombre d'heures</label>
-          <div class="control">
-            <input class="input" name="heure" id="heure" type="number" placeholder="nombre d'heures">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Rémuneration du projet</label>
-          <div class="control">
-            <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation">
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Créateur</label>
-          <div class="control">
-            <input class="input" type="text" name="createur" id="createur"  disabled="disabled" placeholder="prix de la formation" value="<?=$_SESSION['nom']?> <?=$_SESSION['prenom']?>">
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <label class="checkbox">
-            <input type="checkbox">
+<div class="field">
+  <label class="label">Créateur</label>
+  <div class="control">
+    <input class="input" type="text" name="createur" id="createur"  disabled="disabled" placeholder="prix de la formation" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
      J'accepte les <a href="#" style="text-decoration: none;">conditions d'utilisation de la platforme</a>
-            </label>
-          </div>
-        </div>
-        </div>sss
-      <!-- on crée un footer au modal  -->
-        <div class="uk-modal-footer uk-text-right">
-          <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();">Save</button>
-          <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-        </div>
+    </label>
+  </div>
+</div>
       </div>
+        <div class="uk-modal-footer uk-text-right">
+        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();"><a href="dashboard.php" style="text-decoration: none;color:white">Sauvegarder </a></button>
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+        </div>
     </div>
-<!-- Fin formulaire Création de projet -->
-          </form>
-<!-- Création du modal message pour les intervenants  -->
-        <div id="message-close-defaults" uk-modal>
-          <div class="uk-modal-dialog uk-modal-body">
-          <button class="uk-modal-close-default" type="button" uk-close></button>
-          <label for="cars">A qui est ton message :</label>
-<?php
-// On insère du php dans le modal, on se connecte à la bd
-  $pdo = pdo_connect_mysql();
+</div></form>
+<div id="message-close-defaults" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <label for="cars">A qui est ton message :</label><?php
+  $pdo =pdo_connect_mysql() ;
   $num_contacts = $pdo->query('SELECT * FROM user ')->fetchAll();
 
-?>
-  <!-- On crée un formulaire  -->
+  ?>
   <form action="" method="POST">
     <select id="mes" name="mess">
-      <!-- Boucle foreach qui va lister tous les users dans un select  -->
-<?php
-  foreach ($num_contacts as $contact):
+  <?php
+foreach ($num_contacts as $contact): 
 ?>
 
-          <option value="volvo" id="selected"><?=$contact['nom']?> <?=$contact['prenom']?></option>
-<?php endforeach;?>
+  <option value="volvo" id="selected"><?=$contact['nom']?> <?=$contact['prenom']?></option>
+  <?php endforeach;?>
 
 
-          </select>
-<!-- On crée le modal message pour intervenants -->
-          <h2 class="uk-modal-title">Message</h2>
-        <div class="container">
+</select>
+        <h2 class="uk-modal-title">Message</h2>
+        <div class="container">   
         <div class="col">
-          <textarea id="mess" name="msg"
+        <textarea id="mess" name="msg"
           rows="5" cols="33" value="message...." id="message">
-<<<<<<< HEAD
-=======
           
 </textarea>
   <button>Envoyer</button>
@@ -730,34 +675,16 @@ a {
       </div>
 </div>
 <div id="dashboard"> </div>
->>>>>>> origin/steave
 
-          </textarea>
-          <button>Envoyer</button>
-          </form>
-        </div>
-      <!-- Fin div modal message intervenants -->
-        </div>
-        <!-- fin div ? -->
-        </div>
-      <!-- Fin div ? -->
-        </div>
-          <br>
-<!-- Une fonctions qui affiche tous les intervenants -->
-<?php
-  intervenantes();
+<?php  
+intervenantes();
 ?>
-<!-- Fin div ? -->
-        </div>
-<!-- On crée une div vide avec un #ter -->
-        <div id="ter">
-  <!-- Code Php -->
+</div>
+<div id="ter">
 <?php
-                        // Dashboard de l'Administrateur
-}
-if ($role == "Admin") {  
-    // Fin Code Php
-    ?>
+    }if($role =="Admin"){
+      ?>
+ 
 
       <!-- Code html -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -975,24 +902,22 @@ if ($role == "Admin") {
   </div>
       </body>
 <?php
-}
-echo "<br>";
-echo "<br>";
-
+    }
+    echo"<br>";
+    echo"<br>";
+    ;
 ?>
 
 
 <?php
-include './include/footer.php'
-?>  
+    include './include/footer.php'
+    ?>  <script src="./javascript/createforma.js"></script>
+        <script src="./javascript/admin.js"></script>
 
-      <script src="./javascript/createforma.js"></script>
-      <script src="./javascript/admin.js"></script>
-
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
-    </html>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+       <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+     </html>
 
 
 
