@@ -661,7 +661,7 @@ foreach ($num_contacts as $contact):
 
 
 </select>
-        <h2 class="uk-modal-title">Message</h2>
+        <h2 class="uk-modal-title">Messages</h2>
         <div class="container">   
         <div class="col">
         <textarea id="mess" name="msg"
