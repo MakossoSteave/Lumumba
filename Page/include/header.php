@@ -63,15 +63,10 @@ require 'function.php';
                         <a class="navbar-item has-text-grey-dark" href="./formationBis.php" style="text-decoration: none;">
                     Formation
                  </a>
-                        <a class="navbar-item has-text-grey-dark">
+                        <a class="navbar-item has-text-grey-dark" href="./projetBis.php" style="text-decoration: none;">
             Projet
           </a>
-                        <a class="navbar-item has-text-grey-dark">
-            Arts
-          </a>
-                        <a class="navbar-item has-text-grey-dark">
-           It
-          </a>
+           
                     </div>
                 </div>
                 <div class="panel-block">

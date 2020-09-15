@@ -1,7 +1,6 @@
 <?php 
-ini_set("SMTP","smtp.bouygtel.fr");
-
-ini_set("smtp_port"," 587");
+ini_set("SMTP","smtp.gmail.com");
+ini_set("smtp_port","465");
 
 ini_set('sendmail_from', 'makossosteave27@gmail.com');
 ?>
@@ -31,6 +30,10 @@ $pdo = pdo_connect_mysql();
 <body>
     <section class="hero is-dark is-bold">
         <div class="hero-body">
+        <div class="container"><a href="index.php" class=""style="text-decoration:none;color:white">
+              <span class="icon"><i class="fa fa-home"></i></span> Acceuil
+            </a>
+        </div>
             <div class="container">
                 <h1 class="title">Inscription</h1>
             </div>
@@ -79,6 +82,7 @@ $pdo = pdo_connect_mysql();
                     <input type="password" name="pass" class="input" required>
                     <div class='help is-error' >
                         veilliez renseigné votre mots de passe
+                        <span>minimum </span>
                     </div>
                 </div>
                 <div class="control">
@@ -103,46 +107,47 @@ $pdo = pdo_connect_mysql();
                          $pass = $_POST['pass'];     
                          $mail =$_POST['email'];
                          $tel = $_POST['tel'];
-
-                  $hashed= password_hash($pass, PASSWORD_BCRYPT);
+                         if(strlen($pass)<5){
+                            echo "votre mots de passe est trop court";
+                         }else{
+                             $hashed= password_hash($pass, PASSWORD_BCRYPT);
     
-                    $stmt = $pdo->prepare('SELECT id from user WHERE email = ? ');
-                    $stmt->execute([$mail]);
-                    $user = $stmt->fetch();
-                   if ($user) {
-                     echo $mail." cette email est deja pris";
-                    echo '<br>';
-                    }else
-                    {
-                        if($_POST['role']!=''){
-                            $st = $pdo->prepare("INSERT INTO `roles` ( `libelleRoles`, `email`) VALUES (?, ?)");
-                            $st->execute([$role,$mail]);
-                        }
+                             $stmt = $pdo->prepare('SELECT id from user WHERE email = ? ');
+                             $stmt->execute([$mail]);
+                             $user = $stmt->fetch();
+                             if ($user) {
+                                 echo $mail." cette email est deja pris";
+                                 echo '<br>';
+                             } else {
+                                 if ($_POST['role']!='') {
+                                     $st = $pdo->prepare("INSERT INTO `roles` ( `libelleRoles`, `email`) VALUES (?, ?)");
+                                     $st->execute([$role,$mail]);
+                                 }
 
-                        $token = 'azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN123456789!';
-                        $token = str_shuffle($token);
-                        $token = substr($token, 0,10);
-                     $stmt = $pdo->prepare("INSERT INTO `user` (`id`, `nom`, `prenom`, `tel`, `code`, `email`, `password`, `isEmailConfirmed`, `token`, `Role`, `idConnexion`, `idImage`) VALUES 
+                                 $token = 'azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN123456789!';
+                                 $token = str_shuffle($token);
+                                 $token = substr($token, 0, 10);
+                                 $stmt = $pdo->prepare("INSERT INTO `user` (`id`, `nom`, `prenom`, `tel`, `code`, `email`, `password`, `isEmailConfirmed`, `token`, `Role`, `idConnexion`, `idImage`) VALUES 
                      (?,?,?,?,?,?,?,?, ?,?,?,?);
                       ");
-                     $stmt->execute([$id,$nom, $prenom,$tel,null,$mail,$hashed,'0',$token,$role,NULL,NULL]);
-                     $stmt2 = $pdo->prepare("INSERT INTO `image`(`id`,`photo`,`cv`,`appartient`)VALUES(?,?,?,?);
+                                 $stmt->execute([$id,$nom, $prenom,$tel,null,$mail,$hashed,'0',$token,$role,null,null]);
+                                 $stmt2 = $pdo->prepare("INSERT INTO `image`(`id`,`photo`,`cv`,`appartient`)VALUES(?,?,?,?);
                      ");
-                     $stmt2->execute([$id,'img/AngularJJ.png','',$mail]);
-                     $subject = "Confirmation email";
-                     $headers = "From: LumumbaAdmin";
+                                 $stmt2->execute([$id,'img/AngularJJ.png','',$mail]);
+                                 $subject = "Confirmation email";
+                                 $headers = "From: LumumbaAdmin";
                    
-                     $message = "
+                                 $message = "
                       Clickez sur le lien ci dessous  pour confirmez votre inscriptions: 
                       <a href ='http://localhost/Lumumba/Lumumba/Page/confirmLog.php?email=$email&token=$token&role=$role'>click</a>
                      ";
-                 mail($email,$subject,$message,$headers); 
-                         $msg = " Vous avez etez inscrit , verifiez vos Email !";
+                                 mail($email, $subject, $message, $headers);
+                                 $msg = " Vous avez etez inscrit , verifiez vos Email !";
                      
                    
-                        echo "votre compte a bien été créer";
-                   
-                    }
+                                 echo "votre compte a bien été créer";
+                             }
+                         }
                          
                     }else{
                         echo('veuilliez renseigné tous les champs');

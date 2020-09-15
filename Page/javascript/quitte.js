@@ -1,5 +1,5 @@
-function Achat() {
-    var id = document.getElementById("Acheter").value;
+function QuitteForm(){
+    var id = document.getElementById("quitteForm").value;
 
 
     donne = [id]
@@ -14,11 +14,11 @@ function Achat() {
 
         xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    var data = "donne=" + donne
+    var data = "form=" + donne
     console.log(donne);
     console.log(data)
 
-    xhr.open("POST", "../Db/request/achat.php", true);
+    xhr.open("POST", "../Db/request/quitte.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(data);
     xhr.onreadystatechange = display_data;
@@ -29,17 +29,17 @@ function Achat() {
 
             if (xhr.status == 200) {
                 console.log("teste2")
-                alert('Votre achat a bien été confirmé');
 
-                document.getElementById("AchatExc").innerHTML = xhr.responseText;
+                document.getElementById("outform").innerHTML = xhr.responseText;
             } else {
                 alert('There was a problem with the request.');
             }
         }
     }
 }
-function AchatValidation() {
-    var id = document.getElementById("AchatValid").value;
+function QuitteProjet(){
+    var id = document.getElementById("quitteProj").value;
+
 
     donne = [id]
     var xhr;
@@ -53,11 +53,11 @@ function AchatValidation() {
 
         xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    var data = "projet=" + donne
+    var data = "proj=" + donne
     console.log(donne);
     console.log(data)
 
-    xhr.open("POST", "../Db/request/achat.php", true);
+    xhr.open("POST", "../Db/request/quitte.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(data);
     xhr.onreadystatechange = display_data;
@@ -68,8 +68,8 @@ function AchatValidation() {
 
             if (xhr.status == 200) {
                 console.log("teste2")
-                alert('Votre achat a bien été confirmé');
-                document.getElementById("AchatExc").innerHTML = xhr.responseText;
+
+                document.getElementById("outprojet").innerHTML = xhr.responseText;
             } else {
                 alert('There was a problem with the request.');
             }
