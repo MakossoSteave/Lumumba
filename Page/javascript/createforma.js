@@ -42,6 +42,50 @@ function appele() {
         }
     }
 }
+function appelebis() {
+    var img = document.getElementById("imag").value;
+    var heure = document.getElementById("H").value;
+    var prix = document.getElementById("pri").value;
+    var createur = document.getElementById("createur").value;
+    var nom = document.getElementById("no").value;
+    var desc = document.getElementById("descripti").value;
+    console.log(desc);
+
+    donne = [nom, desc, img, heure, prix, createur]
+    var xhr;
+
+    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+        xhr = new XMLHttpRequest();
+        console.log("test")
+
+    } else if (window.ActiveXObject) { // IE 8 and older
+        console.log("teste")
+
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var data = "donne=" + donne
+    console.log(donne);
+    console.log(data)
+
+    xhr.open("POST", "../Db/request/createformation.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadystatechange = display_data;
+
+    function display_data() {
+        if (xhr.readyState == 4) {
+            console.log("teste1")
+
+            if (xhr.status == 200) {
+                console.log("teste2")
+
+                document.getElementById("ter").innerHTML = xhr.responseText;
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+}
 
 // Fonction qui est appelé lors de l'édition de la formation
 
@@ -392,6 +436,45 @@ function projet() {
                 console.log("teste2")
 
                 document.getElementById("ter").innerHTML = xhr.responseText;
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+}
+function suppresionProfile(){
+    var id = document.getElementById("lids").value;
+
+
+    donne = [id]
+    var xhr;
+
+    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+        xhr = new XMLHttpRequest();
+        console.log("test")
+
+    } else if (window.ActiveXObject) { // IE 8 and older
+        console.log("teste")
+
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var data = "donne=" + donne
+    console.log(donne);
+    console.log(data)
+
+    xhr.open("POST", "../Db/request/suppression.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadystatechange = display_data;
+
+    function display_data() {
+        if (xhr.readyState == 4) {
+            console.log("editions")
+
+            if (xhr.status == 200) {
+                console.log("teste2")
+
+                document.getElementById("resultass").innerHTML = xhr.responseText;
             } else {
                 alert('There was a problem with the request.');
             }

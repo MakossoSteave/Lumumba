@@ -581,7 +581,7 @@ a {
   <label class="label">Nom</label>
   <div class="control">
     <input class="input"  name="nom" id="noms" type="text" placeholder="Text input" required>
-  </div>
+  </div> 
 </div>
 
 <div class="field">
@@ -684,7 +684,6 @@ intervenantes();
 <?php
     }if($role =="Admin"){
       ?>
- 
 
       <!-- Code html -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -713,8 +712,177 @@ intervenantes();
                           <!-- On crée ici une fonction qui va se declencher lors du click  -->
         <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact" class="btn btn-success btn-block follow">Modifier</button>
         </div>
+        <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
+        <ul class="menu-list">
+        
+          <li>
+            <ul>
+            
+             
+              
+
+  
+ <li>
+<a href="#modal-formation" uk-toggle  style="text-decoration:none"><i class="fas fa-plus"></i> Créer une formation</a>
+
+              </li>
+              <li>
+              <a href="#modal-sections" uk-toggle  style="text-decoration:none"><i class="fas fa-plus"></i> Créer un projet</a>
+              </li>
+            </ul>
+          </li>
+         
+        </ul>
+      </aside>
+     
+     
+      <form action="dashboard.php" method="POST">
+<div id="modal-sections" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Création d'un Projet</h2>
+        </div>
+        <div class="uk-modal-body">
+        <div class="field">
+  <label class="label">Nom</label>
+  <div class="control">
+    <input class="input"  name="nom" id="noms" type="text" placeholder="Text input" required>
+  </div> 
+</div>
+
+<div class="field">
+  <label class="label">Description</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="textarea" name="description" id="description" placeholder="veuilliez saisir une courte descriptions" required>
+    
+  </div>
+</div>
+<div class="field">
+  <label class="label">Techno à Maitrisé</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="textarea" name="techno" id="techno" placeholder="techno à maitrisé" required>
+    
+  </div>
+</div>
+<div class="field">
+  <label class="label">Image</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="text" name="image" id="image" placeholder="veuilliez saisir une Url" value="url" required>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  
+  </div>
+</div>
+<div class="field">
+  <label class="label">Nombre d'heures</label>
+  <div class="control">
+    <input class="input" name="heure" id="heure" type="number" placeholder="nombre d'heures" required>
+  </div>
+</div>
+<div class="field">
+  <label class="label">Rémuneration du projet</label>
+  <div class="control">
+    <input class="input" name="prix" id="prix" type="number" placeholder="prix de la formation" required>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Créateur</label>
+  <div class="control">
+    <input class="input" type="text" name="createur" id="createur"  disabled="disabled" placeholder="prix de la formation" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+     J'accepte les <a href="#" style="text-decoration: none;">conditions d'utilisation de la platforme</a>
+    </label>
+  </div>
+</div>
+      </div>
+        <div class="uk-modal-footer uk-text-right">
+        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();"><a href="dashboard.php" style="text-decoration: none;color:white">Sauvegarder </a></button>
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+        </div>
+    </div>
+</div></form>
+<form action="dashboard.php" method="POST">
+<div id="modal-formation" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Création d'une nouvelle formation</h2>
+        </div>
+        <div class="uk-modal-body">
+        <div class="field">
+  <label class="label">Nom</label>
+  <div class="control">
+    <input class="input"  name="no" id="no" type="text" placeholder="Text input">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Description</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="textarea" name="des" id="descripti" placeholder="veuilliez saisir une courte descriptions" >
+    
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Image</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="text" name="image" id="imag" placeholder="veuilliez saisir une Url" value="url">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  
+  </div>
+</div>
+<div class="field">
+  <label class="label">Nombre d'heures</label>
+  <div class="control">
+    <input class="input" name="heure" id="H" type="number" placeholder="nombre d'heures">
+  </div>
+</div>
+<div class="field">
+  <label class="label">Prix de la formation</label>
+  <div class="control">
+    <input class="input" name="prix" id="pri" type="number" placeholder="prix de la formation">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Créateur</label>
+  <div class="control">
+    <input class="input" type="text" name="createur" id="createur"  disabled="disabled" placeholder="prix de la formation" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      I agree to the <a href="#">terms and conditions</a>
+    </label>
+  </div>
+</div>
+      </div>
+        <div class="uk-modal-footer uk-text-right">
+        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="appelebis();">Save</button>
+            <button class="uk-button uk-button-default " type="button">Cancel</button>
+        </div>
+    </div>
+</div>
+</form>
+<div id="ter">
+
+</div>
                         <!-- On crée une div vide avec comme nom .user-detail-row -->
         <div class="row user-detail-row">
+
         </div>
           </div>
         </div>
@@ -797,6 +965,24 @@ intervenantes();
 				<div class="col-md-6">
 					<p><?=$users['Role']?></p>
 				</div>
+        </div>
+        <div class="row">
+				  <div class="col-md-2">
+					  <label>Statut</label>
+				  </div>
+				<div class="col-md-6"> <?php 
+          if($users['isEmailConfirmed']!=0){
+            echo "Active";
+            echo "<br>";
+          }else {
+            echo "Innactive";
+            echo "<br>";
+            echo "<a class='btn btn-success' href='activation.php' style='color:white'> Activer</a>";
+          }
+          ?>
+          <p><p hidden><?=$users['isEmailConfirmed'] ?></p></p>
+         
+				</div>
 				</div>
 				  <a class="btn btn-info" href="parametreBis.php?id=<?=$users['id']?>"  uk-toggle>
 							  editer
@@ -846,15 +1032,75 @@ intervenantes();
             <p><?=$formation['creerPar']?></p>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Type</label>
+          </div>
+          <div class="col-md-6">
+            <p>Formation</p>
+          </div>
+        </div>
                             <!-- On crée un bouton editer avec comme href l'id de l'user -->
           <a class="btn btn-info" href="update.php?id=<?=$formation['id']?>" uk-toggle="">
             editer
           </a>
-          <a href="delete.php?id=<?=$users['id']?>" class="btn btn-danger"><i class="fas fa-trash fa-xs"></i></a>
+          <a href="delete.php?id=<?=$formation['id']?>" class="btn btn-danger"><i class="fas fa-trash fa-xs"></i></a>
           <br> <br>
                   <hr>
 
 <?php endforeach;?>
+<?php
+// Connection
+  $pdo = pdo_connect_mysql();
+    //  Sélection de toutes les formations que l'on affichera dans un tableau
+  $formation = $pdo->query('SELECT * FROM projet ')->fetchAll()
+?>
+<?php foreach ($formation as $formation):
+?>
+    <!--  On récupère nom, libelleFormation, libelleLongFormation, et on l'affiche dans une div -->
+        <div class="row">
+          <div class="col-md-6">
+            <label>Nom</label>
+          </div>
+        <div class="col-md-6">
+          <p><?=$formation['nom']?></p>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6">
+          <label>Descriptions</label>
+        </div>
+        <div class="col-md-6">
+          <p><?=$formation['description']?></p>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>Créer Par</label>
+          </div>
+          <div class="col-md-6">
+            <p><?=$formation['creerPar']?></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Type</label>
+          </div>
+          <div class="col-md-6">
+            <p>projet</p>
+          </div>
+        </div>
+                            <!-- On crée un bouton editer avec comme href l'id de l'user -->
+          <a class="btn btn-info" href="update.php?id=<?=$formation['id']?>" uk-toggle="">
+            editer
+          </a>
+          <a href="deleteProjet.php?id=<?=$formation['id']?>" class="btn btn-danger"><i class="fas fa-trash fa-xs"></i></a>
+          <br> <br>
+                  <hr>
+
+<?php endforeach;?>
+        
         </div>
 
                 </div>
@@ -878,19 +1124,19 @@ intervenantes();
               </div>
         <div class="modal-body">
           <div class="form-group">
-            <p for="msj">.</p>
+            <p for="msj"></p>
           </div>
           <div class="form-group">
             <label for="txtFullname">Nom</label>
-            <input type="text" id="txtFullname" class="form-control">
+            <input type="text" id="txtFullname" value="<?=$_SESSION['nom']?>" class="form-control">
           </div>
           <div class="form-group">
             <label for="txtEmail">Email</label>
-            <input type="text" id="txtEmail" class="form-control">
+            <input type="text" id="txtEmail" value="<?= $_SESSION['email']?>" class="form-control">
           </div>
         <div class="form-group">
-          <label for="txtPhone">Telephone</label>
-          <input type="text" id="txtPhone" class="form-control">
+          <label for="txtPhone">tel</label>
+          <input type="text" id="txtPhone"  value="<?= $_SESSION['tel']?>" class="form-control">
         </div>
         </div>
         <div class="modal-footer">

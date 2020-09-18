@@ -86,7 +86,11 @@
     <input class="input" name="photo" id="photoupd" type="text" disabled value="<?=$_SESSION['image']?>">
   </div>
 </div>
-
+<div class="field">
+  <div class="control">
+  <button class="uk-button uk-button-danger" type="button" name="supp" class="bout" > <a href="delprofil.php" style="color:white;text-decoration:none"> Supprimé mon compte</a></button>
+  </div>
+</div>
 
 <input class="input" name="photo" id="appartientupd" type="hidden" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">
 
@@ -96,6 +100,7 @@
             <button class="uk-button uk-button-default "  type="button"> <a href="dashboard.php" style="text-decoration:none;">
 Annuler
             </a></button>
+
            
         </div>
     </div>
