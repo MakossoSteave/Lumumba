@@ -9,12 +9,21 @@
     if(empty($_SESSION['nom'])){
       header('location:login.php');
     }
-    $nom = $_SESSION['nom'];
-    $prenom = $_SESSION['prenom'];
+    
     $role=$_SESSION['role'];
     $email=$_SESSION['email'];
-    $tel=$_SESSION['tel'];
+    $id = $_SESSION['id'];
+    
 
+    $pdo = pdo_connect_mysql();
+    $panier =  $pdo->prepare('select * from user where id = ?');
+    $panier->execute([$id]);
+    $paniers=$panier->fetchAll(PDO::FETCH_ASSOC); 
+    foreach ($paniers as $user):
+      $nom = $user['nom'];
+      $prenom = $user['prenom'];
+      $tel = $user['tel'];
+    endforeach;
     $image = $_SESSION['image'];
     $tes = "$image";
     if($role =="Formateur"){
