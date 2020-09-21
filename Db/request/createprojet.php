@@ -28,6 +28,7 @@ echo "<a href='dashboard.php'>retour</a>";
     echo "impossible d'ajouter un projet veuilliez remplire tous les champs";
     echo "<br>";
     echo "<a href='dashboard.php'>retour</a>";
+    
 
 }
 

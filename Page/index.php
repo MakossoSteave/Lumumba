@@ -1,3 +1,4 @@
+<!-- On crée une balise php pour inclure notre header -->
 <?php
 
 include './include/header.php';?>
@@ -6,34 +7,39 @@ include './include/header.php';?>
 
 <head>
     <meta charset="UTF-8">
+    <!-- viewport permet un responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- on intègre le fontawesone -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   
+  <!-- onn intègre bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <!-- on intègre bootsrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- On intègre jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- on intègre popper -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- on intègre de nouveau bootsrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- on intègre jquery de nouveau -->
     <script src="./javascript/jqueryindex.js"></script>
-    <script src="./javascript/checking.js"></script>
-    <link rel="stylesheet" href="./css/index.scss">
-
-
     <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
 
 <!-- UIkit JS -->
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+<script src="./javascript/checking.js"></script>
+
   </head>
 
   <section class="hero is-grey is-medium heros" style="background-image: url('./img/Fond.jpg'); background-position:center;background-size:cover;">
-  <div class="hero-body" ><div id="marecherche"></div>
+  <div class="hero-body" >
   <body>
-     
-  <section class="section"> 
-
+  <section class="section">
+      <div id="marecherche">
       </div>
     <div class="container">
       <h1 class="title">Apprenez a votre rythme</h1>
@@ -41,11 +47,12 @@ include './include/header.php';?>
         <div class="row">
           <div class="col">
             
-            <p>
+            <h2 class="subtitle">
             Étudiez à tout moment le sujet que vous souhaitez.<br> Faites dès maintenant votre choix parmi des milliers de cours enseignés par des formateurs et intervenants confirmés.
-</p>
-           <input class="input" type="text" placeholder="Que Souhaitez vous Apprendre ?">
-      <span class="icon is-left is-medium">
+           </h2>
+           <input class="input" type="text" id="apprend" name="souhait" placeholder="Que souhaitez vous apprendre" onKeyUp="souhait()" value="<?=isset($_GET['souhait']) ? htmlentities($_GET['souhait'], ENT_QUOTES) : ''?>">
+
+           <span class="icon is-left is-medium">
       </span>
           </div>
           <div class="col" >   

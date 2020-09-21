@@ -6,8 +6,8 @@
     require './include/function.php';
     include 'formation.php';
     require '../Db/db.php';
-   $id = $_GET['id'];
-   $pdo = pdo_connect_mysql();
+//  $id = $_SESSION['id'];
+ $pdo = pdo_connect_mysql();
 
 
 ?>   
@@ -27,75 +27,94 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="./javascript/jqueryindex.js"></script>
     <script src="./javascript/createforma.js"></script>
+    <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
 
+<!-- UIkit JS -->
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
       </head>
       <body>
-      <form action="dashboard.php" method="POST">
+
+    <?php
+  $pdo = pdo_connect_mysql();
+  $id = $_GET["id"];
+  
+  $stmt = $pdo->prepare('SELECT * from user WHERE id = ? ');
+  $stmt->execute([$id]);
+  $user = $stmt->fetch();
+        
+ 
+    ?>
+    <form action="dashboard.php" method="POST">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Edition d'une formation</h2>
+            <h2 class="uk-modal-title">Edition de Profil</h2>
         </div>
         <div class="uk-modal-body">
-        <?php $sql = $pdo->prepare("SELECT * from formation WHERE id='$id'");
-        $sql->execute();
-        $user = $sql->fetch();
-        ?>
+     
         <div class="field">
-        <input class="input"  name="nom" id="id" type="hidden" value="<?= $user['id'] ?>">
+        <input class="input"  name="nom" id="idProfile" type="hidden" value="<?= $user['id'] ?>">
 
-  <label class="label">Nom</label>
   <div class="control">
-    <input class="input"  name="nom" id="nommodifier" type="text" value="<?= $user['libelle'] ?>">
+    <input class="input"  name="nom" id="nomupd" type="hidden" value="<?= $user['nom'] ?>">
   </div>
 </div>
 
 <div class="field">
-  <label class="label">Description</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="textarea" name="description" id="descriptionModifier" value="<?= $user['libelleLong'] ?>" >
+    <input class="input is-success" type="hidden" name="description" id="prenomupd" value="<?= $user['prenom'] ?>" >
     
   </div>
 </div>
-
 <div class="field">
-  <label class="label">Image</label>
-  <div class="control has-icons-left has-icons-right">
-    <input class="input" type="text" name="image" id="imageModifier"  value="<?= $user['img'] ?>">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-  
-  </div>
-</div>
-<div class="field">
-  <label class="label">Nombre d'heures</label>
+  <label class="label">Email</label>
   <div class="control">
-    <input class="input" name="heure" id="heureModifier" type="number" value="<?= $user['nomHeureFormation'] ?>">
+    <input class="input" name="heure" id="emailupd" type="text" value="<?= $user['email'] ?>">
+    <span style="color:red" > <i class="fas fa-exclamation-triangle"></i> attention vous devriez etre sur avant de me modifier</span>
   </div>
 </div>
 <div class="field">
-  <label class="label">Prix de la formation</label>
+  <label class="label">tel</label>
   <div class="control">
-    <input class="input" name="prix" id="prixModifier" type="number" value="<?= $user['prixFormation'] ?>">
+    <input class="input" name="prix" id="telupd" type="number" value="<?= $user['tel'] ?>">
   </div>
 </div>
+<div class="field">
+  <label class="label">Photo</label>
+  <?php
+  $email = $user['email'] ;
+ $as = $pdo->prepare("SELECT photo from image WHERE appartient = ? ");
+ $as->execute([$email]);
+ $const = $as->fetch();
 
+ 
+  ?>
+  <div class="control"> 
 
+    <input class="input" name="photo" id="photoupd" type="text" disabled value="<?=$const['photo']?>">
+  </div>
+</div>
+<form name="foo" method="post" enctype="multipart/form-data">
+    <input type="file" value="" id="leforme">
+</form>
+
+<input class="input" name="photo" id="appartientupd" type="hidden" value="<?= $user['nom']?> <?=$_SESSION['prenom'] ?>">
 
       </div>
         <div class="uk-modal-footer uk-text-right">
-        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="Edition();"> <a href="dashboard.php" style="color:white;text-decoration:none;">Modifier</a></button>
+        <button class="uk-button uk-button-primary" type="button" name="sauvegarder" class="bout" onclick ="EditionAdmin()"> <a href="dashboard.php" style="color:white;text-decoration:none"> Modifier</a></button>
             <button class="uk-button uk-button-default "  type="button"> <a href="dashboard.php" style="text-decoration:none;">
 Annuler
             </a></button>
+           
         </div>
     </div>
 </div></form>
 
+<div id="reponse">
 
+</div>
     </body>
       </html>
       

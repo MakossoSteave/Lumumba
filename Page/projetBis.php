@@ -2,7 +2,7 @@
     require '../Db/db.php';
 
   $pdo = pdo_connect_mysql();
-  $req = $pdo->prepare('select * from formation');
+  $req = $pdo->prepare('select * from projet');
   $req->execute();
   $contact=$req->fetchAll(PDO::FETCH_ASSOC);
   
@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formations</title>
+    <title>Projet</title>
     <link rel="stylesheet" href="./css/index.scss">
     <script src="./javascript/jqueryindex.js"></script>
     <script src="./javascript/checking.js"></script>
@@ -33,7 +33,7 @@
         </ul>
       </aside>
     <div class="container">
-       <h1 style="text-align: center;">Liste des Formations</h1>
+       <h1 style="text-align: center;">Liste des Projets</h1>
        <br>
        <div id="marecherche">
        </div>
@@ -47,10 +47,10 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><?=$list['libelle'] ?></h5>
-        <p class="card-text">Descriptions : <?= $list['libelleLong'] ?></p>
-        <p class="card-text">Heures : <?= $list['nomHeureFormation'] ?> H</p>
-        <p class="card-text">Prix : <?= $list['prixFormation'] ?> €</p>
+        <h5 class="card-title"><?=$list['nom'] ?></h5>
+        <p class="card-text">Descriptions : <?= $list['description'] ?></p>
+        <p class="card-text">Heures : <?= $list['nomHeure'] ?> H</p>
+        <p class="card-text">Prix : <?= $list['prix'] ?> €</p>
         <a href="login.php" class="btn btn-success">S'inscrire</a>
 
       </div>

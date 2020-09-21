@@ -31,8 +31,12 @@
 <body>
 
 <section class="hero is-dark is-bold">
+  
       <div class="hero-body">
-        <div class="container">
+      
+        <div class="container"><a href="index.php" class=""style="text-decoration:none;color:white">
+              <span class="icon"><i class="fa fa-home"></i></span> Acceuil
+            </a>
           <h1 class="title">Connection</h1>
         </div>
 
@@ -109,9 +113,8 @@ if (isset($_POST ['connect'])) {
                    $mapic = $_SESSION['nom']." ". $_SESSION['prenom'];
                    $image -> execute([$_SESSION['email']]);
                    $photo =$image->fetch();
-                   $_SESSION['image']=$photo['photo'];
-                   
-                   header("location:dashboard.php");    
+                   $_SESSION['image']= $photo['photo'];
+                  header("location:dashboard.php");    
                 }
             }else{
               echo "<br>";

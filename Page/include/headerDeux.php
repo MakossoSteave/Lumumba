@@ -14,10 +14,14 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="./javascript/checking.js"></script>
+    <link rel="stylesheet" href="./css/index.scss">
+
     <title>Document</title>
 </head>
 
 <body>
+    
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
 
@@ -42,24 +46,19 @@ session_start();
         </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item has-text-grey-dark">
+                        <a class="navbar-item has-text-grey-dark" href="./formationBis.php">
            Formation
           </a>
-                        <a class="navbar-item has-text-grey-dark">
+                        <a class="navbar-item has-text-grey-dark" href="./projetBis.php">
             Projet
           </a>
-                        <a class="navbar-item has-text-grey-dark">
-            Arts
-          </a>
-                        <a class="navbar-item has-text-grey-dark">
-           It
-          </a>
+         
                     </div>
                 </div>
                 <div class="panel-block">
                     <p class="control has-icons-left ">
-                        <input class="input" type="text" placeholder="Recherche">
-                        <span class="icon is-left has-text-info-dark">
+                    <input class="input" type="text" id="connec" name="search1" placeholder="Recherche" onKeyUp="connect_suggestion()" value="<?=isset($_GET['search1']) ? htmlentities($_GET['search1'], ENT_QUOTES) : ''?>">>
+                    <span class="icon is-left has-text-info-dark">
         <i class="fas fa-search  " aria-hidden="false"></i>
       </span>
                     </p>
@@ -68,12 +67,13 @@ session_start();
             <div class="navbar-end">
                 <div class="navbar-item">
                     
+              
+  
+</div>
                     <div class="buttons" >
                         <a class="button is-light" href="logout.php" style="text-decoration: none;">                         
                         <img src="./img/logout.png" alt="" srcset="">
-                        Deconnexion
                          </a>
-                         
                     </div>
                 </div>
             </div>

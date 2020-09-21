@@ -35,7 +35,7 @@
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
       </head>
       <body>
-
+<script>alert("toute les modifications seront prise en compte a votre prochaîne connections")</script>
     <?php
   $pdo = pdo_connect_mysql();
   
@@ -46,7 +46,7 @@
         
  
     ?>
-    <form action="dashboard.php" method="POST">
+    <form  method="POST">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header">
             <h2 class="uk-modal-title">Edition de Profil</h2>
@@ -86,9 +86,11 @@
     <input class="input" name="photo" id="photoupd" type="text" disabled value="<?=$_SESSION['image']?>">
   </div>
 </div>
-<form name="foo" method="post" enctype="multipart/form-data">
-    <input type="file" value="" id="leforme">
-</form>
+<div class="field">
+  <div class="control">
+  <button class="uk-button uk-button-danger" type="button" name="supp" class="bout" > <a href="delprofil.php" style="color:white;text-decoration:none"> Supprimé mon compte</a></button>
+  </div>
+</div>
 
 <input class="input" name="photo" id="appartientupd" type="hidden" value="<?= $_SESSION['nom']?> <?=$_SESSION['prenom'] ?>">
 
@@ -98,6 +100,7 @@
             <button class="uk-button uk-button-default "  type="button"> <a href="dashboard.php" style="text-decoration:none;">
 Annuler
             </a></button>
+
            
         </div>
     </div>
