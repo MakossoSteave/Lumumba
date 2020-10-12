@@ -38,7 +38,7 @@ function formateurPage($nom , $prenom , $role ,$email , $tel,$img,$id){
               
 
      <a   uk-toggle="target: #modal-close-default"><i class="fas fa-user-graduate"></i> Stagiaires</a>
-<a uk-toggle="target: #modal-close-outside"><i class="fas fa-chalkboard-teacher"></i> Formateur</a>
+<a uk-toggle="target: #modal-close-outside"><i class="fas fa-chalkboard-teacher"></i> Formateurs</a>
 <a href="#modal-sections" uk-toggle  style="text-decoration:none"><i class="fas fa-plus"></i> Créer une formation</a>
 
               </li>
@@ -69,11 +69,11 @@ function formateurPage($nom , $prenom , $role ,$email , $tel,$img,$id){
           En tant que formateur mon rôle est d'aidé chaque stagiaire dans son cursus
           </p>
         </div>
-        <div class='column is-2-tablet is-4-mobile has-text-centered'>
+        <div class='column is-2-tablet is-5-mobile has-text-centered'>
         <p class='stat-key'>Role</p>
           <p class='stat-val'>$role</p>
         </div>
-        <div class='column is-2-tablet is-4-mobile has-text-centered'>
+        <div class='column is-2-tablet is-5-mobile has-text-centered'>
         <p class='stat-key'>Email</p>
           <p class='stat-val'>$email</p>
         </div>
@@ -122,7 +122,7 @@ function intervenantPage($nom , $prenom , $role ,$email , $tel,$img,$id){
               </li>
               <li>
    <a   uk-toggle="target: #modal-close-default"><i class="fas fa-user-graduate"></i> Stagiaires</a>
-<a uk-toggle="target: #modal-close-outside"><i class="fas fa-chalkboard-teacher"></i> Intervenant</a>
+<a uk-toggle="target: #modal-close-outside"><i class="fas fa-chalkboard-teacher"></i> Intervenants</a>
 <a href="#modal-sections" uk-toggle  style="text-decoration:none"><i class="fas fa-plus"></i> Créer un Projet</a
 
               </li>

@@ -1,3 +1,15 @@
+<?php
+    require '../Db/db.php';
+    $pdo = pdo_connect_mysql();
+
+    $id = $_GET["id"];
+
+    $sql1 =("UPDATE user SET token='', isEmailConfirmed= 1  where id='$id'");
+            $stmt= $pdo->prepare($sql1);
+            $stmt->execute();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -102,6 +114,8 @@
 </head>
 
 <body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
+
+
     <!-- HIDDEN PREHEADER TEXT -->
     <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"> We're thrilled to have you here! Get ready to dive into your new account. </div>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">

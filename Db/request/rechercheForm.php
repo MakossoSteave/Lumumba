@@ -114,7 +114,8 @@ if (isset($_GET['search'])) {
    <p class="mb-0 f6 text-gray">
 <span class="d-inline-block mr-3" >
 <br>
-<a class="button is-primary" href="./inscription.php" style="text-decoration: none;">
+<?php $id = $user['id']?>
+<a class="button is-primary" href="panier.php?id=<?=$id?>" style="text-decoration: none;">
                             <strong>S'inscrire</strong>
                         </a>
 

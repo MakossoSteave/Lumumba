@@ -36,7 +36,7 @@
   <div class="card-body">
     êtes vous sur de vouloir vous inscrire a ce projet ?
     <button type="button" class="btn btn-danger"><a href="dashboard.php" style=" text-decoration:none;color:white">Non</a></button>
-    <button type="button" class="btn btn-succes" id="AchatValid" value="<?= $id?>"  onclick ="AchatValidation();" > <a style=" text-decoration:none;color:black"> Oui</a></button>
+    <button type="button" class="btn btn-succes" id="AchatValid" value="<?= $id?>"  onclick ="AchatValidation();" > <a href="dashboard.php" style=" text-decoration:none;color:black"> Oui</a></button>
    
 
   </div>

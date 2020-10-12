@@ -5,7 +5,10 @@ $id = $_POST['donne'];
 
 $pdo = pdo_connect_mysql();
 
-$sql1 =("DELETE  from user WHERE id='$id'");
+
+$sql1 =("UPDATE user SET token='Hjkslp56', isEmailConfirmed= 0 where id='$id'");
 $stmt= $pdo->prepare($sql1);
 $stmt->execute();
+
+
 ?>
