@@ -13,7 +13,6 @@ $prix = $data[4];
 $createur = $data[5];
 $img = $data[6];
 
-var_dump($data);
 
 if($nom AND $desc AND $img AND $heure AND $techno AND $createur AND $prix !=""){
     $pdo = pdo_connect_mysql();

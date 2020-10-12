@@ -13,7 +13,7 @@ include './include/header.php';?>
     <!-- on intègre le fontawesone -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   
-  <!-- onn intègre bulma -->
+  <!-- on intègre bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <!-- on intègre bootsrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">

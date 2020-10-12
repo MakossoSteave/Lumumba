@@ -1,6 +1,6 @@
 <?php
  function pdo_connect_mysql() {
-    $DATABASE_HOST ='localhost:3308';
+    $DATABASE_HOST ='localhost:3306';
     $DATABASE_USER ='root';
     $DATABASE_PASS ='';
     $DATABASE_NAME ='lumumba';
@@ -37,17 +37,15 @@
         $user = $sql->fetch();
         if ($user) {
             $id = isset($_POST['id']) && !empty($_POST['id']) && $_POST['id'] != 'auto' ? $_POST['id'] : null;
-            var_dump($user);
 
             $sql1 =("UPDATE user SET isEmailConfirmed= 1 , token =' '  WHERE email = '$email'");
             $stmt= $pdo->prepare($sql1);
             $stmt->execute();
 
           
-            echo "votre email a été valider  connectez vous !";
-           var_dump($stmt);
+            echo " votre email a été valider  connectez vous !";
         }else {
-            echo "votre compte a déja été valider";
+            echo " votre compte a déja été valider";
            
 
         }

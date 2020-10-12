@@ -29,7 +29,7 @@ function Achat() {
 
             if (xhr.status == 200) {
                 console.log("teste2")
-                alert('Votre achat a bien été confirmé');
+                alert('achat en cours ...');
 
                 document.getElementById("AchatExc").innerHTML = xhr.responseText;
             } else {
@@ -68,7 +68,8 @@ function AchatValidation() {
 
             if (xhr.status == 200) {
                 console.log("teste2")
-                alert('Votre achat a bien été confirmé');
+                alert('achat en cours ...');
+
                 document.getElementById("AchatExc").innerHTML = xhr.responseText;
             } else {
                 alert('There was a problem with the request.');

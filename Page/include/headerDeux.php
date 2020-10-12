@@ -36,7 +36,6 @@ session_start();
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="../Page/dashboard.php">
-                    <!-- <img src="assets/img/Patrice.jpg" class="is-rounded" > !-->
                     Acceuil
                 </a>
 
@@ -52,7 +51,6 @@ session_start();
                         <a class="navbar-item has-text-grey-dark" href="./projetBis.php">
             Projet
           </a>
-         
                     </div>
                 </div>
                 <div class="panel-block">
@@ -65,11 +63,8 @@ session_start();
                 </div>
             </div>
             <div class="navbar-end">
-                <div class="navbar-item">
-                    
-              
-  
-</div>
+                <div class="navbar-item">                       
+  </div>
                     <div class="buttons" >
                         <a class="button is-light" href="logout.php" style="text-decoration: none;">                         
                         <img src="./img/logout.png" alt="" srcset="">

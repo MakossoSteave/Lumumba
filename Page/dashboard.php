@@ -55,6 +55,9 @@ formation();
      
       </style>
     </div>
+    <div id="ter">
+
+</div>
     <div id="modal-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
         <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -165,15 +168,13 @@ foreach ($num_contacts as $contact):
 </div>
       </div>
         <div class="uk-modal-footer uk-text-right">
-        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="appele();">Save</button>
-            <button class="uk-button uk-button-default " type="button">Cancel</button>
+        <a class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="appele();" href="dashboard.php">Save</a>
+            <a class="uk-button uk-button-default " type="button" href="dashboard.php">Cancel</a>
         </div>
     </div>
 </div>
 </form>
-<div id="ter">
 
-</div>
 
 </div>
 <div id="dashboard"> </div>
@@ -561,7 +562,8 @@ a {
     if($role =="Intervenant"){
       $id = $_SESSION['id']; 
       intervenantPage($nom,$prenom,$role ,$email,$tel,$tes,$id);
-?>
+?><div id="ter">
+
  <div id="modal-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
         <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -689,7 +691,6 @@ foreach ($num_contacts as $contact):
 intervenantes();
 ?>
 </div>
-<div id="ter">
 <?php
     }if($role =="Admin"){
       ?>
@@ -825,7 +826,7 @@ intervenantes();
         <div class="uk-modal-header">
             <h2 class="uk-modal-title">Création d'une nouvelle formation</h2>
         </div>
-        <div class="uk-modal-body">
+        <div class="uk-modal-body"></div>
         <div class="field">
   <label class="label">Nom</label>
   <div class="control">
@@ -986,7 +987,9 @@ intervenantes();
           }else {
             echo "Innactive";
             echo "<br>";
-            echo "<a class='btn btn-success' href='activation.php' style='color:white'> Activer</a>";
+            $ide =$users['id'];
+            ?><a class='btn btn-success' href='activation.php?id=<?=$ide?>' style='color:white'> Activer</a>
+            <?php
           }
           ?>
           <p><p hidden><?=$users['isEmailConfirmed'] ?></p></p>

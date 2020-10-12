@@ -35,7 +35,7 @@ function appele() {
             if (xhr.status == 200) {
                 console.log("teste2")
 
-                document.getElementById("ter").innerHTML = xhr.responseText;
+                alert("la formation à bien été créer");
             } else {
                 alert('There was a problem with the request.');
             }
@@ -434,7 +434,7 @@ function projet() {
 
             if (xhr.status == 200) {
                 console.log("teste2")
-
+                alert(xhr.responseText);
                 document.getElementById("ter").innerHTML = xhr.responseText;
             } else {
                 alert('There was a problem with the request.');

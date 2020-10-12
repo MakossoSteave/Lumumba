@@ -36,7 +36,7 @@
   <div class="card-body">
     êtes vous sur de vouloir vous inscrire ?
     <button type="button" class="btn btn-danger"><a href="dashboard.php" style=" text-decoration:none;color:white">Non</a></button>
-    <button type="button" class="btn btn-succes" id="Acheter" value="<?= $id?>"  onclick ="Achat();" > <a > Oui</a></button>
+    <button type="button" class="btn btn-succes" id="Acheter" value="<?= $id?>"  onclick ="Achat();" > <a href="dashboard.php"> Oui</a></button>
    
 
   </div>

@@ -36,11 +36,11 @@ if(isset($_POST['submit'] )){
         $extensions= array("jpeg","jpg","png");
         
         if (in_array($file_ext, $extensions)=== false) {
-            $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            $errors[]="extension non autorisé veilliez change d'image";
         }
         
         if ($file_size > 2097152) {
-            $errors[]='File size must be excately 2 MB';
+            $errors[]='Fichier dois faire 2 MB';
         }
         $fichier = "";
         if (empty($errors)==true) {
