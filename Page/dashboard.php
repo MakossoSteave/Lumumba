@@ -815,7 +815,7 @@ intervenantes();
       </div>
         <div class="uk-modal-footer uk-text-right">
         <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="projet();"><a href="dashboard.php" style="text-decoration: none;color:white">Sauvegarder </a></button>
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Annuler</button>
         </div>
     </div>
 </div></form>
@@ -877,13 +877,13 @@ intervenantes();
       <input type="checkbox">
       I agree to the <a href="#">terms and conditions</a>
     </label>
-  </div>
-</div>
-      </div>
-        <div class="uk-modal-footer uk-text-right">
-        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="appelebis();">Save</button>
-            <button class="uk-button uk-button-default " type="button">Cancel</button>
+  </div> 
+</div><div class="uk-modal-footer uk-text-right">
+        <button class="uk-button uk-button-primary uk-modal-close" type="button" name="sauvegarder" class="bout" onclick ="appelebis();">Sauvegarder</button>
+            <button class="uk-button uk-button-default " type="button">annuler</button>
         </div>
+      </div>
+       
     </div>
 </div>
 </form>
